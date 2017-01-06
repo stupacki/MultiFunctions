@@ -1,36 +1,16 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+apply plugin: 'kotlin'
 
-android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
-
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-    }
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+    test.java.srcDirs += 'src/test/kotlin'
 }
+
 
 dependencies {
     def kotlin_test_version = '1.3.5'
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    //compile 'com.android.support:appcompat-v7:25.1.0'
 
     testCompile 'junit:junit:4.12'
     testCompile("io.kotlintest:kotlintest:$kotlin_test_version")
@@ -39,4 +19,33 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+apply plugin: 'maven-publish'
+
+def archivesBaseName = 'multi-functions'
+
+group = 'stupacki'
+version = '1.0.1'
+
+publishing {
+    repositories {
+        maven {
+            url myMavenRepoWriteUrl
+            credentials {
+                username 'myMavenRepo'
+                password myMavenRepoWritePassword
+            }
+        }
+    }
+
+    publications {
+        aar(MavenPublication) {
+            groupId group
+            artifactId archivesBaseName
+            version project.version
+
+            artifact("$buildDir/libs/${archivesBaseName}-${version}.jar")
+        }
+    }
 }

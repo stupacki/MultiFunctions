@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MultiFunctions.iml" filepath="$PROJECT_DIR$/MultiFunctions.iml" />
-      <module fileurl="file://$PROJECT_DIR$/multi-functions/multi-functions.iml" filepath="$PROJECT_DIR$/multi-functions/multi-functions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multifunctions2/multi-functions.iml" filepath="$PROJECT_DIR$/.idea/modules/multifunctions2/multi-functions.iml" />
     </modules>
   </component>
 </project>
