@@ -3,7 +3,7 @@ package io.multifunctions
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.models.*
 
-class MultiMapIndexedNotNullSpec : WordSpec(),
+class MultiMapNotNullSpec : WordSpec(),
                                    MultiFunctions {
 
     init {
@@ -12,7 +12,7 @@ class MultiMapIndexedNotNullSpec : WordSpec(),
 
             "produce a correct mapping from Pair" {
 
-                listOf(Pair("one", "two")).mapIndexedNotNull { index, one, two ->
+                listOf(Pair("one", "two")).mapNotNull { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -23,46 +23,46 @@ class MultiMapIndexedNotNullSpec : WordSpec(),
 
             "produce a correct mapping from Triple" {
 
-                listOf(Triple("one", "two", "three")).mapIndexedNotNull { index, one, two, three ->
+                listOf(Triple("one", "two", "three")).mapNotNull { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
 
-                    Quad(index, one, two, three)
-                } shouldBe listOf(Quad(0, "one", "two", "three"))
+                    Triple(one, two, three)
+                } shouldBe listOf(Triple("one", "two", "three"))
 
             }
 
             "produce a correct mapping from Quad" {
 
-                listOf(Quad("one", "two", "three", "four")).mapIndexedNotNull { index, one, two, three, four ->
+                listOf(Quad("one", "two", "three", "four")).mapNotNull { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
 
-                    Penta(index, one, two, three, four)
-                } shouldBe listOf(Penta(0, "one", "two", "three", "four"))
+                    Quad(one, two, three, four)
+                } shouldBe listOf(Quad("one", "two", "three", "four"))
 
             }
 
             "produce a correct mapping from Penta" {
 
-                listOf(Penta("one", "two", "three", "four", "five")).mapIndexedNotNull { index, one, two, three, four, five ->
+                listOf(Penta("one", "two", "three", "four", "five")).mapNotNull { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
                     five shouldBe "five"
 
-                    Hexa(index, one, two, three, four, five)
-                } shouldBe listOf(Hexa(0, "one", "two", "three", "four", "five"))
+                    Penta(one, two, three, four, five)
+                } shouldBe listOf(Penta("one", "two", "three", "four", "five"))
 
             }
 
             "produce a correct mapping from Hexa" {
 
-                listOf(Hexa("one", "two", "three", "four", "five", "six")).mapIndexedNotNull { index, one, two, three, four, five, six ->
+                listOf(Hexa("one", "two", "three", "four", "five", "six")).mapNotNull { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -70,27 +70,27 @@ class MultiMapIndexedNotNullSpec : WordSpec(),
                     five shouldBe "five"
                     six shouldBe "six"
 
-                    Hepta(index, one, two, three, four, five, six)
-                } shouldBe listOf(Hepta(0, "one", "two", "three", "four", "five", "six"))
+                    Hexa(one, two, three, four, five, six)
+                } shouldBe listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
             }
 
             "handle null values" {
 
-                listOf(Pair("one", null), Pair("one", "two")).mapIndexedNotNull { index, one, two ->
-                    Triple(index, one, two)
-                } shouldBe listOf(Triple(1, "one", "two"))
+                listOf(Pair("one", null), Pair("one", "two")).mapNotNull { one, two ->
+                    Pair(one, two)
+                } shouldBe listOf(Pair("one", "two"))
 
             }
 
             "not effect kotlin mapIndexed" {
 
-                listOf(null, "something", null).mapIndexedNotNull { index, elem ->
+                listOf(null, "something", null).mapNotNull { elem ->
                     when (null) {
                         elem -> null
-                        else -> Pair(index, "$elem non null to indexed map")
+                        else -> "$elem non null to indexed map"
                     }
-                } shouldBe listOf(Pair(1, "something non null to indexed map"))
+                } shouldBe listOf("something non null to indexed map")
 
             }
 
