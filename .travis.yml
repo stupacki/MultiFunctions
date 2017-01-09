@@ -1,9 +1,10 @@
-language: java
+language: kotlin
 
 jdk:
   - oraclejdk8
 
 script:
+  - gradle clean
   - gradle build
   - gradle test
 
