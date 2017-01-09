@@ -1,10 +1,14 @@
 language: kotlin
 
 jdk:
-  - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+
+before_install:
+ - chmod +x gradlew
 
 script:
-  - gradlew clean build test
+  - gradle clean build test
 
 notifications:
   email: false
