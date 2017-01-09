@@ -8,9 +8,9 @@ before_install:
  - chmod +x gradlew
 
 script:
-  - gradle clean
-  - gradle build
-  - gradle test
+  - wgradle clean
+  - wgradle build
+  - wgradle test
 
 notifications:
   email: false
