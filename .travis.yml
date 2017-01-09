@@ -4,7 +4,7 @@ jdk:
   - oraclejdk8
 
 script:
-  - ./gradlew clean build test
+  - gradlew clean build test
 
 notifications:
   email: false
