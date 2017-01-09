@@ -34,26 +34,4 @@ apply plugin: 'maven-publish'
 def archivesBaseName = 'multi-functions'
 
 group = 'stupacki'
-version = '1.0.1'
-
-publishing {
-    repositories {
-        maven {
-            url myMavenRepoWriteUrl
-            credentials {
-                username 'myMavenRepo'
-                password myMavenRepoWritePassword
-            }
-        }
-    }
-
-    publications {
-        aar(MavenPublication) {
-            groupId group
-            artifactId archivesBaseName
-            version project.version
-
-            artifact("$buildDir/libs/${archivesBaseName}-${version}.jar")
-        }
-    }
-}
+version = '1.0.2'
