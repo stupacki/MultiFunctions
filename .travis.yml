@@ -3,12 +3,13 @@ language: java
 jdk:
   - oraclejdk7
 
-before_install:
- - chmod +x gradlew
+sudo: false
 
-script:
-  - gradle build
-  - gradle test
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle
 
-notifications:
-  email: false
+install: /bin/true
+
+script: gradle test
