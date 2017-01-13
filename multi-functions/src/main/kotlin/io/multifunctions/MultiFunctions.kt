@@ -1,6 +1,6 @@
 package io.multifunctions
 
-interface MultiFunctions : MultiLet,
+object MultiFunctions : MultiLet,
                            MultiLetNotNull,
                            MultiMap,
                            MultiMapNotNull,

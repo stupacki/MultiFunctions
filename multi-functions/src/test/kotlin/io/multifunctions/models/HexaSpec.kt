@@ -1,9 +1,8 @@
 package io.multifunctions.models
 
 import io.kotlintest.specs.WordSpec
-import io.multifunctions.MultiFunctions
 
-class HexaSpec : WordSpec(), MultiFunctions {
+class HexaSpec : WordSpec() {
 
     init {
 

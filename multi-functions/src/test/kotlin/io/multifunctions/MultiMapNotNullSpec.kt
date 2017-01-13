@@ -1,10 +1,10 @@
 package io.multifunctions
 
 import io.kotlintest.specs.WordSpec
+import io.multifunctions.MultiFunctions.mapNotNull
 import io.multifunctions.models.*
 
-class MultiMapNotNullSpec : WordSpec(),
-                                   MultiFunctions {
+class MultiMapNotNullSpec : WordSpec() {
 
     init {
 

@@ -1,9 +1,8 @@
 package io.multifunctions.models
 
 import io.kotlintest.specs.WordSpec
-import io.multifunctions.MultiFunctions
 
-class QuadSpec : WordSpec(), MultiFunctions {
+class QuadSpec : WordSpec() {
 
     init {
 
