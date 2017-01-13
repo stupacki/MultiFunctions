@@ -1,10 +1,10 @@
 package io.multifunctions
 
 import io.kotlintest.specs.WordSpec
+import io.multifunctions.MultiFunctions.withIndex
 import io.multifunctions.models.*
 
-class MultiWithIndexSpec : WordSpec(),
-                           MultiFunctions {
+class MultiWithIndexSpec : WordSpec() {
 
     init {
 
