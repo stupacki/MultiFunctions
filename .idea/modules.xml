@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MultiFunctions.iml" filepath="$PROJECT_DIR$/.idea/modules/MultiFunctions.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions.iml" filepath="$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions.iml" filepath="$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions.iml" group="multi-functions" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions_main.iml" filepath="$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions_main.iml" group="multi-functions" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions_test.iml" filepath="$PROJECT_DIR$/.idea/modules/multi-functions/multi-functions_test.iml" group="multi-functions" />
     </modules>
   </component>
 </project>
