@@ -9,5 +9,5 @@
 .externalNativeBuild
 .idea/modules/
 multi-functions/libs/
-
+lib/
 .idea/
