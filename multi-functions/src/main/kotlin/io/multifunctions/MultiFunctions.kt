@@ -1,10 +1,11 @@
 package io.multifunctions
 
 object MultiFunctions : MultiLet,
-                           MultiLetNotNull,
-                           MultiMap,
-                           MultiMapNotNull,
-                           MultiFlatMap,
-                           MultiMapIndexed,
-                           MultiMapIndexedNotNull,
-                           MultiWithIndex
+        MultiLetNotNull,
+        MultiMap,
+        MultiMapNotNull,
+        MultiFlatMap,
+        MultiMapIndexed,
+        MultiMapIndexedNotNull,
+        MultiWithIndex,
+        MultiForEach
