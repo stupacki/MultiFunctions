@@ -8,7 +8,7 @@ class MultiMapNotNullSpec : WordSpec() {
 
     init {
 
-        "MultiMap" should {
+        "MultiMapNotNull" should {
 
             "produce a correct mapping from Pair" {
 
@@ -83,7 +83,7 @@ class MultiMapNotNullSpec : WordSpec() {
 
             }
 
-            "not effect kotlin mapIndexed" {
+            "not effect kotlin mapNotNull" {
 
                 listOf(null, "something", null).mapNotNull { elem ->
                     when (null) {
