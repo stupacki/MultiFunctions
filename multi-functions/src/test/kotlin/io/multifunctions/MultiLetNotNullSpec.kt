@@ -8,7 +8,7 @@ class MultiLetNotNullSpec : WordSpec(){
 
     init {
 
-        "MultiLet" should {
+        "MultiLetNotNull" should {
 
             "produce a correct binding from Pair" {
 
