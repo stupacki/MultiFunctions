@@ -8,4 +8,5 @@ object MultiFunctions : MultiLet,
         MultiMapIndexed,
         MultiMapIndexedNotNull,
         MultiWithIndex,
-        MultiForEach
+        MultiForEach,
+        MultiForEachIndexed
