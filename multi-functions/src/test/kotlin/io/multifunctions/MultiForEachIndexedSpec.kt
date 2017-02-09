@@ -1,54 +1,54 @@
 package io.multifunctions
 
 import io.kotlintest.specs.WordSpec
-import io.multifunctions.MultiFunctions.mapIndexedNotNull
+import io.multifunctions.MultiFunctions.forEachIndexed
 import io.multifunctions.models.*
 
-class MultiMapIndexedNotNullSpec : WordSpec(){
+class MultiForEachIndexedSpec : WordSpec() {
 
     init {
 
-        "MapIndexedNotNull" should {
+        "MultiForEachIndexed" should {
 
             "produce a correct mapping from Pair" {
 
-                listOf(Pair("one", "two")).mapIndexedNotNull { index, one, two ->
+                listOf(Pair("one", "two")).forEachIndexed { index, one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
                     Pair(one, two)
-                } shouldBe listOf(Pair("one", "two"))
+                } shouldBe Unit
 
             }
 
             "produce a correct mapping from Triple" {
 
-                listOf(Triple("one", "two", "three")).mapIndexedNotNull { index, one, two, three ->
+                listOf(Triple("one", "two", "three")).forEachIndexed { index, one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
 
                     Quad(index, one, two, three)
-                } shouldBe listOf(Quad(0, "one", "two", "three"))
+                } shouldBe Unit
 
             }
 
             "produce a correct mapping from Quad" {
 
-                listOf(Quad("one", "two", "three", "four")).mapIndexedNotNull { index, one, two, three, four ->
+                listOf(Quad("one", "two", "three", "four")).forEachIndexed { index, one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
 
                     Penta(index, one, two, three, four)
-                } shouldBe listOf(Penta(0, "one", "two", "three", "four"))
+                } shouldBe Unit
 
             }
 
             "produce a correct mapping from Penta" {
 
-                listOf(Penta("one", "two", "three", "four", "five")).mapIndexedNotNull { index, one, two, three, four, five ->
+                listOf(Penta("one", "two", "three", "four", "five")).forEachIndexed { index, one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -56,13 +56,13 @@ class MultiMapIndexedNotNullSpec : WordSpec(){
                     five shouldBe "five"
 
                     Hexa(index, one, two, three, four, five)
-                } shouldBe listOf(Hexa(0, "one", "two", "three", "four", "five"))
+                } shouldBe Unit
 
             }
 
             "produce a correct mapping from Hexa" {
 
-                listOf(Hexa("one", "two", "three", "four", "five", "six")).mapIndexedNotNull { index, one, two, three, four, five, six ->
+                listOf(Hexa("one", "two", "three", "four", "five", "six")).forEachIndexed { index, one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -71,26 +71,26 @@ class MultiMapIndexedNotNullSpec : WordSpec(){
                     six shouldBe "six"
 
                     Hepta(index, one, two, three, four, five, six)
-                } shouldBe listOf(Hepta(0, "one", "two", "three", "four", "five", "six"))
+                } shouldBe Unit
 
             }
 
             "handle null values" {
 
-                listOf(Pair("one", null), Pair("one", "two")).mapIndexedNotNull { index, one, two ->
+                listOf(Pair("one", null)).forEachIndexed { index, one, two ->
+                    one shouldBe "one"
+                    two shouldBe null
+
                     Triple(index, one, two)
-                } shouldBe listOf(Triple(1, "one", "two"))
+                } shouldBe Unit
 
             }
 
-            "not effect kotlin mapIndexedNotNull" {
+            "not effect kotlin forEachIndexed" {
 
-                listOf(null, "something", null).mapIndexedNotNull { index, elem ->
-                    when (null) {
-                        elem -> null
-                        else -> Pair(index, "$elem non null to indexed map")
-                    }
-                } shouldBe listOf(Pair(1, "something non null to indexed map"))
+                listOf("something").forEachIndexed { index, someThingToIndexedMap ->
+                    Pair(index, "$someThingToIndexedMap to indexed map")
+                } shouldBe Unit
 
             }
 

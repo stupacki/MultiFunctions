@@ -8,7 +8,7 @@ class MultiMapIndexedSpec : WordSpec() {
 
     init {
 
-        "MultiMap" should {
+        "MultiMapIndexed" should {
 
             "produce a correct mapping from Pair" {
 

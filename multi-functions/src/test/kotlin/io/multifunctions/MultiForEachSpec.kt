@@ -86,7 +86,7 @@ class MultiForEachSpec : WordSpec() {
 
             }
 
-            "not effect kotlin map" {
+            "not effect kotlin forEach" {
 
                 listOf("something").forEach { someThingToMap ->
                     "$someThingToMap to map"

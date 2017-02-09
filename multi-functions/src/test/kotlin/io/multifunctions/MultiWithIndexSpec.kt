@@ -8,7 +8,7 @@ class MultiWithIndexSpec : WordSpec() {
 
     init {
 
-        "MultiMap" should {
+        "WithIndex" should {
 
             "produce a correct mapping from Pair" {
 
@@ -86,7 +86,7 @@ class MultiWithIndexSpec : WordSpec() {
 
             }
 
-            "not effect kotlin mapIndexed" {
+            "not effect kotlin withIndex" {
 
                 listOf("something").withIndex().map { elem ->
                     elem.index shouldBe 0
