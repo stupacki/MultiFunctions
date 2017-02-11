@@ -4,4 +4,4 @@
 
 ## License
 
-Copyright © 2017 Benny Schneider
+Distributed under the Apache 2.0 License. Copyright © 2017 Benny Schneider
