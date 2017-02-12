@@ -1,13 +1,73 @@
-*.iml
+# Library and Build #
+#####################
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
 /build
 /captures
 .externalNativeBuild
-.idea/modules/
 multi-functions/libs/
 lib/
+
+# Leiningen #
+#############
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/lib/
+/classes/
+/target/
+/checkouts/
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.lein-failures
+.nrepl-port
+
+# IntelliJ IDEA #
+#################
+*.iml
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+.idea/modules/
 .idea/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+resources/
+
+out/
+projectFilesBackup/
