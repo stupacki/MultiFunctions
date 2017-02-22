@@ -22,6 +22,19 @@ class HeptaSpec : WordSpec() {
 
             }
 
+            "handle null values" {
+
+                Hepta(null, null, null, null, null, null, null).let { hepta ->
+                    hepta.first shouldBe null
+                    hepta.second shouldBe null
+                    hepta.third shouldBe null
+                    hepta.fourth shouldBe null
+                    hepta.fifth shouldBe null
+                    hepta.sixth shouldBe null
+                }
+
+            }
+
         }
 
     }

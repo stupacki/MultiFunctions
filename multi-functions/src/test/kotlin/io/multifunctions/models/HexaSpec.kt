@@ -21,6 +21,19 @@ class HexaSpec : WordSpec() {
 
             }
 
+            "handle null values" {
+
+                Hexa(null, null, null, null, null, null).let { hexa ->
+                    hexa.first shouldBe null
+                    hexa.second shouldBe null
+                    hexa.third shouldBe null
+                    hexa.fourth shouldBe null
+                    hexa.fifth shouldBe null
+                    hexa.sixth shouldBe null
+                }
+
+            }
+
         }
 
     }
