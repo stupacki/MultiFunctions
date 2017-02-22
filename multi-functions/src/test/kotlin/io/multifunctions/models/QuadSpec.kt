@@ -19,6 +19,17 @@ class QuadSpec : WordSpec() {
 
             }
 
+            "handle null values" {
+
+                Quad(null, null, null, null).let { quad ->
+                    quad.first shouldBe null
+                    quad.second shouldBe null
+                    quad.third shouldBe null
+                    quad.fourth shouldBe null
+                }
+
+            }
+
         }
 
     }
