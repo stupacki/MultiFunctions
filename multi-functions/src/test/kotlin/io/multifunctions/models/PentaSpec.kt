@@ -20,6 +20,18 @@ class PentaSpec : WordSpec() {
 
             }
 
+            "handle null values" {
+
+                Penta(null, null, null, null, null).let { penta ->
+                    penta.first shouldBe null
+                    penta.second shouldBe null
+                    penta.third shouldBe null
+                    penta.fourth shouldBe null
+                    penta.fifth shouldBe null
+                }
+
+            }
+
         }
 
     }
