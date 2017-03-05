@@ -89,7 +89,7 @@ class MultiForEachSpec : WordSpec() {
             "not effect kotlin forEach" {
 
                 listOf("something").forEach { someThingToMap ->
-                    "$someThingToMap to map"
+                    println("$someThingToMap to map")
                 } shouldBe Unit
 
             }

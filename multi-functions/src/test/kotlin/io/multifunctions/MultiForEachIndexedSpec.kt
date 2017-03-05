@@ -16,7 +16,7 @@ class MultiForEachIndexedSpec : WordSpec() {
                     one shouldBe "one"
                     two shouldBe "two"
 
-                    Pair(one, two)
+                    Triple(index, one, two)
                 } shouldBe Unit
 
             }
