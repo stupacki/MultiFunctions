@@ -16,8 +16,8 @@ class MultiMapIndexedSpec : WordSpec() {
                     one shouldBe "one"
                     two shouldBe "two"
 
-                    Pair(one, two)
-                } shouldBe listOf(Pair("one", "two"))
+                    Triple(index, one, two)
+                } shouldBe listOf(Triple(0, "one", "two"))
 
             }
 
