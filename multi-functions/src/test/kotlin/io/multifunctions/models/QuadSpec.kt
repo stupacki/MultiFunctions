@@ -5,8 +5,6 @@ import io.kotlintest.specs.WordSpec
 
 class QuadSpec : WordSpec() {
 
-    fun multiplyPlusTen(x: Int, y: Int) = x * y +10
-
     init {
 
         "Quad" should {
