@@ -16,7 +16,9 @@ class PentaSpec : WordSpec() {
                     penta.third shouldBe "three"
                     penta.fourth shouldBe "four"
                     penta.fifth shouldBe "five"
-                }
+
+                    Penta(penta.first, penta.second, penta.third, penta.fourth, penta.fifth)
+                } shouldBe Penta("one", "two", "three", "four", "five")
 
             }
 
@@ -28,7 +30,23 @@ class PentaSpec : WordSpec() {
                     penta.third shouldBe null
                     penta.fourth shouldBe null
                     penta.fifth shouldBe null
-                }
+
+                    Penta(penta.first, penta.second, penta.third, penta.fourth, penta.fifth)
+                } shouldBe Penta(null, null, null, null, null)
+
+            }
+
+            "handle toString" {
+
+                Penta("one", "two", "three", "four", "five").toString() shouldBe "Penta(first=one, second=two, third=three, fourth=four, fifth=five)"
+
+            }
+
+            "handle copy()" {
+
+                val penta = Penta("one", "two", "three", "four", "five")
+
+                penta.copy() shouldBe Penta("one", "two", "three", "four", "five")
 
             }
 

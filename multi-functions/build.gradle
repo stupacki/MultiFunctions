@@ -1,6 +1,7 @@
 apply plugin: 'kotlin'
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: "info.solidsoft.pitest"
 
 sourceSets {
     main {
@@ -9,6 +10,13 @@ sourceSets {
     test {
         java.srcDir 'src/test/kotlin'
     }
+}
+
+pitest {
+    targetClasses = ['io.multifunctions.*']  //by default "${project.group}.*"
+    pitestVersion = "1.1.0" //not needed when a default PIT version should be used
+    threads = 4
+    outputFormats = ['XML', 'HTML']
 }
 
 dependencies {
