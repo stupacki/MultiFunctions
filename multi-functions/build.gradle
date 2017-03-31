@@ -25,5 +25,5 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     testCompile 'junit:junit:4.12'
-    testCompile('io.kotlintest:kotlintest:1.3.7')
+    testCompile('io.kotlintest:kotlintest:2.0.0')
 }

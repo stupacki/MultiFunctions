@@ -1,10 +1,11 @@
 package io.multifunctions
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.MultiFunctions.flatMap
 import io.multifunctions.models.*
 
-class MultiFlatMapSpec : WordSpec(){
+class MultiFlatMapSpec : WordSpec() {
 
     init {
 
@@ -77,7 +78,7 @@ class MultiFlatMapSpec : WordSpec(){
 
             "handle null values" {
 
-                listOf(Pair("one", null)).flatMap { one, two ->
+                listOf(Pair<String?, String?>("one", null)).flatMap { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 

@@ -1,5 +1,6 @@
 package io.multifunctions
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.MultiFunctions.withIndex
 import io.multifunctions.models.*
@@ -77,7 +78,7 @@ class MultiWithIndexSpec : WordSpec() {
 
             "handle null values" {
 
-                listOf(Pair("one", null)).withIndex { one, two ->
+                listOf(Pair<String?, String?>("one", null)).withIndex { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
