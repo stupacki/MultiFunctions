@@ -1,5 +1,6 @@
 package io.multifunctions.models
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 
 class HexaSpec : WordSpec() {
@@ -25,7 +26,7 @@ class HexaSpec : WordSpec() {
 
             "handle null values" {
 
-                Hexa(null, null, null, null, null, null).let { hexa ->
+                Hexa<String?, String?, String?, String?,String?, String?>(null, null, null, null, null, null).let { hexa ->
                     hexa.first shouldBe null
                     hexa.second shouldBe null
                     hexa.third shouldBe null

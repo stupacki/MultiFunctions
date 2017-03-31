@@ -1,5 +1,6 @@
 package io.multifunctions
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.MultiFunctions.mapIndexed
 import io.multifunctions.models.*
@@ -77,7 +78,7 @@ class MultiMapIndexedSpec : WordSpec() {
 
             "handle null values" {
 
-                listOf(Pair("one", null)).mapIndexed { index, one, two ->
+                listOf(Pair<String?, String?>("one", null)).mapIndexed { index, one, two ->
                     one shouldBe "one"
                     two shouldBe null
 

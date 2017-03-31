@@ -1,8 +1,11 @@
 package io.multifunctions.models
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 
 class QuadSpec : WordSpec() {
+
+    fun multiplyPlusTen(x: Int, y: Int) = x * y +10
 
     init {
 
@@ -23,7 +26,7 @@ class QuadSpec : WordSpec() {
 
             "handle null values" {
 
-                Quad(null, null, null, null).let { quad ->
+                Quad<String?, String?, String?, String?>(null, null, null, null).let { quad ->
                     quad.first shouldBe null
                     quad.second shouldBe null
                     quad.third shouldBe null
