@@ -2,7 +2,6 @@ package io.multifunctions
 
 import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
-import io.multifunctions.MultiFunctions.map
 import io.multifunctions.models.*
 
 class MultiMapSpec : WordSpec() {
