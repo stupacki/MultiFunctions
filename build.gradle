@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.1.2'
+    ext.kotlin_version = '1.1.2-4'
 
     repositories {
         jcenter()
@@ -8,7 +8,6 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.11'
     }
 }
 
