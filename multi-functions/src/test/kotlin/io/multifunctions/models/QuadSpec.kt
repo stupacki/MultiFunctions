@@ -49,6 +49,12 @@ class QuadSpec : WordSpec() {
 
             }
 
+            "handle toList" {
+
+                Quad("one", "two", "three", "four").toList() shouldBe listOf("one", "two", "three", "four")
+
+            }
+
         }
 
     }

@@ -53,6 +53,11 @@ class HexaSpec : WordSpec() {
 
             }
 
+            "handle toList" {
+
+                Hexa("one", "two", "three", "four", "fife", "six").toList() shouldBe listOf("one", "two", "three", "four", "fife", "six")
+
+            }
         }
 
     }
