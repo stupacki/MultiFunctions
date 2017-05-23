@@ -2,7 +2,6 @@ package io.multifunctions
 
 import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
-import io.multifunctions.MultiFunctions.forEachIndexed
 import io.multifunctions.models.*
 
 class MultiForEachIndexedSpec : WordSpec() {
