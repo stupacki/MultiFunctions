@@ -1,5 +1,6 @@
 package io.multifunctions
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.MultiFunctions.mapNotNull
 import io.multifunctions.models.*
@@ -77,7 +78,7 @@ class MultiMapNotNullSpec : WordSpec() {
 
             "handle null values" {
 
-                listOf(Pair("one", null), Pair("one", "two")).mapNotNull { one, two ->
+                listOf(Pair<String?, String?>("one", null), Pair("one", "two")).mapNotNull { one, two ->
                     Pair(one, two)
                 } shouldBe listOf(Pair("one", "two"))
 
