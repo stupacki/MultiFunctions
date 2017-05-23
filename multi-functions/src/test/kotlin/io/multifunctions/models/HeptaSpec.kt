@@ -54,6 +54,11 @@ class HeptaSpec : WordSpec() {
 
             }
 
+            "handle toList" {
+
+                Hepta("one", "two", "three", "four", "fife", "six", "seven").toList() shouldBe listOf("one", "two", "three", "four", "fife", "six", "seven")
+
+            }
         }
 
     }
