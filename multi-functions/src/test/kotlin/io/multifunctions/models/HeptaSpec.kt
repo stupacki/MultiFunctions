@@ -1,5 +1,6 @@
 package io.multifunctions.models
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 
 class HeptaSpec : WordSpec() {
@@ -18,23 +19,46 @@ class HeptaSpec : WordSpec() {
                     hepta.fifth shouldBe "five"
                     hepta.sixth shouldBe "six"
                     hepta.seventh shouldBe "seven"
-                }
+
+                    Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
+                } shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
 
             }
 
             "handle null values" {
 
-                Hepta(null, null, null, null, null, null, null).let { hepta ->
+                Hepta<String?, String?, String?, String?, String?, String?, String?>(null, null, null, null, null, null, null).let { hepta ->
                     hepta.first shouldBe null
                     hepta.second shouldBe null
                     hepta.third shouldBe null
                     hepta.fourth shouldBe null
                     hepta.fifth shouldBe null
                     hepta.sixth shouldBe null
-                }
+
+                    Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
+                } shouldBe Hepta(null, null, null, null, null, null, null)
 
             }
 
+            "handle toString" {
+
+                Hepta("one", "two", "three", "four", "five", "six", "seven").toString() shouldBe "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
+
+            }
+
+            "handle copy()" {
+
+                val hepta = Hepta("one", "two", "three", "four", "five", "six", "seven")
+
+                hepta.copy() shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
+
+            }
+
+            "handle toList" {
+
+                Hepta("one", "two", "three", "four", "fife", "six", "seven").toList() shouldBe listOf("one", "two", "three", "four", "fife", "six", "seven")
+
+            }
         }
 
     }

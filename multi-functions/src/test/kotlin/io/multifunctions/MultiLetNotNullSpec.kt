@@ -1,5 +1,6 @@
 package io.multifunctions
 
+import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.MultiFunctions.letNotNull
 import io.multifunctions.models.*
@@ -77,7 +78,7 @@ class MultiLetNotNullSpec : WordSpec(){
 
             "handle null values" {
 
-                Pair("one", null).letNotNull { one, two ->
+                Pair<String?, String?>("one", null).letNotNull { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
