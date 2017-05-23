@@ -51,6 +51,12 @@ class PentaSpec : WordSpec() {
 
             }
 
+            "handle toList" {
+
+                Penta("one", "two", "three", "four", "fife").toList() shouldBe listOf("one", "two", "three", "four", "fife")
+
+            }
+
         }
 
     }
