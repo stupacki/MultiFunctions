@@ -2,42 +2,42 @@ package io.multifunctions
 
 import io.multifunctions.models.*
 
-fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapNotNull(transform: (A, B) -> R): List<R> =
-        this.mapNotNull { elem ->
+inline fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapNotNull(transform: (A, B) -> R): List<R> =
+        this.mapNotNull { (first, second) ->
             when (null) {
-                elem.first, elem.second -> null
-                else -> transform(elem.first as A, elem.second as B)
+                first, second -> null
+                else -> transform(first as A, second as B)
             }
         }
 
-fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapNotNull(transform: (A, B, C) -> R): List<R> =
-        this.mapNotNull { elem ->
+inline fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapNotNull(transform: (A, B, C) -> R): List<R> =
+        this.mapNotNull { (first, second, third) ->
             when (null) {
-                elem.first, elem.second, elem.third -> null
-                else -> transform(elem.first as A, elem.second as B, elem.third as C)
+                first, second, third -> null
+                else -> transform(first as A, second as B, third as C)
             }
         }
 
-fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapNotNull(transform: (A, B, C, D) -> R): List<R> =
-        this.mapNotNull { elem ->
+inline fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapNotNull(transform: (A, B, C, D) -> R): List<R> =
+        this.mapNotNull { (first, second, third, fourth) ->
             when (null) {
-                elem.first, elem.second, elem.third, elem.fourth -> null
-                else -> transform(elem.first, elem.second, elem.third, elem.fourth)
+                first, second, third, fourth -> null
+                else -> transform(first, second, third, fourth)
             }
         }
 
-fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapNotNull(transform: (A, B, C, D, E) -> R): List<R> =
-        this.mapNotNull { elem ->
+inline fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapNotNull(transform: (A, B, C, D, E) -> R): List<R> =
+        this.mapNotNull { (first, second, third, fourth, fifth) ->
             when (null) {
-                elem.first, elem.second, elem.third, elem.fourth, elem.fifth -> null
-                else -> transform(elem.first, elem.second, elem.third, elem.fourth, elem.fifth)
+                first, second, third, fourth, fifth -> null
+                else -> transform(first, second, third, fourth, fifth)
             }
         }
 
-fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapNotNull(transform: (A, B, C, D, E, F) -> R): List<R> =
-        this.mapNotNull { elem ->
+inline fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapNotNull(transform: (A, B, C, D, E, F) -> R): List<R> =
+        this.mapNotNull { (first, second, third, fourth, fifth, sixth) ->
             when (null) {
-                elem.first, elem.second, elem.third, elem.fourth, elem.fifth, elem.sixth -> null
-                else -> transform(elem.first, elem.second, elem.third, elem.fourth, elem.fifth, elem.sixth)
+                first, second, third, fourth, fifth, sixth -> null
+                else -> transform(first, second, third, fourth, fifth, sixth)
             }
         }
