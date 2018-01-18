@@ -6,7 +6,7 @@ inline fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapNotNull(transform: (A, B) -
         this.mapNotNull { (first, second) ->
             when (null) {
                 first, second -> null
-                else -> transform(first as A, second as B)
+                else -> transform(first, second)
             }
         }
 
@@ -14,7 +14,7 @@ inline fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapNotNull(transform:
         this.mapNotNull { (first, second, third) ->
             when (null) {
                 first, second, third -> null
-                else -> transform(first as A, second as B, third as C)
+                else -> transform(first, second, third)
             }
         }
 
