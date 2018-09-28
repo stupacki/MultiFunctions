@@ -16,3 +16,6 @@ inline fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.mapIndexed(tra
 
 inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexed(transform: (Int, A?, B?, C?, D?, E?, F?) -> R): List<R?> =
         this.mapIndexed { index, (first, second, third, fourth, fifth, sixth) -> transform(index, first, second, third, fourth, fifth, sixth) }
+
+inline fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexed(transform: (Int, A?, B?, C?, D?, E?, F?, G?) -> R): List<R?> =
+        this.mapIndexed { index, (first, second, third, fourth, fifth, sixth, seventh) -> transform(index, first, second, third, fourth, fifth, sixth, seventh) }
