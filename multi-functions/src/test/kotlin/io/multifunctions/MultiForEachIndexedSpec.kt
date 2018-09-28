@@ -1,6 +1,6 @@
 package io.multifunctions
 
-import io.kotlintest.matchers.shouldBe
+import io.kotlintest.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.models.*
 
@@ -11,79 +11,92 @@ class MultiForEachIndexedSpec : WordSpec() {
         "MultiForEachIndexed" should {
 
             "produce a correct mapping from Pair" {
+                val testData = listOf(Pair("one", "two"))
 
-                listOf(Pair("one", "two")).forEachIndexed { index, one, two ->
+                testData.forEachIndexed { index, one, two ->
+                    index shouldBe 0
+
                     one shouldBe "one"
                     two shouldBe "two"
-
-                    Triple(index, one, two)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Triple" {
+                val testData = listOf(Triple("one", "two", "three"))
 
-                listOf(Triple("one", "two", "three")).forEachIndexed { index, one, two, three ->
+                testData.forEachIndexed { index, one, two, three ->
+                    index shouldBe 0
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
-
-                    Quad(index, one, two, three)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Quad" {
+                val testData = listOf(Quad("one", "two", "three", "four"))
 
-                listOf(Quad("one", "two", "three", "four")).forEachIndexed { index, one, two, three, four ->
+                testData.forEachIndexed { index, one, two, three, four ->
+                    index shouldBe 0
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
-
-                    Penta(index, one, two, three, four)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Penta" {
+                val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                listOf(Penta("one", "two", "three", "four", "five")).forEachIndexed { index, one, two, three, four, five ->
+                testData.forEachIndexed { index, one, two, three, four, five ->
+                    index shouldBe 0
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
                     five shouldBe "five"
-
-                    Hexa(index, one, two, three, four, five)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Hexa" {
+                val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                listOf(Hexa("one", "two", "three", "four", "five", "six")).forEachIndexed { index, one, two, three, four, five, six ->
+                testData.forEachIndexed { index, one, two, three, four, five, six ->
+                    index shouldBe 0
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
                     five shouldBe "five"
                     six shouldBe "six"
+                } shouldBe Unit
+            }
 
-                    Hepta(index, one, two, three, four, five, six)
+            "produce a correct mapping from Hepta" {
+                val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
+
+                testData.forEachIndexed { index, one, two, three, four, five, six, seven ->
+                    index shouldBe 0
+
+                    one shouldBe "one"
+                    two shouldBe "two"
+                    three shouldBe "three"
+                    four shouldBe "four"
+                    five shouldBe "five"
+                    six shouldBe "six"
+                    seven shouldBe "seven"
                 } shouldBe Unit
             }
 
             "handle null values" {
+                val actual = listOf(Pair("one", null))
 
-                listOf(Pair<String?, String?>("one", null)).forEachIndexed { index, one, two ->
+                actual.forEachIndexed { _, one, two ->
                     one shouldBe "one"
                     two shouldBe null
-
-                    Triple(index, one, two)
-                } shouldBe Unit
-            }
-
-            "not effect kotlin forEachIndexed" {
-
-                listOf("something").forEachIndexed { index, someThingToIndexedMap ->
-                    Pair(index, "$someThingToIndexedMap to indexed map")
                 } shouldBe Unit
             }
         }

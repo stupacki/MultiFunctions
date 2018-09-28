@@ -8,7 +8,7 @@ data class Hepta<out A, out B, out C, out D, out E, out F, out G>(val first: A,
                                                                   val fourth: D,
                                                                   val fifth: E,
                                                                   val sixth: F,
-                                                                  val seventh: G): Serializable {
+                                                                  val seventh: G) : Serializable {
 
     override fun toString(): String = "Hepta(first=$first, second=$second, third=$third, fourth=$fourth, fifth=$fifth, sixth=$sixth, seventh=$seventh)"
 }

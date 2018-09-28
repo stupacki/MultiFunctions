@@ -1,6 +1,6 @@
 package io.multifunctions.models
 
-import io.kotlintest.matchers.shouldBe
+import io.kotlintest.shouldBe
 import io.kotlintest.specs.WordSpec
 
 class HexaSpec : WordSpec() {
@@ -10,8 +10,9 @@ class HexaSpec : WordSpec() {
         "Hexa" should {
 
             "be initialized" {
+                val testData = Hexa("one", "two", "three", "four", "five", "six")
 
-                Hexa("one", "two", "three", "four", "five", "six").let { hexa ->
+                testData.let { hexa ->
                     hexa.first shouldBe "one"
                     hexa.second shouldBe "two"
                     hexa.third shouldBe "three"
@@ -20,12 +21,13 @@ class HexaSpec : WordSpec() {
                     hexa.sixth shouldBe "six"
 
                     Hexa(hexa.first, hexa.second, hexa.third, hexa.fourth, hexa.fifth, hexa.sixth)
-                } shouldBe Hexa("one", "two", "three", "four", "five", "six")
+                } shouldBe testData
             }
 
             "handle null values" {
+                val testData = Hexa<String?, String?, String?, String?, String?, String?>(null, null, null, null, null, null)
 
-                Hexa<String?, String?, String?, String?,String?, String?>(null, null, null, null, null, null).let { hexa ->
+                testData.let { hexa ->
                     hexa.first shouldBe null
                     hexa.second shouldBe null
                     hexa.third shouldBe null
@@ -34,25 +36,28 @@ class HexaSpec : WordSpec() {
                     hexa.sixth shouldBe null
 
                     Hexa(hexa.first, hexa.second, hexa.third, hexa.fourth, hexa.fifth, hexa.sixth)
-                } shouldBe  Hexa(null, null, null, null, null, null)
+                } shouldBe testData
             }
 
             "handle toString" {
+                val actual = Hexa("one", "two", "three", "four", "five", "six")
+                val expected = "Hexa(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six)"
 
-                Hexa("one", "two", "three", "four", "five", "six").toString() shouldBe "Hexa(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six)"
+                actual.toString() shouldBe expected
             }
 
             "handle copy()" {
+                val actual = Hexa("one", "two", "three", "four", "five", "six")
 
-                val hexa = Hexa("one", "two", "three", "four", "five", "six")
-
-                hexa.copy() shouldBe Hexa("one", "two", "three", "four", "five", "six")
+                actual.copy() shouldBe actual
 
             }
 
             "handle toList" {
+                val actual = Hexa("one", "two", "three", "four", "fife", "six")
+                val expected = listOf("one", "two", "three", "four", "fife", "six")
 
-                Hexa("one", "two", "three", "four", "fife", "six").toList() shouldBe listOf("one", "two", "three", "four", "fife", "six")
+                actual.toList() shouldBe expected
             }
         }
     }
