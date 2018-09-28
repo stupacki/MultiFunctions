@@ -18,8 +18,6 @@ class MultiForEachIndexedSpec : WordSpec() {
 
                     one shouldBe "one"
                     two shouldBe "two"
-
-                    Pair(one, two)
                 } shouldBe Unit
             }
 
@@ -32,8 +30,6 @@ class MultiForEachIndexedSpec : WordSpec() {
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
-
-                    Triple(one, two, three)
                 } shouldBe Unit
             }
 
@@ -47,8 +43,6 @@ class MultiForEachIndexedSpec : WordSpec() {
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
-
-                    Quad(one, two, three, four)
                 } shouldBe Unit
             }
 
@@ -63,8 +57,6 @@ class MultiForEachIndexedSpec : WordSpec() {
                     three shouldBe "three"
                     four shouldBe "four"
                     five shouldBe "five"
-
-                    Penta(one, two, three, four, five)
                 } shouldBe Unit
             }
 
@@ -80,8 +72,6 @@ class MultiForEachIndexedSpec : WordSpec() {
                     four shouldBe "four"
                     five shouldBe "five"
                     six shouldBe "six"
-
-                    Hexa(one, two, three, four, five, six)
                 } shouldBe Unit
             }
 
@@ -98,27 +88,24 @@ class MultiForEachIndexedSpec : WordSpec() {
                     five shouldBe "five"
                     six shouldBe "six"
                     seven shouldBe "seven"
-
-                    Hepta(one, two, three, four, five, six, seven)
                 } shouldBe Unit
             }
 
             "handle null values" {
                 val actual = listOf(Pair("one", null))
 
-                actual.forEachIndexed { index, one, two ->
+                actual.forEachIndexed { _, one, two ->
                     one shouldBe "one"
                     two shouldBe null
-
-                    Triple(index, one, two)
                 } shouldBe Unit
             }
 
             "not effect kotlin forEachIndexed" {
                 val actual = listOf("something")
 
-                actual.forEachIndexed { index, someThingToIndexedMap ->
-                    Pair(index, "$someThingToIndexedMap to indexed map")
+                actual.forEachIndexed { index, elem ->
+                    index shouldBe 0
+                    elem shouldBe "something"
                 } shouldBe Unit
             }
         }
