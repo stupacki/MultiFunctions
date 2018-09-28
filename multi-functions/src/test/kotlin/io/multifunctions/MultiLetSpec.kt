@@ -4,7 +4,7 @@ import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.models.*
 
-class MultiLetSpec : WordSpec(){
+class MultiLetSpec : WordSpec() {
 
     init {
 
@@ -68,6 +68,21 @@ class MultiLetSpec : WordSpec(){
 
                     Hexa(one, two, three, four, five, six)
                 } shouldBe Hexa("one", "two", "three", "four", "five", "six")
+            }
+
+            "produce a correct binding from Hepta" {
+
+                Hepta("one", "two", "three", "four", "five", "six", "seven").let { one, two, three, four, five, six, seven ->
+                    one shouldBe "one"
+                    two shouldBe "two"
+                    three shouldBe "three"
+                    four shouldBe "four"
+                    five shouldBe "five"
+                    six shouldBe "six"
+                    seven shouldBe "seven"
+
+                    Hepta(one, two, three, four, five, six, seven)
+                } shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
             }
 
             "handle null values" {

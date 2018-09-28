@@ -91,6 +91,7 @@ class MultiForEachIndexedSpec : WordSpec() {
                     four shouldBe "four"
                     five shouldBe "five"
                     six shouldBe "six"
+                    seven shouldBe "seven"
 
                     Hepta(one, two, three, four, five, six, seven)
                 } shouldBe Unit

@@ -11,3 +11,5 @@ inline fun <A, B, C, D, R> Quad<A?, B?, C?, D?>.let(transform: (A?, B?, C?, D?) 
 inline fun <A, B, C, D, E, R> Penta<A?, B?, C?, D?, E?>.let(transform: (A?, B?, C?, D?, E?) -> R): R? = transform(first, second, third, fourth, fifth)
 
 inline fun <A, B, C, D, E, F, R> Hexa<A?, B?, C?, D?, E?, F?>.let(transform: (A?, B?, C?, D?, E?, F?) -> R): R? = transform(first, second, third, fourth, fifth, sixth)
+
+inline fun <A, B, C, D, E, F, G, R> Hepta<A?, B?, C?, D?, E?, F?, G?>.let(transform: (A?, B?, C?, D?, E?, F?, G?) -> R): R? = transform(first, second, third, fourth, fifth, sixth, seventh)
