@@ -16,3 +16,6 @@ inline fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.map(transform:
 
 inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.map(transform: (A?, B?, C?, D?, E?, F?) -> R): List<R?> =
         this.map { (first, second, third, fourth, fifth, sixth) -> transform(first, second, third, fourth, fifth, sixth) }
+
+inline fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.map(transform: (A?, B?, C?, D?, E?, F?, G?) -> R): List<R?> =
+        this.map { (first, second, third, fourth, fifth, sixth, seventh) -> transform(first, second, third, fourth, fifth, sixth, seventh) }
