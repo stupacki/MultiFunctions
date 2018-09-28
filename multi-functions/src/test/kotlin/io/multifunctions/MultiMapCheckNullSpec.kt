@@ -4,7 +4,7 @@ import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.models.*
 
-class MultiMapNotNullSpec : WordSpec() {
+class MultiMapCheckNullSpec : WordSpec() {
 
     init {
 
