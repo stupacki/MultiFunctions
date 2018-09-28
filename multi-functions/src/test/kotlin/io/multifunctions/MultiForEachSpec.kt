@@ -70,6 +70,21 @@ class MultiForEachSpec : WordSpec() {
                 } shouldBe Unit
             }
 
+            "produce a correct mapping from Hepta" {
+
+                listOf(Hepta("one", "two", "three", "four", "five", "six", "seventh")).forEach { one, two, three, four, five, six, seven ->
+                    one shouldBe "one"
+                    two shouldBe "two"
+                    three shouldBe "three"
+                    four shouldBe "four"
+                    five shouldBe "five"
+                    six shouldBe "six"
+                    seven shouldBe "seven"
+
+                    Hepta(one, two, three, four, five, six, seven)
+                } shouldBe Unit
+            }
+
             "handle null values" {
 
                 listOf(Pair<String?, String?>("one", null)).forEach { one, two ->
