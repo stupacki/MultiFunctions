@@ -41,3 +41,11 @@ inline fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.ma
                 else -> transform(index, first, second, third, fourth, fifth, sixth)
             }
         }
+
+inline fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexedNotNull(transform: (Int, A, B, C, D, E, F, G) -> R): List<R> =
+        this.mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth, seventh) ->
+            when (null) {
+                first, second, third, fourth, fifth, sixth, seventh -> null
+                else -> transform(index, first, second, third, fourth, fifth, sixth, seventh)
+            }
+        }
