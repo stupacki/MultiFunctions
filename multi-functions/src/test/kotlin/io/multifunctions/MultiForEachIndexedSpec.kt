@@ -18,7 +18,6 @@ class MultiForEachIndexedSpec : WordSpec() {
 
                     Triple(index, one, two)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Triple" {
@@ -30,7 +29,6 @@ class MultiForEachIndexedSpec : WordSpec() {
 
                     Quad(index, one, two, three)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Quad" {
@@ -43,7 +41,6 @@ class MultiForEachIndexedSpec : WordSpec() {
 
                     Penta(index, one, two, three, four)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Penta" {
@@ -57,7 +54,6 @@ class MultiForEachIndexedSpec : WordSpec() {
 
                     Hexa(index, one, two, three, four, five)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Hexa" {
@@ -72,7 +68,6 @@ class MultiForEachIndexedSpec : WordSpec() {
 
                     Hepta(index, one, two, three, four, five, six)
                 } shouldBe Unit
-
             }
 
             "handle null values" {
@@ -83,7 +78,6 @@ class MultiForEachIndexedSpec : WordSpec() {
 
                     Triple(index, one, two)
                 } shouldBe Unit
-
             }
 
             "not effect kotlin forEachIndexed" {
@@ -91,11 +85,7 @@ class MultiForEachIndexedSpec : WordSpec() {
                 listOf("something").forEachIndexed { index, someThingToIndexedMap ->
                     Pair(index, "$someThingToIndexedMap to indexed map")
                 } shouldBe Unit
-
             }
-
         }
-
     }
-
 }

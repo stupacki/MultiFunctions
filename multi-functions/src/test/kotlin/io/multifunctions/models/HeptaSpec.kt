@@ -22,7 +22,6 @@ class HeptaSpec : WordSpec() {
 
                     Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
                 } shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
-
             }
 
             "handle null values" {
@@ -37,13 +36,11 @@ class HeptaSpec : WordSpec() {
 
                     Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
                 } shouldBe Hepta(null, null, null, null, null, null, null)
-
             }
 
             "handle toString" {
 
                 Hepta("one", "two", "three", "four", "five", "six", "seven").toString() shouldBe "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
-
             }
 
             "handle copy()" {
@@ -51,16 +48,12 @@ class HeptaSpec : WordSpec() {
                 val hepta = Hepta("one", "two", "three", "four", "five", "six", "seven")
 
                 hepta.copy() shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
-
             }
 
             "handle toList" {
 
                 Hepta("one", "two", "three", "four", "fife", "six", "seven").toList() shouldBe listOf("one", "two", "three", "four", "fife", "six", "seven")
-
             }
         }
-
     }
-
 }

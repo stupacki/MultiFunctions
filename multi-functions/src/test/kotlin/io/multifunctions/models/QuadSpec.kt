@@ -19,7 +19,6 @@ class QuadSpec : WordSpec() {
 
                     Quad(quad.first, quad.second, quad.third, quad.fourth)
                 } shouldBe Quad("one", "two", "three", "four")
-
             }
 
             "handle null values" {
@@ -32,13 +31,11 @@ class QuadSpec : WordSpec() {
 
                     Quad(quad.first, quad.second, quad.third, quad.fourth)
                 } shouldBe Quad(null, null, null, null)
-
             }
 
             "handle toString" {
 
                 Quad("one", "two", "three", "four").toString() shouldBe "Quad(first=one, second=two, third=three, fourth=four)"
-
             }
 
             "handle copy()" {
@@ -46,17 +43,12 @@ class QuadSpec : WordSpec() {
                 val quad = Quad("one", "two", "three", "four")
 
                 quad.copy() shouldBe Quad("one", "two", "three", "four")
-
             }
 
             "handle toList" {
 
                 Quad("one", "two", "three", "four").toList() shouldBe listOf("one", "two", "three", "four")
-
             }
-
         }
-
     }
-
 }
