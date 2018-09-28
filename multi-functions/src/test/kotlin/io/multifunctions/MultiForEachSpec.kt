@@ -72,7 +72,7 @@ class MultiForEachSpec : WordSpec() {
 
             "produce a correct mapping from Hepta" {
 
-                listOf(Hepta("one", "two", "three", "four", "five", "six", "seventh")).forEach { one, two, three, four, five, six, seven ->
+                listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).forEach { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
