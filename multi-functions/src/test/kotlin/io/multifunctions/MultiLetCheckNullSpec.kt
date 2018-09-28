@@ -70,6 +70,21 @@ class MultiLetCheckNullSpec : WordSpec(){
                 } shouldBe Hexa("one", "two", "three", "four", "five", "six")
             }
 
+            "produce a correct binding from Hepta" {
+
+                Hepta("one", "two", "three", "four", "five", "six", "seven").letCheckNull { one, two, three, four, five, six, seven ->
+                    one shouldBe "one"
+                    two shouldBe "two"
+                    three shouldBe "three"
+                    four shouldBe "four"
+                    five shouldBe "five"
+                    six shouldBe "six"
+                    seven shouldBe "seven"
+
+                    Hepta(one, two, three, four, five, six, seven)
+                } shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
+            }
+
             "handle null values" {
 
                 Pair<String?, String?>("one", null).letCheckNull { one, two ->
