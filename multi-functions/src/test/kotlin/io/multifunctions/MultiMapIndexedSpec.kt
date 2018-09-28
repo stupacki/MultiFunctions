@@ -115,13 +115,6 @@ class MultiMapIndexedSpec : WordSpec() {
                 } shouldBe expected
 
             }
-
-            "not effect kotlin mapIndexed" {
-                val actual = listOf("something")
-                val expected = listOf(Pair(0, "something"))
-
-                actual.mapIndexed { index, elem -> Pair(index, elem) } shouldBe expected
-            }
         }
     }
 }

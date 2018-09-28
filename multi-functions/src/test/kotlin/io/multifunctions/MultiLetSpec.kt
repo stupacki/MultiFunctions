@@ -102,12 +102,6 @@ class MultiLetSpec : WordSpec() {
                     Pair(one, two)
                 } shouldBe expected
             }
-
-            "not effect kotlin let" {
-                val actual = "something"
-
-                actual.let { it } shouldBe "something"
-            }
         }
     }
 }

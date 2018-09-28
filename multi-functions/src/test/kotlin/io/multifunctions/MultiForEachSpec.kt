@@ -89,14 +89,6 @@ class MultiForEachSpec : WordSpec() {
                     Pair(one, two)
                 } shouldBe Unit
             }
-
-            "not effect kotlin forEach" {
-                val actual = listOf("something")
-
-                actual.forEach { elem ->
-                    elem shouldBe "something"
-                } shouldBe Unit
-            }
         }
     }
 }
