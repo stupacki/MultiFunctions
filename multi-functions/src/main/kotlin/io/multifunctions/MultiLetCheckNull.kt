@@ -2,6 +2,7 @@
 
 package io.multifunctions
 
+import io.multifunctions.models.Hepta
 import io.multifunctions.models.Hexa
 import io.multifunctions.models.Penta
 import io.multifunctions.models.Quad
@@ -34,4 +35,10 @@ inline fun <A, B, C, D, E, F, R> Hexa<A?, B?, C?, D?, E?, F?>.letCheckNull(trans
         when (null) {
             first, second, third, fourth, fifth, sixth -> null
             else -> transform(first, second, third, fourth, fifth, sixth)
+        }
+
+inline fun <A, B, C, D, E, F, G, R> Hepta<A?, B?, C?, D?, E?, F?, G?>.letCheckNull(transform: (A, B, C, D, E, F, G) -> R): R? =
+        when (null) {
+            first, second, third, fourth, fifth, sixth, seventh -> null
+            else -> transform(first, second, third, fourth, fifth, sixth, seventh)
         }
