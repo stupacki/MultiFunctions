@@ -70,6 +70,21 @@ class MultiWithIndexSpec : WordSpec() {
                 } shouldBe listOf(IndexedValue(0, Hexa("one", "two", "three", "four", "five", "six")))
             }
 
+            "produce a correct mapping from Hepta" {
+
+                listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).withIndex { one, two, three, four, five, six, seven ->
+                    one shouldBe "one"
+                    two shouldBe "two"
+                    three shouldBe "three"
+                    four shouldBe "four"
+                    five shouldBe "five"
+                    six shouldBe "six"
+                    seven shouldBe "seven"
+
+                    Hepta(one, two, three, four, five, six, seven)
+                } shouldBe listOf(IndexedValue(0, Hepta("one", "two", "three", "four", "five", "six", "seven")))
+            }
+
             "handle null values" {
 
                 listOf(Pair<String?, String?>("one", null)).withIndex { one, two ->

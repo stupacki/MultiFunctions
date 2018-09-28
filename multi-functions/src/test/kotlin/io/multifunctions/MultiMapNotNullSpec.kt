@@ -70,7 +70,7 @@ class MultiMapNotNullSpec : WordSpec() {
                 } shouldBe listOf(Hexa("one", "two", "three", "four", "five", "six"))
             }
 
-            "produce a correct mapping from Hexa" {
+            "produce a correct mapping from Hepta" {
 
                 listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).mapNotNull { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
