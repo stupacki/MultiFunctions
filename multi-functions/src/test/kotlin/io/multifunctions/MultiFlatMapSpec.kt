@@ -70,6 +70,20 @@ class MultiFlatMapSpec : WordSpec() {
                 } shouldBe listOf(Hexa("one", "two", "three", "four", "five", "six"))
             }
 
+            "produce a correct mapping from Hepta" {
+
+                listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).flatMap { one, two, three, four, five, six, seven ->
+                    one shouldBe "one"
+                    two shouldBe "two"
+                    three shouldBe "three"
+                    four shouldBe "four"
+                    five shouldBe "five"
+                    six shouldBe "six"
+
+                    listOf(Hepta(one, two, three, four, five, six, seven))
+                } shouldBe listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
+            }
+
             "handle null values" {
 
                 listOf(Pair<String?, String?>("one", null)).flatMap { one, two ->
