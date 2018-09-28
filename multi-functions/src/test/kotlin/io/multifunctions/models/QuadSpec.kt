@@ -1,6 +1,6 @@
 package io.multifunctions.models
 
-import io.kotlintest.matchers.shouldBe
+import io.kotlintest.shouldBe
 import io.kotlintest.specs.WordSpec
 
 class QuadSpec : WordSpec() {
