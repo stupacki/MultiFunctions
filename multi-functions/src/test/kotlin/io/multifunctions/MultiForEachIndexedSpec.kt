@@ -11,8 +11,9 @@ class MultiForEachIndexedSpec : WordSpec() {
         "MultiForEachIndexed" should {
 
             "produce a correct mapping from Pair" {
+                val testData = listOf(Pair("one", "two"))
 
-                listOf(Pair("one", "two")).forEachIndexed { index, one, two ->
+                testData.forEachIndexed { index, one, two ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -23,8 +24,9 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Triple" {
+                val testData = listOf(Triple("one", "two", "three"))
 
-                listOf(Triple("one", "two", "three")).forEachIndexed { index, one, two, three ->
+                testData.forEachIndexed { index, one, two, three ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -36,8 +38,9 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Quad" {
+                val testData = listOf(Quad("one", "two", "three", "four"))
 
-                listOf(Quad("one", "two", "three", "four")).forEachIndexed { index, one, two, three, four ->
+                testData.forEachIndexed { index, one, two, three, four ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -50,8 +53,9 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Penta" {
+                val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                listOf(Penta("one", "two", "three", "four", "five")).forEachIndexed { index, one, two, three, four, five ->
+                testData.forEachIndexed { index, one, two, three, four, five ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -65,8 +69,9 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hexa" {
+                val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                listOf(Hexa("one", "two", "three", "four", "five", "six")).forEachIndexed { index, one, two, three, four, five, six ->
+                testData.forEachIndexed { index, one, two, three, four, five, six ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -81,8 +86,9 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hepta" {
+                val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).forEachIndexed { index, one, two, three, four, five, six, seven ->
+                testData.forEachIndexed { index, one, two, three, four, five, six, seven ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -98,8 +104,9 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "handle null values" {
+                val actual = listOf(Pair("one", null))
 
-                listOf(Pair<String?, String?>("one", null)).forEachIndexed { index, one, two ->
+                actual.forEachIndexed { index, one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
@@ -108,8 +115,9 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "not effect kotlin forEachIndexed" {
+                val actual = listOf("something")
 
-                listOf("something").forEachIndexed { index, someThingToIndexedMap ->
+                actual.forEachIndexed { index, someThingToIndexedMap ->
                     Pair(index, "$someThingToIndexedMap to indexed map")
                 } shouldBe Unit
             }
