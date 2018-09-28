@@ -116,13 +116,6 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
 
                 actual.mapIndexedNotNull { index, one, two -> Pair(index, Pair(one, two)) } shouldBe expected
             }
-
-            "not effect kotlin mapIndexedNotNull" {
-                val actual = listOf(null, 2, null)
-                val expected = listOf(3)
-
-                actual.mapIndexedNotNull { index, elem -> elem?.let { it + index } } shouldBe expected
-            }
         }
     }
 }

@@ -109,16 +109,6 @@ class MultiMapNotNullSpec : WordSpec() {
                 } shouldBe listOf(Pair("one", null),
                                   Pair("one", "two"))
             }
-
-            "not effect kotlin mapNotNull" {
-
-                listOf(null, "something", null).mapNotNull { elem ->
-                    when (null) {
-                        elem -> null
-                        else -> "$elem non null to indexed map"
-                    }
-                } shouldBe listOf("something non null to indexed map")
-            }
         }
     }
 }

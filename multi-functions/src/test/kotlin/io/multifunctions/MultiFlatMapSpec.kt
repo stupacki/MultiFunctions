@@ -103,15 +103,6 @@ class MultiFlatMapSpec : WordSpec() {
                     listOf(Pair(one, two))
                 } shouldBe expected
             }
-
-            "not effect kotlin flatMap" {
-                val actual = listOf("something")
-                val expected = listOf("something to flatMap")
-
-                actual.flatMap { someThingToFlatMap ->
-                    listOf("$someThingToFlatMap to flatMap")
-                } shouldBe expected
-            }
         }
     }
 }

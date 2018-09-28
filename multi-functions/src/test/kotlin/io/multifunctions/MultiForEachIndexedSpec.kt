@@ -99,15 +99,6 @@ class MultiForEachIndexedSpec : WordSpec() {
                     two shouldBe null
                 } shouldBe Unit
             }
-
-            "not effect kotlin forEachIndexed" {
-                val actual = listOf("something")
-
-                actual.forEachIndexed { index, elem ->
-                    index shouldBe 0
-                    elem shouldBe "something"
-                } shouldBe Unit
-            }
         }
     }
 }
