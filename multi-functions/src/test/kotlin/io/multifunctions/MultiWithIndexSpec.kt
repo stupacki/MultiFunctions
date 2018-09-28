@@ -18,7 +18,6 @@ class MultiWithIndexSpec : WordSpec() {
 
                     Pair(one, two)
                 } shouldBe listOf(IndexedValue(0, Pair("one", "two")))
-
             }
 
             "produce a correct mapping from Triple" {
@@ -30,7 +29,6 @@ class MultiWithIndexSpec : WordSpec() {
 
                     Triple(one, two, three)
                 } shouldBe listOf(IndexedValue(0, Triple("one", "two", "three")))
-
             }
 
             "produce a correct mapping from Quad" {
@@ -43,7 +41,6 @@ class MultiWithIndexSpec : WordSpec() {
 
                     Quad(one, two, three, four)
                 } shouldBe listOf(IndexedValue(0, Quad("one", "two", "three", "four")))
-
             }
 
             "produce a correct mapping from Penta" {
@@ -57,7 +54,6 @@ class MultiWithIndexSpec : WordSpec() {
 
                     Penta(one, two, three, four, five)
                 } shouldBe listOf(IndexedValue(0, Penta("one", "two", "three", "four", "five")))
-
             }
 
             "produce a correct mapping from Hexa" {
@@ -72,7 +68,6 @@ class MultiWithIndexSpec : WordSpec() {
 
                     Hexa(one, two, three, four, five, six)
                 } shouldBe listOf(IndexedValue(0, Hexa("one", "two", "three", "four", "five", "six")))
-
             }
 
             "handle null values" {
@@ -83,7 +78,6 @@ class MultiWithIndexSpec : WordSpec() {
 
                     Pair(one, two)
                 } shouldBe listOf(IndexedValue(0, Pair("one", null)))
-
             }
 
             "not effect kotlin withIndex" {
@@ -92,11 +86,7 @@ class MultiWithIndexSpec : WordSpec() {
                     elem.index shouldBe 0
                     elem.value shouldBe "something"
                 }
-
             }
-
         }
-
     }
-
 }

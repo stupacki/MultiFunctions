@@ -18,7 +18,6 @@ class MultiMapIndexedSpec : WordSpec() {
 
                     Triple(index, one, two)
                 } shouldBe listOf(Triple(0, "one", "two"))
-
             }
 
             "produce a correct mapping from Triple" {
@@ -30,7 +29,6 @@ class MultiMapIndexedSpec : WordSpec() {
 
                     Quad(index, one, two, three)
                 } shouldBe listOf(Quad(0, "one", "two", "three"))
-
             }
 
             "produce a correct mapping from Quad" {
@@ -43,7 +41,6 @@ class MultiMapIndexedSpec : WordSpec() {
 
                     Penta(index, one, two, three, four)
                 } shouldBe listOf(Penta(0, "one", "two", "three", "four"))
-
             }
 
             "produce a correct mapping from Penta" {
@@ -57,7 +54,6 @@ class MultiMapIndexedSpec : WordSpec() {
 
                     Hexa(index, one, two, three, four, five)
                 } shouldBe listOf(Hexa(0, "one", "two", "three", "four", "five"))
-
             }
 
             "produce a correct mapping from Hexa" {
@@ -72,7 +68,6 @@ class MultiMapIndexedSpec : WordSpec() {
 
                     Hepta(index, one, two, three, four, five, six)
                 } shouldBe listOf(Hepta(0, "one", "two", "three", "four", "five", "six"))
-
             }
 
             "handle null values" {
@@ -91,11 +86,7 @@ class MultiMapIndexedSpec : WordSpec() {
                 listOf("something").mapIndexed { index, someThingToIndexedMap ->
                     Pair(index, "$someThingToIndexedMap to indexed map")
                 } shouldBe listOf(Pair(0, "something to indexed map"))
-
             }
-
         }
-
     }
-
 }

@@ -18,7 +18,6 @@ class MultiMapNotNullSpec : WordSpec() {
 
                     Pair(one, two)
                 } shouldBe listOf(Pair("one", "two"))
-
             }
 
             "produce a correct mapping from Triple" {
@@ -30,7 +29,6 @@ class MultiMapNotNullSpec : WordSpec() {
 
                     Triple(one, two, three)
                 } shouldBe listOf(Triple("one", "two", "three"))
-
             }
 
             "produce a correct mapping from Quad" {
@@ -43,7 +41,6 @@ class MultiMapNotNullSpec : WordSpec() {
 
                     Quad(one, two, three, four)
                 } shouldBe listOf(Quad("one", "two", "three", "four"))
-
             }
 
             "produce a correct mapping from Penta" {
@@ -57,7 +54,6 @@ class MultiMapNotNullSpec : WordSpec() {
 
                     Penta(one, two, three, four, five)
                 } shouldBe listOf(Penta("one", "two", "three", "four", "five"))
-
             }
 
             "produce a correct mapping from Hexa" {
@@ -72,7 +68,6 @@ class MultiMapNotNullSpec : WordSpec() {
 
                     Hexa(one, two, three, four, five, six)
                 } shouldBe listOf(Hexa("one", "two", "three", "four", "five", "six"))
-
             }
 
             "handle null values" {
@@ -80,7 +75,6 @@ class MultiMapNotNullSpec : WordSpec() {
                 listOf(Pair<String?, String?>("one", null), Pair("one", "two")).mapNotNull { one, two ->
                     Pair(one, two)
                 } shouldBe listOf(Pair("one", "two"))
-
             }
 
             "not effect kotlin mapNotNull" {
@@ -91,11 +85,7 @@ class MultiMapNotNullSpec : WordSpec() {
                         else -> "$elem non null to indexed map"
                     }
                 } shouldBe listOf("something non null to indexed map")
-
             }
-
         }
-
     }
-
 }

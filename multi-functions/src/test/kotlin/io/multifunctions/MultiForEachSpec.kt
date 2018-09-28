@@ -18,7 +18,6 @@ class MultiForEachSpec : WordSpec() {
 
                     Pair(one, two)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Triple" {
@@ -30,7 +29,6 @@ class MultiForEachSpec : WordSpec() {
 
                     Triple(one, two, three)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Quad" {
@@ -43,7 +41,6 @@ class MultiForEachSpec : WordSpec() {
 
                     Quad(one, two, three, four)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Penta" {
@@ -57,7 +54,6 @@ class MultiForEachSpec : WordSpec() {
 
                     Penta(one, two, three, four, five)
                 } shouldBe Unit
-
             }
 
             "produce a correct mapping from Hexa" {
@@ -72,7 +68,6 @@ class MultiForEachSpec : WordSpec() {
 
                     Hexa(one, two, three, four, five, six)
                 } shouldBe Unit
-
             }
 
             "handle null values" {
@@ -83,7 +78,6 @@ class MultiForEachSpec : WordSpec() {
 
                     Pair(one, two)
                 } shouldBe Unit
-
             }
 
             "not effect kotlin forEach" {
@@ -91,11 +85,7 @@ class MultiForEachSpec : WordSpec() {
                 listOf("something").forEach { someThingToMap ->
                     println("$someThingToMap to map")
                 } shouldBe Unit
-
             }
-
         }
-
     }
-
 }

@@ -18,7 +18,6 @@ class MultiLetSpec : WordSpec(){
 
                     Pair(one, two)
                 } shouldBe Pair("one", "two")
-
             }
 
             "produce a correct binding from Triple" {
@@ -30,7 +29,6 @@ class MultiLetSpec : WordSpec(){
 
                     Triple(one, two, three)
                 } shouldBe Triple("one", "two", "three")
-
             }
 
             "produce a correct binding from Quad" {
@@ -43,7 +41,6 @@ class MultiLetSpec : WordSpec(){
 
                     Quad(one, two, three, four)
                 } shouldBe Quad("one", "two", "three", "four")
-
             }
 
             "produce a correct binding from Penta" {
@@ -57,7 +54,6 @@ class MultiLetSpec : WordSpec(){
 
                     Penta(one, two, three, four, five)
                 } shouldBe Penta("one", "two", "three", "four", "five")
-
             }
 
             "produce a correct binding from Hexa" {
@@ -72,7 +68,6 @@ class MultiLetSpec : WordSpec(){
 
                     Hexa(one, two, three, four, five, six)
                 } shouldBe Hexa("one", "two", "three", "four", "five", "six")
-
             }
 
             "handle null values" {
@@ -83,7 +78,6 @@ class MultiLetSpec : WordSpec(){
 
                     Pair(one, two)
                 } shouldBe Pair("one", null)
-
             }
 
             "not effect kotlin let" {
@@ -91,11 +85,7 @@ class MultiLetSpec : WordSpec(){
                 "something".let { someThingToBind ->
                     "$someThingToBind to bind"
                 } shouldBe "something to bind"
-
             }
-
         }
-
     }
-
 }

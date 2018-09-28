@@ -18,7 +18,6 @@ class MultiFlatMapSpec : WordSpec() {
 
                     listOf(Pair(one, two))
                 } shouldBe listOf(Pair("one", "two"))
-
             }
 
             "produce a correct mapping from Triple" {
@@ -30,7 +29,6 @@ class MultiFlatMapSpec : WordSpec() {
 
                     listOf(Triple(one, two, three))
                 } shouldBe listOf(Triple("one", "two", "three"))
-
             }
 
             "produce a correct mapping from Quad" {
@@ -43,7 +41,6 @@ class MultiFlatMapSpec : WordSpec() {
 
                     listOf(Quad(one, two, three, four))
                 } shouldBe listOf(Quad("one", "two", "three", "four"))
-
             }
 
             "produce a correct mapping from Penta" {
@@ -57,7 +54,6 @@ class MultiFlatMapSpec : WordSpec() {
 
                     listOf(Penta(one, two, three, four, five))
                 } shouldBe listOf(Penta("one", "two", "three", "four", "five"))
-
             }
 
             "produce a correct mapping from Hexa" {
@@ -72,7 +68,6 @@ class MultiFlatMapSpec : WordSpec() {
 
                     listOf(Hexa(one, two, three, four, five, six))
                 } shouldBe listOf(Hexa("one", "two", "three", "four", "five", "six"))
-
             }
 
             "handle null values" {
@@ -83,7 +78,6 @@ class MultiFlatMapSpec : WordSpec() {
 
                     listOf(Pair(one, two))
                 } shouldBe listOf(Pair("one", null))
-
             }
 
             "not effect kotlin flatMap" {
@@ -91,11 +85,7 @@ class MultiFlatMapSpec : WordSpec() {
                 listOf("something").flatMap { someThingToFlatMap ->
                     listOf("$someThingToFlatMap to flatMap")
                 } shouldBe listOf("something to flatMap")
-
             }
-
         }
-
     }
-
 }

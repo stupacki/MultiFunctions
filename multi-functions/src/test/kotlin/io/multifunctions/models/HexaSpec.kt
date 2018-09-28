@@ -21,7 +21,6 @@ class HexaSpec : WordSpec() {
 
                     Hexa(hexa.first, hexa.second, hexa.third, hexa.fourth, hexa.fifth, hexa.sixth)
                 } shouldBe Hexa("one", "two", "three", "four", "five", "six")
-
             }
 
             "handle null values" {
@@ -36,13 +35,11 @@ class HexaSpec : WordSpec() {
 
                     Hexa(hexa.first, hexa.second, hexa.third, hexa.fourth, hexa.fifth, hexa.sixth)
                 } shouldBe  Hexa(null, null, null, null, null, null)
-
             }
 
             "handle toString" {
 
                 Hexa("one", "two", "three", "four", "five", "six").toString() shouldBe "Hexa(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six)"
-
             }
 
             "handle copy()" {
@@ -56,10 +53,7 @@ class HexaSpec : WordSpec() {
             "handle toList" {
 
                 Hexa("one", "two", "three", "four", "fife", "six").toList() shouldBe listOf("one", "two", "three", "four", "fife", "six")
-
             }
         }
-
     }
-
 }
