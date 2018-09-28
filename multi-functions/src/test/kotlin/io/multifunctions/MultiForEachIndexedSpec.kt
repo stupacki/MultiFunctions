@@ -13,7 +13,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             "produce a correct mapping from Pair" {
 
                 listOf(Pair("one", "two")).forEachIndexed { index, one, two ->
-                    index shouldBe 1
+                    index shouldBe 0
 
                     one shouldBe "one"
                     two shouldBe "two"
@@ -25,7 +25,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             "produce a correct mapping from Triple" {
 
                 listOf(Triple("one", "two", "three")).forEachIndexed { index, one, two, three ->
-                    index shouldBe 1
+                    index shouldBe 0
 
                     one shouldBe "one"
                     two shouldBe "two"
@@ -38,7 +38,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             "produce a correct mapping from Quad" {
 
                 listOf(Quad("one", "two", "three", "four")).forEachIndexed { index, one, two, three, four ->
-                    index shouldBe 1
+                    index shouldBe 0
 
                     one shouldBe "one"
                     two shouldBe "two"
@@ -52,7 +52,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             "produce a correct mapping from Penta" {
 
                 listOf(Penta("one", "two", "three", "four", "five")).forEachIndexed { index, one, two, three, four, five ->
-                    index shouldBe 1
+                    index shouldBe 0
 
                     one shouldBe "one"
                     two shouldBe "two"
@@ -67,7 +67,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             "produce a correct mapping from Hexa" {
 
                 listOf(Hexa("one", "two", "three", "four", "five", "six")).forEachIndexed { index, one, two, three, four, five, six ->
-                    index shouldBe 1
+                    index shouldBe 0
 
                     one shouldBe "one"
                     two shouldBe "two"
@@ -83,7 +83,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             "produce a correct mapping from Hepta" {
 
                 listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).forEachIndexed { index, one, two, three, four, five, six, seven ->
-                    index shouldBe 1
+                    index shouldBe 0
 
                     one shouldBe "one"
                     two shouldBe "two"
