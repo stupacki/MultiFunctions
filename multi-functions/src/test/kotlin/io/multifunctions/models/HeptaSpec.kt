@@ -10,8 +10,9 @@ class HeptaSpec : WordSpec() {
         "Hepta" should {
 
             "be initialized" {
+                val testData = Hepta("one", "two", "three", "four", "five", "six", "seven")
 
-                Hepta("one", "two", "three", "four", "five", "six", "seven").let { hepta ->
+                testData.let { hepta ->
                     hepta.first shouldBe "one"
                     hepta.second shouldBe "two"
                     hepta.third shouldBe "three"
@@ -21,12 +22,13 @@ class HeptaSpec : WordSpec() {
                     hepta.seventh shouldBe "seven"
 
                     Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
-                } shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
+                } shouldBe testData
             }
 
             "handle null values" {
+                val testData = Hepta<String?, String?, String?, String?, String?, String?, String?>(null, null, null, null, null, null, null)
 
-                Hepta<String?, String?, String?, String?, String?, String?, String?>(null, null, null, null, null, null, null).let { hepta ->
+                testData.let { hepta ->
                     hepta.first shouldBe null
                     hepta.second shouldBe null
                     hepta.third shouldBe null
@@ -35,24 +37,27 @@ class HeptaSpec : WordSpec() {
                     hepta.sixth shouldBe null
 
                     Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
-                } shouldBe Hepta(null, null, null, null, null, null, null)
+                } shouldBe testData
             }
 
             "handle toString" {
+                val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
+                val expected = "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
 
-                Hepta("one", "two", "three", "four", "five", "six", "seven").toString() shouldBe "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
+                actual.toString() shouldBe expected
             }
 
             "handle copy()" {
+                val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
 
-                val hepta = Hepta("one", "two", "three", "four", "five", "six", "seven")
-
-                hepta.copy() shouldBe Hepta("one", "two", "three", "four", "five", "six", "seven")
+                actual.copy() shouldBe actual
             }
 
             "handle toList" {
+                val actual = Hepta("one", "two", "three", "four", "fife", "six", "seven")
+                val expected = listOf("one", "two", "three", "four", "fife", "six", "seven")
 
-                Hepta("one", "two", "three", "four", "fife", "six", "seven").toList() shouldBe listOf("one", "two", "three", "four", "fife", "six", "seven")
+                actual.toList() shouldBe expected
             }
         }
     }
