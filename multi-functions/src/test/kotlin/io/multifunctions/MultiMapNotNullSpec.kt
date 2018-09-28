@@ -4,15 +4,15 @@ import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.models.*
 
-class MultiMapCheckNullSpec : WordSpec() {
+class MultiMapNotNullSpec : WordSpec() {
 
     init {
 
-        "MultiMapCheckNull" should {
+        "MultiMapNotNull" should {
 
             "produce a correct mapping from Pair" {
 
-                listOf(Pair("one", "two")).mapCheckNull { one, two ->
+                listOf(Pair("one", "two")).mapNotNull { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -22,7 +22,7 @@ class MultiMapCheckNullSpec : WordSpec() {
 
             "produce a correct mapping from Triple" {
 
-                listOf(Triple("one", "two", "three")).mapCheckNull { one, two, three ->
+                listOf(Triple("one", "two", "three")).mapNotNull { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -33,7 +33,7 @@ class MultiMapCheckNullSpec : WordSpec() {
 
             "produce a correct mapping from Quad" {
 
-                listOf(Quad("one", "two", "three", "four")).mapCheckNull { one, two, three, four ->
+                listOf(Quad("one", "two", "three", "four")).mapNotNull { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -45,7 +45,7 @@ class MultiMapCheckNullSpec : WordSpec() {
 
             "produce a correct mapping from Penta" {
 
-                listOf(Penta("one", "two", "three", "four", "five")).mapCheckNull { one, two, three, four, five ->
+                listOf(Penta("one", "two", "three", "four", "five")).mapNotNull { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -58,7 +58,7 @@ class MultiMapCheckNullSpec : WordSpec() {
 
             "produce a correct mapping from Hexa" {
 
-                listOf(Hexa("one", "two", "three", "four", "five", "six")).mapCheckNull { one, two, three, four, five, six ->
+                listOf(Hexa("one", "two", "three", "four", "five", "six")).mapNotNull { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -70,14 +70,26 @@ class MultiMapCheckNullSpec : WordSpec() {
                 } shouldBe listOf(Hexa("one", "two", "three", "four", "five", "six"))
             }
 
-            "handle null values" {
-
-                listOf(Pair<String?, String?>("one", null), Pair("one", "two")).mapCheckNull { one, two ->
+            "sort out null elements" {
+                listOf(Pair(null, null),
+                       Pair("one", "two"),
+                       Pair("one", null),
+                       Pair(null, "two")).mapNotNull { one, two ->
                     Pair(one, two)
-                } shouldBe listOf(Pair("one", "two"))
+                } shouldBe listOf(Pair("one", "two"),
+                                  Pair("one", null),
+                                  Pair(null, "two"))
             }
 
-            "not effect kotlin mapCheckNull" {
+            "handle null values" {
+
+                listOf(Pair<String?, String?>("one", null), Pair("one", "two")).mapNotNull { one, two ->
+                    Pair(one, two)
+                } shouldBe listOf(Pair("one", null),
+                                  Pair("one", "two"))
+            }
+
+            "not effect kotlin mapNotNull" {
 
                 listOf(null, "something", null).mapNotNull { elem ->
                     when (null) {
