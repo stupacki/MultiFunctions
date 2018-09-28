@@ -1,5 +1,6 @@
 package io.multifunctions
 
+import io.multifunctions.models.Hepta
 import io.multifunctions.models.Hexa
 import io.multifunctions.models.Penta
 import io.multifunctions.models.Quad
@@ -18,3 +19,6 @@ inline fun <A, B, C, D, E> Iterable<Penta<A?, B?, C?, D?, E?>>.forEach(action: (
 
 inline fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.forEach(action: (A?, B?, C?, D?, E?, F?) -> Unit) =
         this.forEach { (first, second, third, fourth, fifth, sixth) -> action(first, second, third, fourth, fifth, sixth) }
+
+inline fun <A, B, C, D, E, F, G> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.forEach(action: (A?, B?, C?, D?, E?, F?, G?) -> Unit) =
+        this.forEach { (first, second, third, fourth, fifth, sixth, seventh) -> action(first, second, third, fourth, fifth, sixth, seventh) }

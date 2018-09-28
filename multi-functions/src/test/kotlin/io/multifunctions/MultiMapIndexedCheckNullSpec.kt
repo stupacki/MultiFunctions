@@ -4,16 +4,16 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.WordSpec
 import io.multifunctions.models.*
 
-class MultiMapIndexedNotNullSpec : WordSpec() {
+class MultiMapIndexedCheckNullSpec : WordSpec() {
 
     init {
 
-        "mapIndexedNotNull" should {
+        "MapIndexedCheckNull" should {
 
             "produce a correct mapping from Pair" {
                 val testData = listOf(Pair("one", "two"))
 
-                testData.mapIndexedNotNull { index, one, two ->
+                testData.mapIndexedCheckNull { index, one, two ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -26,7 +26,7 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
             "produce a correct mapping from Triple" {
                 val testData = listOf(Triple("one", "two", "three"))
 
-                testData.mapIndexedNotNull { index, one, two, three ->
+                testData.mapIndexedCheckNull { index, one, two, three ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -40,7 +40,7 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
             "produce a correct mapping from Quad" {
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
-                testData.mapIndexedNotNull { index, one, two, three, four ->
+                testData.mapIndexedCheckNull { index, one, two, three, four ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -55,7 +55,7 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
             "produce a correct mapping from Penta" {
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData.mapIndexedNotNull { index, one, two, three, four, five ->
+                testData.mapIndexedCheckNull { index, one, two, three, four, five ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -71,7 +71,7 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
             "produce a correct mapping from Hexa" {
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData.mapIndexedNotNull { index, one, two, three, four, five, six ->
+                testData.mapIndexedCheckNull { index, one, two, three, four, five, six ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -88,7 +88,7 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
             "produce a correct mapping from Hepta" {
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData.mapIndexedNotNull { index, one, two, three, four, five, six, seven ->
+                testData.mapIndexedCheckNull { index, one, two, three, four, five, six, seven ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -104,17 +104,10 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
             }
 
             "handle null values" {
+                val actual = listOf(Pair("one", null), Pair("one", "two"))
+                val expected = listOf(Triple(1, "one", "two"))
 
-                val actual = listOf(Pair("one", null),
-                                    Pair(null, "two"),
-                                    Pair("one", "two"),
-                                    Pair(null, null))
-
-                val expected = listOf(Pair(0, Pair("one", null)),
-                                      Pair(1, Pair(null, "two")),
-                                      Pair(2, Pair("one", "two")))
-
-                actual.mapIndexedNotNull { index, one, two -> Pair(index, Pair(one, two)) } shouldBe expected
+                actual.mapIndexedCheckNull { index, one, two -> Triple(index, one, two) } shouldBe expected
             }
         }
     }

@@ -1,6 +1,6 @@
 package io.multifunctions.models
 
-import io.kotlintest.matchers.shouldBe
+import io.kotlintest.shouldBe
 import io.kotlintest.specs.WordSpec
 
 class QuadSpec : WordSpec() {
@@ -10,44 +10,49 @@ class QuadSpec : WordSpec() {
         "Quad" should {
 
             "be initialized with Strings" {
+                val testData = Quad("one", "two", "three", "four")
 
-                Quad("one", "two", "three", "four").let { quad ->
+                testData.let { quad ->
                     quad.first shouldBe "one"
                     quad.second shouldBe "two"
                     quad.third shouldBe "three"
                     quad.fourth shouldBe "four"
 
                     Quad(quad.first, quad.second, quad.third, quad.fourth)
-                } shouldBe Quad("one", "two", "three", "four")
+                } shouldBe testData
             }
 
             "handle null values" {
+                val testData = Quad<String?, String?, String?, String?>(null, null, null, null)
 
-                Quad<String?, String?, String?, String?>(null, null, null, null).let { quad ->
+                testData.let { quad ->
                     quad.first shouldBe null
                     quad.second shouldBe null
                     quad.third shouldBe null
                     quad.fourth shouldBe null
 
                     Quad(quad.first, quad.second, quad.third, quad.fourth)
-                } shouldBe Quad(null, null, null, null)
+                } shouldBe testData
             }
 
             "handle toString" {
+                val actual = Quad("one", "two", "three", "four")
+                val expected = "Quad(first=one, second=two, third=three, fourth=four)"
 
-                Quad("one", "two", "three", "four").toString() shouldBe "Quad(first=one, second=two, third=three, fourth=four)"
+                actual.toString() shouldBe expected
             }
 
             "handle copy()" {
+                val actual = Quad("one", "two", "three", "four")
 
-                val quad = Quad("one", "two", "three", "four")
-
-                quad.copy() shouldBe Quad("one", "two", "three", "four")
+                actual.copy() shouldBe actual
             }
 
             "handle toList" {
+                val actual = Quad("one", "two", "three", "four")
+                val expected = listOf("one", "two", "three", "four")
 
-                Quad("one", "two", "three", "four").toList() shouldBe listOf("one", "two", "three", "four")
+                actual.toList() shouldBe expected
             }
         }
     }
