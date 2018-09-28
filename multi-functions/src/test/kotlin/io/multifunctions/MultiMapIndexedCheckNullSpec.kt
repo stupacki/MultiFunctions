@@ -11,20 +11,22 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
         "MapIndexedCheckNull" should {
 
             "produce a correct mapping from Pair" {
+                val testData = listOf(Pair("one", "two"))
 
-                listOf(Pair("one", "two")).mapIndexedCheckNull { index, one, two ->
+                testData.mapIndexedCheckNull { index, one, two ->
                     index shouldBe 0
 
                     one shouldBe "one"
                     two shouldBe "two"
 
                     Pair(one, two)
-                } shouldBe listOf(Pair("one", "two"))
+                } shouldBe testData
             }
 
             "produce a correct mapping from Triple" {
+                val testData = listOf(Triple("one", "two", "three"))
 
-                listOf(Triple("one", "two", "three")).mapIndexedCheckNull { index, one, two, three ->
+                testData.mapIndexedCheckNull { index, one, two, three ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -32,12 +34,13 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
                     three shouldBe "three"
 
                     Triple(one, two, three)
-                } shouldBe listOf(Triple("one", "two", "three"))
+                } shouldBe testData
             }
 
             "produce a correct mapping from Quad" {
+                val testData = listOf(Quad("one", "two", "three", "four"))
 
-                listOf(Quad("one", "two", "three", "four")).mapIndexedCheckNull { index, one, two, three, four ->
+                testData.mapIndexedCheckNull { index, one, two, three, four ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -46,12 +49,13 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
                     four shouldBe "four"
 
                     Quad(one, two, three, four)
-                } shouldBe listOf(Quad("one", "two", "three", "four"))
+                } shouldBe testData
             }
 
             "produce a correct mapping from Penta" {
+                val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                listOf(Penta("one", "two", "three", "four", "five")).mapIndexedCheckNull { index, one, two, three, four, five ->
+                testData.mapIndexedCheckNull { index, one, two, three, four, five ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -61,12 +65,13 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
                     five shouldBe "five"
 
                     Penta(one, two, three, four, five)
-                } shouldBe listOf(Penta("one", "two", "three", "four", "five"))
+                } shouldBe testData
             }
 
             "produce a correct mapping from Hexa" {
+                val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                listOf(Hexa("one", "two", "three", "four", "five", "six")).mapIndexedCheckNull { index, one, two, three, four, five, six ->
+                testData.mapIndexedCheckNull { index, one, two, three, four, five, six ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -77,12 +82,13 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
                     six shouldBe "six"
 
                     Hexa(one, two, three, four, five, six)
-                } shouldBe listOf(Hexa("one", "two", "three", "four", "five", "six"))
+                } shouldBe testData
             }
 
             "produce a correct mapping from Hepta" {
+                val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).mapIndexedCheckNull { index, one, two, three, four, five, six, seven ->
+                testData.mapIndexedCheckNull { index, one, two, three, four, five, six, seven ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -94,14 +100,14 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
                     seven shouldBe "seven"
 
                     Hepta(one, two, three, four, five, six, seven)
-                } shouldBe listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
+                } shouldBe testData
             }
 
             "handle null values" {
+                val actual = listOf(Pair("one", null), Pair("one", "two"))
+                val expected = listOf(Triple(1, "one", "two"))
 
-                listOf(Pair("one", null), Pair("one", "two")).mapIndexedCheckNull { index, one, two ->
-                    Triple(index, one, two)
-                } shouldBe listOf(Triple(1, "one", "two"))
+                actual.mapIndexedCheckNull { index, one, two -> Triple(index, one, two) } shouldBe expected
             }
         }
     }
