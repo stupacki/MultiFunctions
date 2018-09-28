@@ -16,7 +16,7 @@ allprojects {
 #### Step 2. Add the dependency
 ```groovy
 dependencies {
-	        compile 'com.github.stupacki:MultiFunctions:1.1.3'
+	        compile 'com.github.stupacki:MultiFunctions:1.2.0'
 	}
 ```
 
@@ -52,7 +52,7 @@ apiResult.let { user, orders, favorites, notes ->
 If you really don't want to deal with null values within your let operations, letNotNull is your choice.
 
 ```kotlin
-import io.multifunctions.letCheckNull
+import io.multifunctions.letNotNull
    
 val apiResult = Pair(userApi.get(userId),
                      ordersApi.get(userId))
@@ -83,7 +83,7 @@ testData.map { xData, yData, expectedResult ->
 You can do the same with MapNotNull if your function don't apply nullable values ```Calculate.xPlusY(x: Int, y: Int)```
 
 ```kotlin
-import io.multifunctions.mapCheckNull
+import io.multifunctions.mapNotNull
    
 val testData = listOf(Triple(1, 1, 2)
                       Triple(-1, 1, 0)
