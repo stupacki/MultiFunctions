@@ -79,6 +79,7 @@ class MultiFlatMapSpec : WordSpec() {
                     four shouldBe "four"
                     five shouldBe "five"
                     six shouldBe "six"
+                    seven shouldBe "seven"
 
                     listOf(Hepta(one, two, three, four, five, six, seven))
                 } shouldBe listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
