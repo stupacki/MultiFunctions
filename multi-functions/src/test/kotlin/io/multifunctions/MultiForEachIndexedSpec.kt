@@ -13,52 +13,62 @@ class MultiForEachIndexedSpec : WordSpec() {
             "produce a correct mapping from Pair" {
 
                 listOf(Pair("one", "two")).forEachIndexed { index, one, two ->
+                    index shouldBe 1
+
                     one shouldBe "one"
                     two shouldBe "two"
 
-                    Triple(index, one, two)
+                    Pair(one, two)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Triple" {
 
                 listOf(Triple("one", "two", "three")).forEachIndexed { index, one, two, three ->
+                    index shouldBe 1
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
 
-                    Quad(index, one, two, three)
+                    Triple(one, two, three)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Quad" {
 
                 listOf(Quad("one", "two", "three", "four")).forEachIndexed { index, one, two, three, four ->
+                    index shouldBe 1
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
 
-                    Penta(index, one, two, three, four)
+                    Quad(one, two, three, four)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Penta" {
 
                 listOf(Penta("one", "two", "three", "four", "five")).forEachIndexed { index, one, two, three, four, five ->
+                    index shouldBe 1
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
                     four shouldBe "four"
                     five shouldBe "five"
 
-                    Hexa(index, one, two, three, four, five)
+                    Penta(one, two, three, four, five)
                 } shouldBe Unit
             }
 
             "produce a correct mapping from Hexa" {
 
                 listOf(Hexa("one", "two", "three", "four", "five", "six")).forEachIndexed { index, one, two, three, four, five, six ->
+                    index shouldBe 1
+
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -66,7 +76,23 @@ class MultiForEachIndexedSpec : WordSpec() {
                     five shouldBe "five"
                     six shouldBe "six"
 
-                    Hepta(index, one, two, three, four, five, six)
+                    Hexa(one, two, three, four, five, six)
+                } shouldBe Unit
+            }
+
+            "produce a correct mapping from Hepta" {
+
+                listOf(Hepta("one", "two", "three", "four", "five", "six", "seven")).forEachIndexed { index, one, two, three, four, five, six, seven ->
+                    index shouldBe 1
+
+                    one shouldBe "one"
+                    two shouldBe "two"
+                    three shouldBe "three"
+                    four shouldBe "four"
+                    five shouldBe "five"
+                    six shouldBe "six"
+
+                    Hepta(one, two, three, four, five, six, seven)
                 } shouldBe Unit
             }
 
