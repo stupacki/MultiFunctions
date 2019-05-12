@@ -13,7 +13,7 @@ class MultiMapNotNullSpec : WordSpec() {
             "produce a correct mapping from Pair" {
                 val testData = listOf(Pair("one", "two"))
 
-                testData.mapNotNull { one, two ->
+                testData mapNotNull { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -24,7 +24,7 @@ class MultiMapNotNullSpec : WordSpec() {
             "produce a correct mapping from Triple" {
                 val testData = listOf(Triple("one", "two", "three"))
 
-                testData.mapNotNull { one, two, three ->
+                testData mapNotNull { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -36,7 +36,7 @@ class MultiMapNotNullSpec : WordSpec() {
             "produce a correct mapping from Quad" {
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
-                testData.mapNotNull { one, two, three, four ->
+                testData mapNotNull { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -49,7 +49,7 @@ class MultiMapNotNullSpec : WordSpec() {
             "produce a correct mapping from Penta" {
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData.mapNotNull { one, two, three, four, five ->
+                testData mapNotNull { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -63,7 +63,7 @@ class MultiMapNotNullSpec : WordSpec() {
             "produce a correct mapping from Hexa" {
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData.mapNotNull { one, two, three, four, five, six ->
+                testData mapNotNull { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -78,7 +78,7 @@ class MultiMapNotNullSpec : WordSpec() {
             "produce a correct mapping from Hepta" {
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData.mapNotNull { one, two, three, four, five, six, seven ->
+                testData mapNotNull { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -95,7 +95,7 @@ class MultiMapNotNullSpec : WordSpec() {
                 listOf(Pair(null, null),
                        Pair("one", "two"),
                        Pair("one", null),
-                       Pair(null, "two")).mapNotNull { one, two ->
+                       Pair(null, "two")) mapNotNull { one, two ->
                     Pair(one, two)
                 } shouldBe listOf(Pair("one", "two"),
                                   Pair("one", null),
@@ -104,7 +104,7 @@ class MultiMapNotNullSpec : WordSpec() {
 
             "handle null values" {
 
-                listOf(Pair<String?, String?>("one", null), Pair("one", "two")).mapNotNull { one, two ->
+                listOf(Pair<String?, String?>("one", null), Pair("one", "two")) mapNotNull { one, two ->
                     Pair(one, two)
                 } shouldBe listOf(Pair("one", null),
                                   Pair("one", "two"))
