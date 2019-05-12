@@ -13,7 +13,7 @@ class MultiLetSpec : WordSpec() {
             "produce a correct binding from Pair" {
                 val testData = Pair("one", "two")
 
-                testData.let { one, two ->
+                testData let { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -24,7 +24,7 @@ class MultiLetSpec : WordSpec() {
             "produce a correct binding from Triple" {
                 val testData = Triple("one", "two", "three")
 
-                testData.let { one, two, three ->
+                testData let { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -36,7 +36,7 @@ class MultiLetSpec : WordSpec() {
             "produce a correct binding from Quad" {
                 val testData = Quad("one", "two", "three", "four")
 
-                testData.let { one, two, three, four ->
+                testData let { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -49,7 +49,7 @@ class MultiLetSpec : WordSpec() {
             "produce a correct binding from Penta" {
                 val testData = Penta("one", "two", "three", "four", "five")
 
-                testData.let { one, two, three, four, five ->
+                testData let { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -63,7 +63,7 @@ class MultiLetSpec : WordSpec() {
             "produce a correct binding from Hexa" {
                 val testData = Hexa("one", "two", "three", "four", "five", "six")
 
-                testData.let { one, two, three, four, five, six ->
+                testData let { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -78,7 +78,7 @@ class MultiLetSpec : WordSpec() {
             "produce a correct binding from Hepta" {
                 val testData = Hepta("one", "two", "three", "four", "five", "six", "seven")
 
-                testData.let { one, two, three, four, five, six, seven ->
+                testData let { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -95,7 +95,7 @@ class MultiLetSpec : WordSpec() {
                 val actual = Pair<String?, String?>("one", null)
                 val expected = Pair("one", null)
 
-                actual.let { one, two ->
+                actual let { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
