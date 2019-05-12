@@ -13,7 +13,7 @@ class MultiForEachSpec : WordSpec() {
             "produce a correct mapping from Pair" {
                 val testData = listOf(Pair("one", "two"))
 
-                testData.forEach { one, two ->
+                testData forEach { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
                 } shouldBe Unit
@@ -22,7 +22,7 @@ class MultiForEachSpec : WordSpec() {
             "produce a correct mapping from Triple" {
                 val testData = listOf(Triple("one", "two", "three"))
 
-                testData.forEach { one, two, three ->
+                testData forEach { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -32,7 +32,7 @@ class MultiForEachSpec : WordSpec() {
             "produce a correct mapping from Quad" {
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
-                testData.forEach { one, two, three, four ->
+                testData forEach { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -43,7 +43,7 @@ class MultiForEachSpec : WordSpec() {
             "produce a correct mapping from Penta" {
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData.forEach { one, two, three, four, five ->
+                testData forEach { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -55,7 +55,7 @@ class MultiForEachSpec : WordSpec() {
             "produce a correct mapping from Hexa" {
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData.forEach { one, two, three, four, five, six ->
+                testData forEach { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -68,7 +68,7 @@ class MultiForEachSpec : WordSpec() {
             "produce a correct mapping from Hepta" {
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData.forEach { one, two, three, four, five, six, seven ->
+                testData forEach { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -82,7 +82,7 @@ class MultiForEachSpec : WordSpec() {
             "handle null values" {
                 val actual = listOf(Pair("one", null))
 
-                actual.forEach { one, two ->
+                actual forEach { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
