@@ -14,7 +14,7 @@ class MultiWithIndexSpec : WordSpec() {
                 val actual = listOf(Pair("one", "two"))
                 val expected = listOf(IndexedValue(0, Pair("one", "two")))
 
-                actual.withIndex { one, two ->
+                actual withIndex { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -26,7 +26,7 @@ class MultiWithIndexSpec : WordSpec() {
                 val actual = listOf(Triple("one", "two", "three"))
                 val expected = listOf(IndexedValue(0, Triple("one", "two", "three")))
 
-                actual.withIndex { one, two, three ->
+                actual withIndex { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -39,7 +39,7 @@ class MultiWithIndexSpec : WordSpec() {
                 val actual = listOf(Quad("one", "two", "three", "four"))
                 val expected = listOf(IndexedValue(0, Quad("one", "two", "three", "four")))
 
-                actual.withIndex { one, two, three, four ->
+                actual withIndex { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -53,7 +53,7 @@ class MultiWithIndexSpec : WordSpec() {
                 val actual = listOf(Penta("one", "two", "three", "four", "five"))
                 val expected = listOf(IndexedValue(0, Penta("one", "two", "three", "four", "five")))
 
-                actual.withIndex { one, two, three, four, five ->
+                actual withIndex { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -68,7 +68,7 @@ class MultiWithIndexSpec : WordSpec() {
                 val actual = listOf(Hexa("one", "two", "three", "four", "five", "six"))
                 val expected = listOf(IndexedValue(0, Hexa("one", "two", "three", "four", "five", "six")))
 
-                actual.withIndex { one, two, three, four, five, six ->
+                actual withIndex { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -84,7 +84,7 @@ class MultiWithIndexSpec : WordSpec() {
                 val actual = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
                 val expected = listOf(IndexedValue(0, Hepta("one", "two", "three", "four", "five", "six", "seven")))
 
-                actual.withIndex { one, two, three, four, five, six, seven ->
+                actual withIndex { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -101,7 +101,7 @@ class MultiWithIndexSpec : WordSpec() {
                 val actual = listOf(Pair<String?, String?>("one", null))
                 val expected = listOf(IndexedValue(0, Pair("one", null)))
 
-                actual.withIndex { one, two ->
+                actual withIndex { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
