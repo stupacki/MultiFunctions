@@ -13,7 +13,7 @@ class MultiMapIndexedSpec : WordSpec() {
             "produce a correct mapping from Pair" {
                 val testData = listOf(Pair("one", "two"))
 
-                testData.mapIndexed { index, one, two ->
+                testData mapIndexed { index, one, two ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -26,7 +26,7 @@ class MultiMapIndexedSpec : WordSpec() {
             "produce a correct mapping from Triple" {
                 val testData = listOf(Triple("one", "two", "three"))
 
-                testData.mapIndexed { index, one, two, three ->
+                testData mapIndexed { index, one, two, three ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -40,7 +40,7 @@ class MultiMapIndexedSpec : WordSpec() {
             "produce a correct mapping from Quad" {
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
-                testData.mapIndexed { index, one, two, three, four ->
+                testData mapIndexed { index, one, two, three, four ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -55,7 +55,7 @@ class MultiMapIndexedSpec : WordSpec() {
             "produce a correct mapping from Penta" {
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData.mapIndexed { index, one, two, three, four, five ->
+                testData mapIndexed { index, one, two, three, four, five ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -71,7 +71,7 @@ class MultiMapIndexedSpec : WordSpec() {
             "produce a correct mapping from Hexa" {
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData.mapIndexed { index, one, two, three, four, five, six ->
+                testData mapIndexed { index, one, two, three, four, five, six ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -88,7 +88,7 @@ class MultiMapIndexedSpec : WordSpec() {
             "produce a correct mapping from Hepta" {
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData.mapIndexed { index, one, two, three, four, five, six, seven ->
+                testData mapIndexed { index, one, two, three, four, five, six, seven ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -107,7 +107,7 @@ class MultiMapIndexedSpec : WordSpec() {
                 val actual = listOf(Pair<String?, String?>("one", null))
                 val expected = listOf(Triple(0, "one", null))
 
-                actual.mapIndexed { index, one, two ->
+                actual mapIndexed { index, one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
