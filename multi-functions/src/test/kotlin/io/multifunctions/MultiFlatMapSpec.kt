@@ -13,7 +13,7 @@ class MultiFlatMapSpec : WordSpec() {
             "produce a correct mapping from Pair" {
                 val testData = listOf(Pair("one", "two"))
 
-                testData.flatMap { one, two ->
+                testData flatMap { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -25,7 +25,7 @@ class MultiFlatMapSpec : WordSpec() {
 
                 val tesData = listOf(Triple("one", "two", "three"))
 
-                tesData.flatMap { one, two, three ->
+                tesData flatMap { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -37,7 +37,7 @@ class MultiFlatMapSpec : WordSpec() {
             "produce a correct mapping from Quad" {
                 val tesData = listOf(Quad("one", "two", "three", "four"))
 
-                tesData.flatMap { one, two, three, four ->
+                tesData flatMap { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -50,7 +50,7 @@ class MultiFlatMapSpec : WordSpec() {
             "produce a correct mapping from Penta" {
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData.flatMap { one, two, three, four, five ->
+                testData flatMap { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -64,7 +64,7 @@ class MultiFlatMapSpec : WordSpec() {
             "produce a correct mapping from Hexa" {
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData.flatMap { one, two, three, four, five, six ->
+                testData flatMap { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -79,7 +79,7 @@ class MultiFlatMapSpec : WordSpec() {
             "produce a correct mapping from Hepta" {
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData.flatMap { one, two, three, four, five, six, seven ->
+                testData flatMap { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -96,7 +96,7 @@ class MultiFlatMapSpec : WordSpec() {
                 val actual = listOf(Pair("one", null))
                 val expected = listOf(Pair("one", null))
 
-                actual.flatMap { one, two ->
+                actual flatMap { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 
