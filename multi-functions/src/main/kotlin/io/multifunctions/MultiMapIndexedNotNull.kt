@@ -1,9 +1,12 @@
 package io.multifunctions
 
-import io.multifunctions.models.*
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 
 inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapIndexedNotNull(transform: (Int, A?, B?) -> R?): List<R> =
-        this.mapIndexedNotNull { index, (first, second) ->
+        mapIndexedNotNull { index, (first, second) ->
             when (Pair(first, second)) {
                 Pair(null, null) -> null
                 else -> transform(index, first, second)
@@ -11,7 +14,7 @@ inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapIndexedNotNull(transf
         }
 
 inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?) -> R?): List<R> =
-        this.mapIndexedNotNull { index, (first, second, third) ->
+        mapIndexedNotNull { index, (first, second, third) ->
             when (Triple(first, second, third)) {
                 Triple(null, null, null) -> null
                 else -> transform(index, first, second, third)
@@ -19,7 +22,7 @@ inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapIndexedNotNu
         }
 
 inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?) -> R?): List<R> =
-        this.mapIndexedNotNull { index, (first, second, third, fourth) ->
+        mapIndexedNotNull { index, (first, second, third, fourth) ->
             when (Quad(first, second, third, fourth)) {
                 Quad(null, null, null, null) -> null
                 else -> transform(index, first, second, third, fourth)
@@ -27,7 +30,7 @@ inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapIndexed
         }
 
 inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?, E?) -> R?): List<R> =
-        this.mapIndexedNotNull { index, (first, second, third, fourth, fifth) ->
+        mapIndexedNotNull { index, (first, second, third, fourth, fifth) ->
             when (Penta(first, second, third, fourth, fifth)) {
                 Penta(null, null, null, null, null) -> null
                 else -> transform(index, first, second, third, fourth, fifth)
@@ -35,7 +38,7 @@ inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.ma
         }
 
 inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?, E?, F?) -> R?): List<R> =
-        this.mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth) ->
+        mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth) ->
             when (Hexa(first, second, third, fourth, fifth, sixth)) {
                 Hexa(null, null, null, null, null, null) -> null
                 else -> transform(index, first, second, third, fourth, fifth, sixth)
@@ -43,7 +46,7 @@ inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F
         }
 
 inline infix fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?, E?, F?, G?) -> R?): List<R> =
-        this.mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth, seventh) ->
+        mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth, seventh) ->
             when (Hepta(first, second, third, fourth, fifth, sixth, seventh)) {
                 Hepta(null, null, null, null, null, null, null) -> null
                 else -> transform(index, first, second, third, fourth, fifth, sixth, seventh)
