@@ -2,7 +2,10 @@ package io.multifunctions
 
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.WordSpec
-import io.multifunctions.models.*
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 
 class MultiMapIndexedCheckNullSpec : WordSpec() {
 
@@ -105,9 +108,26 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
 
             "handle null values" {
                 val actual = listOf(Pair("one", null), Pair("one", "two"))
-                val expected = listOf(Triple(1, "one", "two"))
+                val expected = listOf(Triple(0, "one", "two"))
 
                 actual mapIndexedCheckNull { index, one, two -> Triple(index, one, two) } shouldBe expected
+            }
+
+            "calculate the right index when null elements have been filtered out" {
+
+                val actual: List<Pair<String?, String?>> =
+                    listOf(Pair("one", null),
+                           Pair("three", "four"),
+                           Pair("fife", "six"),
+                           Pair("ten", "eleven"))
+                val expected: List<Triple<Int, String, String>> =
+                    listOf(Triple(0, "three", "four"),
+                           Triple(1, "fife", "six"),
+                           Triple(2, "ten", "eleven"))
+
+                actual mapIndexedCheckNull { index: Int, one: String?, two: String? ->
+                    Triple(index, one, two)
+                } shouldBe expected
             }
         }
     }
