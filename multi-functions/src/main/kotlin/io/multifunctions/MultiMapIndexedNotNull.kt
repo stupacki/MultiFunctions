@@ -5,6 +5,12 @@ import io.multifunctions.models.Hexa
 import io.multifunctions.models.Penta
 import io.multifunctions.models.Quad
 
+/**
+ * Returns a list containing only the non-null results of applying the given [transform] function
+ * to each element and its index in the original collection.
+ * @param [transform] function that takes the index of an element and the element itself
+ * and returns the result of the transform applied to the element.
+ */
 inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapIndexedNotNull(transform: (Int, A?, B?) -> R?): List<R> =
     mapIndexedNotNull { index, (first, second) ->
         when {
@@ -13,6 +19,12 @@ inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapIndexedNotNull(transf
         }
     }
 
+/**
+ * Returns a list containing only the non-null results of applying the given [transform] function
+ * to each element and its index in the original collection.
+ * @param [transform] function that takes the index of an element and the element itself
+ * and returns the result of the transform applied to the element.
+ */
 inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?) -> R?): List<R> =
     mapIndexedNotNull { index, (first, second, third) ->
         when {
@@ -21,6 +33,12 @@ inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapIndexedNotNu
         }
     }
 
+/**
+ * Returns a list containing only the non-null results of applying the given [transform] function
+ * to each element and its index in the original collection.
+ * @param [transform] function that takes the index of an element and the element itself
+ * and returns the result of the transform applied to the element.
+ */
 inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?) -> R?): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth) ->
         when {
@@ -29,6 +47,12 @@ inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapIndexed
         }
     }
 
+/**
+ * Returns a list containing only the non-null results of applying the given [transform] function
+ * to each element and its index in the original collection.
+ * @param [transform] function that takes the index of an element and the element itself
+ * and returns the result of the transform applied to the element.
+ */
 inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?, E?) -> R?): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth) ->
         when {
@@ -37,6 +61,12 @@ inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.ma
         }
     }
 
+/**
+ * Returns a list containing only the non-null results of applying the given [transform] function
+ * to each element and its index in the original collection.
+ * @param [transform] function that takes the index of an element and the element itself
+ * and returns the result of the transform applied to the element.
+ */
 inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?, E?, F?) -> R?): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth) ->
         when {
@@ -45,6 +75,12 @@ inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F
         }
     }
 
+/**
+ * Returns a list containing only the non-null results of applying the given [transform] function
+ * to each element and its index in the original collection.
+ * @param [transform] function that takes the index of an element and the element itself
+ * and returns the result of the transform applied to the element.
+ */
 inline infix fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexedNotNull(transform: (Int, A?, B?, C?, D?, E?, F?, G?) -> R?): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth, seventh) ->
         when {

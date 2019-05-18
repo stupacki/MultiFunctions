@@ -116,7 +116,7 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
             "calculate the right index when null elements have been filtered out" {
 
                 val actual: List<Pair<String?, String?>> =
-                    listOf(Pair("one", null),
+                    listOf(Pair(null, null),
                            Pair("three", "four"),
                            Pair("fife", "six"),
                            Pair("ten", "eleven"))
