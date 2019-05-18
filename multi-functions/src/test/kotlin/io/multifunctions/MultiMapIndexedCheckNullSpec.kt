@@ -107,26 +107,18 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
             }
 
             "handle null values" {
-                val actual = listOf(Pair("one", null), Pair("one", "two"))
-                val expected = listOf(Triple(0, "one", "two"))
 
-                actual mapIndexedCheckNull { index, one, two -> Triple(index, one, two) } shouldBe expected
-            }
+                val actual = listOf(Pair("one", null),
+                                    Pair("three", "four"),
+                                    Pair("fife", "six"),
+                                    Pair(null, null),
+                                    Pair("ten", "eleven"))
+                val expected = listOf(Pair("three", "four"),
+                                      Pair("fife", "six"),
+                                      Pair("ten", "eleven"))
 
-            "calculate the right index when null elements have been filtered out" {
-
-                val actual: List<Pair<String?, String?>> =
-                    listOf(Pair(null, null),
-                           Pair("three", "four"),
-                           Pair("fife", "six"),
-                           Pair("ten", "eleven"))
-                val expected: List<Triple<Int, String, String>> =
-                    listOf(Triple(0, "three", "four"),
-                           Triple(1, "fife", "six"),
-                           Triple(2, "ten", "eleven"))
-
-                actual mapIndexedCheckNull { index: Int, one: String?, two: String? ->
-                    Triple(index, one, two)
+                actual mapIndexedCheckNull { _, one, two ->
+                    Pair(one, two)
                 } shouldBe expected
             }
         }
