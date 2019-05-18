@@ -47,7 +47,7 @@ apiResult.let { user, orders, favorites, notes ->
 }
 ```
 
-### Multi LetNotNull
+### Multi LetCheckNull
 
 If you really don't want to deal with null values within your let operations, letNotNull is your choice.
 
@@ -57,7 +57,7 @@ import io.multifunctions.letNotNull
 val apiResult = Pair(userApi.get(userId),
                      ordersApi.get(userId))
                       
-apiResult.letNotNull { user, orders ->
+apiResult.letCheckNull { user, orders ->
     HttpResult.renderPage(user = user,
                           orders = orders)
 }
@@ -83,14 +83,14 @@ testData.map { xData, yData, expectedResult ->
 You can do the same with MapNotNull if your function don't apply nullable values ```Calculate.xPlusY(x: Int, y: Int)```
 
 ```kotlin
-import io.multifunctions.mapNotNull
+import io.multifunctions.mapCheckNull
    
 val testData = listOf(Triple(1, 1, 2)
                       Triple(-1, 1, 0)
                       Triple(-1, -1, -2)
                       Triple(0, 0, 0))
                       
-testData.mapNotNull { xData, yData, expectedResult ->
+testData.mapCheckNull { xData, yData, expectedResult ->
     Calculate.xPlusY(x = xData, y = yData) shouldBe expectedResult
 }
 ```
