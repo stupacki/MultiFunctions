@@ -8,7 +8,7 @@ import io.multifunctions.models.Quad
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result.
  */
-inline infix fun <A, B, R> Pair<A?, B?>.let(blockg: (A?, B?) -> R): R? =
+inline infix fun <A, B, R> Pair<A?, B?>.let(block: (A?, B?) -> R): R? =
         block(first, second)
 
 /**
