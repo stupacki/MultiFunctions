@@ -32,5 +32,4 @@ public data class Quad<out A, out B, out C, out D>(val first: A,
 /**
  * Converts this penta into a list.
  */
-fun <T> Quad<T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth)
-
+public fun <T> Quad<T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth)

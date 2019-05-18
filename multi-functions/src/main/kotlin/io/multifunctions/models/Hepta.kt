@@ -41,4 +41,4 @@ public data class Hepta<out A, out B, out C, out D, out E, out F, out G>(val fir
 /**
  * Converts this hepta into a list.
  */
-fun <T> Hepta<T, T, T, T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth, fifth, sixth, seventh)
+public fun <T> Hepta<T, T, T, T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth, fifth, sixth, seventh)

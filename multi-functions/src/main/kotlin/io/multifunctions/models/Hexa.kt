@@ -38,4 +38,4 @@ public data class Hexa<out A, out B, out C, out D, out E, out F>(val first: A,
 /**
  * Converts this hexa into a list.
  */
-fun <T> Hexa<T, T, T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth, fifth, sixth)
+public fun <T> Hexa<T, T, T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth, fifth, sixth)

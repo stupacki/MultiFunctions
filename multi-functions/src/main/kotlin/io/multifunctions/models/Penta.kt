@@ -35,5 +35,4 @@ public data class Penta<out A, out B, out C, out D, out E>(val first: A,
 /**
  * Converts this penta into a list.
  */
-fun <T> Penta<T, T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth, fifth)
-
+public fun <T> Penta<T, T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth, fifth)
