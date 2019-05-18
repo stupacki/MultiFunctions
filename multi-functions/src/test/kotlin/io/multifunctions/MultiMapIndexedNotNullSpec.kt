@@ -109,20 +109,6 @@ class MultiMapIndexedNotNullSpec : WordSpec() {
             "handle null values" {
 
                 val actual = listOf(Pair("one", null),
-                                    Pair(null, "two"),
-                                    Pair("one", "two"),
-                                    Pair(null, null))
-
-                val expected = listOf(Pair(0, Pair("one", null)),
-                                      Pair(1, Pair(null, "two")),
-                                      Pair(2, Pair("one", "two")))
-
-                actual mapIndexedNotNull { index, one, two -> Pair(index, Pair(one, two)) } shouldBe expected
-            }
-
-            "calculate the right index when null elements have been filtered out" {
-
-                val actual = listOf(Pair("one", null),
                                     Pair("three", "four"),
                                     Pair("fife", "six"),
                                     Pair(null, null),
