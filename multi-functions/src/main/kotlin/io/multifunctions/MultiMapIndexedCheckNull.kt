@@ -12,7 +12,7 @@ import io.multifunctions.models.Quad
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapIndexedCheckNull(transform: (Int, A, B) -> R): List<R> =
+public inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapIndexedCheckNull(transform: (Int, A, B) -> R): List<R> =
     mapIndexedNotNull { index, (first, second) ->
         when (null) {
             first, second -> null
@@ -27,7 +27,7 @@ inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapIndexedCheckNull(tran
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapIndexedCheckNull(transform: (Int, A, B, C) -> R): List<R> =
+public inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapIndexedCheckNull(transform: (Int, A, B, C) -> R): List<R> =
     mapIndexedNotNull { index, (first, second, third) ->
         when (null) {
             first, second, third -> null
@@ -42,7 +42,7 @@ inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapIndexedCheck
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D) -> R): List<R> =
+public inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D) -> R): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth) ->
         when (null) {
             first, second, third, fourth -> null
@@ -57,7 +57,7 @@ inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapIndexed
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D, E) -> R): List<R> =
+public inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D, E) -> R): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth) ->
         when (null) {
             first, second, third, fourth, fifth -> null
@@ -72,7 +72,7 @@ inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.ma
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D, E, F) -> R): List<R> =
+public inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D, E, F) -> R): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth) ->
         when (null) {
             first, second, third, fourth, fifth, sixth -> null
@@ -87,7 +87,7 @@ inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-inline infix fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D, E, F, G) -> R): List<R> =
+public inline infix fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexedCheckNull(transform: (Int, A, B, C, D, E, F, G) -> R): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth, seventh) ->
         when (null) {
             first, second, third, fourth, fifth, sixth, seventh -> null

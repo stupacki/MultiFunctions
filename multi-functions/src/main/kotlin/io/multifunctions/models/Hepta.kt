@@ -24,13 +24,13 @@ import java.io.Serializable
  * @property seventh Seventh value.
  * @constructor Creates a new instance of Hepta.
  */
-data class Hepta<out A, out B, out C, out D, out E, out F, out G>(val first: A,
-                                                                  val second: B,
-                                                                  val third: C,
-                                                                  val fourth: D,
-                                                                  val fifth: E,
-                                                                  val sixth: F,
-                                                                  val seventh: G) : Serializable {
+public data class Hepta<out A, out B, out C, out D, out E, out F, out G>(val first: A,
+                                                                         val second: B,
+                                                                         val third: C,
+                                                                         val fourth: D,
+                                                                         val fifth: E,
+                                                                         val sixth: F,
+                                                                         val seventh: G) : Serializable {
 
     /**
      * Returns string representation of the [Hepta] including its [first], [second], [third], [fourth], [fifth], [sixth] and [seventh] values.

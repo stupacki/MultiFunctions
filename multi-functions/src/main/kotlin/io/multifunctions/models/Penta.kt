@@ -20,11 +20,11 @@ import java.io.Serializable
  * @property fifth Fifth value.
  * @constructor Creates a new instance of Penta.
  */
-data class Penta<out A, out B, out C, out D, out E>(val first: A,
-                                                    val second: B,
-                                                    val third: C,
-                                                    val fourth: D,
-                                                    val fifth: E) : Serializable {
+public data class Penta<out A, out B, out C, out D, out E>(val first: A,
+                                                           val second: B,
+                                                           val third: C,
+                                                           val fourth: D,
+                                                           val fifth: E) : Serializable {
 
     /**
      * Returns string representation of the [Penta] including its [first], [second], [third], [fourth] and [fifth] values.
