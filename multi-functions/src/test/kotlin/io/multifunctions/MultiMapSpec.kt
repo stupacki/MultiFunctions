@@ -2,7 +2,10 @@ package io.multifunctions
 
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.WordSpec
-import io.multifunctions.models.*
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 
 class MultiMapSpec : WordSpec() {
 
@@ -92,13 +95,19 @@ class MultiMapSpec : WordSpec() {
             }
 
             "handle null values" {
-                val actual = listOf(Pair<String?, String?>("one", null))
-                val expected = listOf(Pair("one", null))
+
+                val actual = listOf(Pair("one", null),
+                                    Pair("three", "four"),
+                                    Pair("fife", "six"),
+                                    Pair(null, null),
+                                    Pair("ten", "eleven"))
+                val expected = listOf(Pair("one", null),
+                                      Pair("three", "four"),
+                                      Pair("fife", "six"),
+                                      Pair(null, null),
+                                      Pair("ten", "eleven"))
 
                 actual map { one, two ->
-                    one shouldBe "one"
-                    two shouldBe null
-
                     Pair(one, two)
                 } shouldBe expected
             }
