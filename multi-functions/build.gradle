@@ -21,7 +21,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
-    testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.3.2'
+    testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.4.2'
 }
 
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
