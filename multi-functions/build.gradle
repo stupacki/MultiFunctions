@@ -1,6 +1,5 @@
 apply plugin: 'kotlin'
 apply plugin: 'java'
-apply plugin: 'maven'
 
 sourceSets {
     main {
