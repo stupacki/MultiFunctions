@@ -1,15 +1,16 @@
 package io.multifunctions.models
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
 
-class PentaSpec : WordSpec() {
+internal class PentaSpec : WordSpec() {
 
     init {
 
         "Penta" should {
 
             "be initialized" {
+
                 val testData = Penta("one", "two", "three", "four", "five")
 
                 testData.let { penta ->
@@ -24,7 +25,9 @@ class PentaSpec : WordSpec() {
             }
 
             "handle null values" {
-                val testData = Penta<String?, String?, String?, String?, String?>(null, null, null, null, null)
+
+                val testData =
+                    Penta<String?, String?, String?, String?, String?>(null, null, null, null, null)
 
                 testData.let { penta ->
                     penta.first shouldBe null
@@ -38,6 +41,7 @@ class PentaSpec : WordSpec() {
             }
 
             "handle toString" {
+
                 val actual = Penta("one", "two", "three", "four", "five")
                 val expected = "Penta(first=one, second=two, third=three, fourth=four, fifth=five)"
 
@@ -45,6 +49,7 @@ class PentaSpec : WordSpec() {
             }
 
             "handle copy()" {
+
                 val actual = Penta("one", "two", "three", "four", "five")
                 val expected = Penta("one", "two", "three", "four", "five")
 
@@ -52,6 +57,7 @@ class PentaSpec : WordSpec() {
             }
 
             "handle toList" {
+
                 val actual = Penta("one", "two", "three", "four", "fife")
                 val expected = listOf("one", "two", "three", "four", "fife")
 

@@ -1,15 +1,16 @@
 package io.multifunctions.models
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
 
-class QuadSpec : WordSpec() {
+internal class QuadSpec : WordSpec() {
 
     init {
 
         "Quad" should {
 
             "be initialized with Strings" {
+
                 val testData = Quad("one", "two", "three", "four")
 
                 testData.let { quad ->
@@ -23,6 +24,7 @@ class QuadSpec : WordSpec() {
             }
 
             "handle null values" {
+
                 val testData = Quad<String?, String?, String?, String?>(null, null, null, null)
 
                 testData.let { quad ->
@@ -36,6 +38,7 @@ class QuadSpec : WordSpec() {
             }
 
             "handle toString" {
+
                 val actual = Quad("one", "two", "three", "four")
                 val expected = "Quad(first=one, second=two, third=three, fourth=four)"
 
@@ -43,12 +46,14 @@ class QuadSpec : WordSpec() {
             }
 
             "handle copy()" {
+
                 val actual = Quad("one", "two", "three", "four")
 
                 actual.copy() shouldBe actual
             }
 
             "handle toList" {
+
                 val actual = Quad("one", "two", "three", "four")
                 val expected = listOf("one", "two", "three", "four")
 

@@ -1,9 +1,9 @@
 package io.multifunctions.models
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
 
-class HeptaSpec : WordSpec() {
+internal class HeptaSpec : WordSpec() {
 
     init {
 
@@ -21,12 +21,28 @@ class HeptaSpec : WordSpec() {
                     hepta.sixth shouldBe "six"
                     hepta.seventh shouldBe "seven"
 
-                    Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
+                    Hepta(
+                        hepta.first,
+                        hepta.second,
+                        hepta.third,
+                        hepta.fourth,
+                        hepta.fifth,
+                        hepta.sixth,
+                        hepta.seventh
+                    )
                 } shouldBe testData
             }
 
             "handle null values" {
-                val testData = Hepta<String?, String?, String?, String?, String?, String?, String?>(null, null, null, null, null, null, null)
+                val testData = Hepta<String?, String?, String?, String?, String?, String?, String?>(
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                )
 
                 testData.let { hepta ->
                     hepta.first shouldBe null
@@ -36,24 +52,36 @@ class HeptaSpec : WordSpec() {
                     hepta.fifth shouldBe null
                     hepta.sixth shouldBe null
 
-                    Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh)
+                    Hepta(
+                        hepta.first,
+                        hepta.second,
+                        hepta.third,
+                        hepta.fourth,
+                        hepta.fifth,
+                        hepta.sixth,
+                        hepta.seventh
+                    )
                 } shouldBe testData
             }
 
             "handle toString" {
+
                 val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
-                val expected = "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
+                val expected =
+                    "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
 
                 actual.toString() shouldBe expected
             }
 
             "handle copy()" {
+
                 val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
 
                 actual.copy() shouldBe actual
             }
 
             "handle toList" {
+
                 val actual = Hepta("one", "two", "three", "four", "fife", "six", "seven")
                 val expected = listOf("one", "two", "three", "four", "fife", "six", "seven")
 

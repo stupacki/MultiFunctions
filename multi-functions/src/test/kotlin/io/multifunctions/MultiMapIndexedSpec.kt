@@ -1,16 +1,20 @@
 package io.multifunctions
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
-import io.multifunctions.models.*
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 
-class MultiMapIndexedSpec : WordSpec() {
+internal class MultiMapIndexedSpec : WordSpec() {
 
     init {
 
         "MultiMapIndexed" should {
 
             "produce a correct mapping from Pair" {
+
                 val testData = listOf(Pair("one", "two"))
 
                 testData mapIndexed { index, one, two ->
@@ -24,6 +28,7 @@ class MultiMapIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Triple" {
+
                 val testData = listOf(Triple("one", "two", "three"))
 
                 testData mapIndexed { index, one, two, three ->
@@ -38,6 +43,7 @@ class MultiMapIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Quad" {
+
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
                 testData mapIndexed { index, one, two, three, four ->
@@ -53,6 +59,7 @@ class MultiMapIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Penta" {
+
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
                 testData mapIndexed { index, one, two, three, four, five ->
@@ -69,6 +76,7 @@ class MultiMapIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hexa" {
+
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
                 testData mapIndexed { index, one, two, three, four, five, six ->
@@ -86,6 +94,7 @@ class MultiMapIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hepta" {
+
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
                 testData mapIndexed { index, one, two, three, four, five, six, seven ->
@@ -104,6 +113,7 @@ class MultiMapIndexedSpec : WordSpec() {
             }
 
             "handle null values" {
+
                 val actual = listOf(Pair<String?, String?>("one", null))
                 val expected = listOf(Triple(0, "one", null))
 

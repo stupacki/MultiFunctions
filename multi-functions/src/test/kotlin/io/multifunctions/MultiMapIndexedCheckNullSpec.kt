@@ -1,19 +1,20 @@
 package io.multifunctions
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
 import io.multifunctions.models.Hepta
 import io.multifunctions.models.Hexa
 import io.multifunctions.models.Penta
 import io.multifunctions.models.Quad
 
-class MultiMapIndexedCheckNullSpec : WordSpec() {
+internal class MultiMapIndexedCheckNullSpec : WordSpec() {
 
     init {
 
         "MapIndexedCheckNull" should {
 
             "produce a correct mapping from Pair" {
+
                 val testData = listOf(Pair("one", "two"))
 
                 testData mapIndexedCheckNull { index, one, two ->
@@ -27,6 +28,7 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
             }
 
             "produce a correct mapping from Triple" {
+
                 val testData = listOf(Triple("one", "two", "three"))
 
                 testData mapIndexedCheckNull { index, one, two, three ->
@@ -41,6 +43,7 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
             }
 
             "produce a correct mapping from Quad" {
+
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
                 testData mapIndexedCheckNull { index, one, two, three, four ->
@@ -56,6 +59,7 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
             }
 
             "produce a correct mapping from Penta" {
+
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
                 testData mapIndexedCheckNull { index, one, two, three, four, five ->
@@ -72,6 +76,7 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hexa" {
+
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
                 testData mapIndexedCheckNull { index, one, two, three, four, five, six ->
@@ -89,6 +94,7 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hepta" {
+                
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
                 testData mapIndexedCheckNull { index, one, two, three, four, five, six, seven ->
@@ -108,14 +114,18 @@ class MultiMapIndexedCheckNullSpec : WordSpec() {
 
             "handle null values" {
 
-                val actual = listOf(Pair("one", null),
-                                    Pair("three", "four"),
-                                    Pair("fife", "six"),
-                                    Pair(null, null),
-                                    Pair("ten", "eleven"))
-                val expected = listOf(Pair("three", "four"),
-                                      Pair("fife", "six"),
-                                      Pair("ten", "eleven"))
+                val actual = listOf(
+                    Pair("one", null),
+                    Pair("three", "four"),
+                    Pair("fife", "six"),
+                    Pair(null, null),
+                    Pair("ten", "eleven")
+                )
+                val expected = listOf(
+                    Pair("three", "four"),
+                    Pair("fife", "six"),
+                    Pair("ten", "eleven")
+                )
 
                 actual mapIndexedCheckNull { _, one, two ->
                     Pair(one, two)

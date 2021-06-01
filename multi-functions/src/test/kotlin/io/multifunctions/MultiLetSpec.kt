@@ -1,16 +1,20 @@
 package io.multifunctions
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
-import io.multifunctions.models.*
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 
-class MultiLetSpec : WordSpec() {
+internal class MultiLetSpec : WordSpec() {
 
     init {
 
         "MultiLet" should {
 
             "produce a correct binding from Pair" {
+
                 val testData = Pair("one", "two")
 
                 testData let { one, two ->
@@ -22,6 +26,7 @@ class MultiLetSpec : WordSpec() {
             }
 
             "produce a correct binding from Triple" {
+
                 val testData = Triple("one", "two", "three")
 
                 testData let { one, two, three ->
@@ -34,6 +39,7 @@ class MultiLetSpec : WordSpec() {
             }
 
             "produce a correct binding from Quad" {
+
                 val testData = Quad("one", "two", "three", "four")
 
                 testData let { one, two, three, four ->
@@ -47,6 +53,7 @@ class MultiLetSpec : WordSpec() {
             }
 
             "produce a correct binding from Penta" {
+
                 val testData = Penta("one", "two", "three", "four", "five")
 
                 testData let { one, two, three, four, five ->
@@ -61,6 +68,7 @@ class MultiLetSpec : WordSpec() {
             }
 
             "produce a correct binding from Hexa" {
+
                 val testData = Hexa("one", "two", "three", "four", "five", "six")
 
                 testData let { one, two, three, four, five, six ->
@@ -76,6 +84,7 @@ class MultiLetSpec : WordSpec() {
             }
 
             "produce a correct binding from Hepta" {
+
                 val testData = Hepta("one", "two", "three", "four", "five", "six", "seven")
 
                 testData let { one, two, three, four, five, six, seven ->
@@ -92,6 +101,7 @@ class MultiLetSpec : WordSpec() {
             }
 
             "handle null values" {
+
                 val actual = Pair<String?, String?>("one", null)
                 val expected = Pair("one", null)
 
