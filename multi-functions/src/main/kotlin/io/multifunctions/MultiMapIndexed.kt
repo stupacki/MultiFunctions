@@ -55,7 +55,9 @@ public inline infix fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.m
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexed(transform: (Int, A?, B?, C?, D?, E?, F?) -> R): List<R?> =
+public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexed(
+    transform: (Int, A?, B?, C?, D?, E?, F?) -> R
+): List<R?> =
     mapIndexed { index, (first, second, third, fourth, fifth, sixth) ->
         transform(index, first, second, third, fourth, fifth, sixth)
     }
@@ -66,7 +68,9 @@ public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, 
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline infix fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexed(transform: (Int, A?, B?, C?, D?, E?, F?, G?) -> R): List<R?> =
+public inline infix fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexed(
+    transform: (Int, A?, B?, C?, D?, E?, F?, G?) -> R
+): List<R?> =
     mapIndexed { index, (first, second, third, fourth, fifth, sixth, seventh) ->
         transform(index, first, second, third, fourth, fifth, sixth, seventh)
     }

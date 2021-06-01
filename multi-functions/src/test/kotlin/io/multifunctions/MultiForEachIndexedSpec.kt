@@ -1,16 +1,20 @@
 package io.multifunctions
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
-import io.multifunctions.models.*
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 
-class MultiForEachIndexedSpec : WordSpec() {
+internal class MultiForEachIndexedSpec : WordSpec() {
 
     init {
 
         "MultiForEachIndexed" should {
 
             "produce a correct mapping from Pair" {
+
                 val testData = listOf(Pair("one", "two"))
 
                 testData forEachIndexed { index, one, two ->
@@ -22,6 +26,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Triple" {
+
                 val testData = listOf(Triple("one", "two", "three"))
 
                 testData forEachIndexed { index, one, two, three ->
@@ -34,6 +39,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Quad" {
+
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
                 testData forEachIndexed { index, one, two, three, four ->
@@ -47,6 +53,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Penta" {
+
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
                 testData forEachIndexed { index, one, two, three, four, five ->
@@ -61,6 +68,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hexa" {
+
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
                 testData forEachIndexed { index, one, two, three, four, five, six ->
@@ -76,6 +84,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hepta" {
+
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
                 testData forEachIndexed { index, one, two, three, four, five, six, seven ->
@@ -92,6 +101,7 @@ class MultiForEachIndexedSpec : WordSpec() {
             }
 
             "handle null values" {
+
                 val actual = listOf(Pair("one", null))
 
                 actual forEachIndexed { _, one, two ->

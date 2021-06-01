@@ -1,16 +1,20 @@
 package io.multifunctions
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
-import io.multifunctions.models.*
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 
-class MultiFlatMapSpec : WordSpec() {
+internal class MultiFlatMapSpec : WordSpec() {
 
     init {
 
         "MultiFlatMap" should {
 
             "produce a correct mapping from Pair" {
+
                 val testData = listOf(Pair("one", "two"))
 
                 testData flatMap { one, two ->
@@ -35,6 +39,7 @@ class MultiFlatMapSpec : WordSpec() {
             }
 
             "produce a correct mapping from Quad" {
+
                 val tesData = listOf(Quad("one", "two", "three", "four"))
 
                 tesData flatMap { one, two, three, four ->
@@ -48,6 +53,7 @@ class MultiFlatMapSpec : WordSpec() {
             }
 
             "produce a correct mapping from Penta" {
+
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
                 testData flatMap { one, two, three, four, five ->
@@ -62,6 +68,7 @@ class MultiFlatMapSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hexa" {
+
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
                 testData flatMap { one, two, three, four, five, six ->
@@ -77,6 +84,7 @@ class MultiFlatMapSpec : WordSpec() {
             }
 
             "produce a correct mapping from Hepta" {
+
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
                 testData flatMap { one, two, three, four, five, six, seven ->
@@ -93,6 +101,7 @@ class MultiFlatMapSpec : WordSpec() {
             }
 
             "handle null values" {
+
                 val actual = listOf(Pair("one", null))
                 val expected = listOf(Pair("one", null))
 

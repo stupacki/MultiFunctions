@@ -18,15 +18,18 @@ import java.io.Serializable
  * @property fourth Fourth value.
  * @constructor Creates a new instance of Quad.
  */
-public data class Quad<out A, out B, out C, out D>(val first: A,
-                                                   val second: B,
-                                                   val third: C,
-                                                   val fourth: D) : Serializable {
+public data class Quad<out A, out B, out C, out D>(
+    val first: A,
+    val second: B,
+    val third: C,
+    val fourth: D
+) : Serializable {
 
     /**
      * Returns string representation of the [Quad] including its [first], [second], [third] and [fourth] values.
      */
-    override fun toString(): String = "Quad(first=$first, second=$second, third=$third, fourth=$fourth)"
+    override fun toString(): String =
+        "Quad(first=$first, second=$second, third=$third, fourth=$fourth)"
 }
 
 /**

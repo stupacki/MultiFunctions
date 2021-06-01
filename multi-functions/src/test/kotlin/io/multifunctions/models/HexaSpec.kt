@@ -1,15 +1,16 @@
 package io.multifunctions.models
 
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.WordSpec
+import io.kotest.core.spec.style.WordSpec
+import io.kotest.matchers.shouldBe
 
-class HexaSpec : WordSpec() {
+internal class HexaSpec : WordSpec() {
 
     init {
 
         "Hexa" should {
 
             "be initialized" {
+
                 val testData = Hexa("one", "two", "three", "four", "five", "six")
 
                 testData.let { hexa ->
@@ -25,7 +26,15 @@ class HexaSpec : WordSpec() {
             }
 
             "handle null values" {
-                val testData = Hexa<String?, String?, String?, String?, String?, String?>(null, null, null, null, null, null)
+
+                val testData = Hexa<String?, String?, String?, String?, String?, String?>(
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                )
 
                 testData.let { hexa ->
                     hexa.first shouldBe null
@@ -40,13 +49,16 @@ class HexaSpec : WordSpec() {
             }
 
             "handle toString" {
+
                 val actual = Hexa("one", "two", "three", "four", "five", "six")
-                val expected = "Hexa(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six)"
+                val expected =
+                    "Hexa(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six)"
 
                 actual.toString() shouldBe expected
             }
 
             "handle copy()" {
+
                 val actual = Hexa("one", "two", "three", "four", "five", "six")
 
                 actual.copy() shouldBe actual
@@ -54,6 +66,7 @@ class HexaSpec : WordSpec() {
             }
 
             "handle toList" {
+
                 val actual = Hexa("one", "two", "three", "four", "fife", "six")
                 val expected = listOf("one", "two", "three", "four", "fife", "six")
 

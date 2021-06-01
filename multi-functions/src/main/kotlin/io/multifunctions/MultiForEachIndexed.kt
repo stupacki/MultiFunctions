@@ -50,7 +50,9 @@ public inline infix fun <A, B, C, D, E> Iterable<Penta<A?, B?, C?, D?, E?>>.forE
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline infix fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.forEachIndexed(action: (Int, A?, B?, C?, D?, E?, F?) -> Unit) =
+public inline infix fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.forEachIndexed(
+    action: (Int, A?, B?, C?, D?, E?, F?) -> Unit
+) =
     forEachIndexed { index, (first, second, third, fourth, fifth, sixth) ->
         action(index, first, second, third, fourth, fifth, sixth)
     }
@@ -60,7 +62,9 @@ public inline infix fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline infix fun <A, B, C, D, E, F, G> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.forEachIndexed(action: (Int, A?, B?, C?, D?, E?, F?, G?) -> Unit) =
+public inline infix fun <A, B, C, D, E, F, G> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.forEachIndexed(
+    action: (Int, A?, B?, C?, D?, E?, F?, G?) -> Unit
+) =
     forEachIndexed { index, (first, second, third, fourth, fifth, sixth, seventh) ->
         action(index, first, second, third, fourth, fifth, sixth, seventh)
     }
