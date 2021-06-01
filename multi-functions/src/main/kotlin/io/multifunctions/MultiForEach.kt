@@ -48,7 +48,9 @@ public inline infix fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>
 /**
  * Performs the given [action] on each [Hepta] element.
  */
-public inline infix fun <A, B, C, D, E, F, G> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.forEach(action: (A?, B?, C?, D?, E?, F?, G?) -> Unit) =
+public inline infix fun <A, B, C, D, E, F, G> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.forEach(
+    action: (A?, B?, C?, D?, E?, F?, G?) -> Unit
+) =
     forEach { (first, second, third, fourth, fifth, sixth, seventh) ->
         action(first, second, third, fourth, fifth, sixth, seventh)
     }

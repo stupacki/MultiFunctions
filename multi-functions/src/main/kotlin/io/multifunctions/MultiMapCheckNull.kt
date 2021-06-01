@@ -49,7 +49,9 @@ public inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.map
  * to each element in the original collection. When one parameter of the tuple is null the element
  * will be removed from the collection.
  */
-public inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapCheckNull(transform: (A, B, C, D, E) -> R): List<R> =
+public inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapCheckNull(
+    transform: (A, B, C, D, E) -> R
+): List<R> =
     mapNotNull { (first, second, third, fourth, fifth) ->
         when (null) {
             first, second, third, fourth, fifth -> null
@@ -62,7 +64,9 @@ public inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, 
  * to each element in the original collection. When one parameter of the tuple is null the element
  * will be removed from the collection.
  */
-public inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapCheckNull(transform: (A, B, C, D, E, F) -> R): List<R> =
+public inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapCheckNull(
+    transform: (A, B, C, D, E, F) -> R
+): List<R> =
     mapNotNull { (first, second, third, fourth, fifth, sixth) ->
         when (null) {
             first, second, third, fourth, fifth, sixth -> null
@@ -75,7 +79,9 @@ public inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?
  * to each element in the original collection. When one parameter of the tuple is null the element
  * will be removed from the collection.
  */
-public inline infix fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapCheckNull(transform: (A, B, C, D, E, F, G) -> R): List<R> =
+public inline infix fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapCheckNull(
+    transform: (A, B, C, D, E, F, G) -> R
+): List<R> =
     mapNotNull { (first, second, third, fourth, fifth, sixth, seventh) ->
         when (null) {
             first, second, third, fourth, fifth, sixth, seventh -> null

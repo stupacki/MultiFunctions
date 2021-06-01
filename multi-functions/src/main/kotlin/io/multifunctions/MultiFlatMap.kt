@@ -42,7 +42,9 @@ public inline infix fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.f
 /**
  * Returns a single list of all elements yielded from results of [transform] function being invoked on each [Hexa] element of original collection.
  */
-public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.flatMap(transform: (A?, B?, C?, D?, E?, F?) -> Iterable<R>): List<R?> =
+public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.flatMap(
+    transform: (A?, B?, C?, D?, E?, F?) -> Iterable<R>
+): List<R?> =
     flatMap { (first, second, third, fourth, fifth, sixth) ->
         transform(first, second, third, fourth, fifth, sixth)
     }
@@ -50,7 +52,9 @@ public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, 
 /**
  * Returns a single list of all elements yielded from results of [transform] function being invoked on each [Hepta] element of original collection.
  */
-public inline infix fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.flatMap(transform: (A?, B?, C?, D?, E?, F?, G?) -> Iterable<R>): List<R?> =
+public inline infix fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.flatMap(
+    transform: (A?, B?, C?, D?, E?, F?, G?) -> Iterable<R>
+): List<R?> =
     flatMap { (first, second, third, fourth, fifth, sixth, seventh) ->
         transform(first, second, third, fourth, fifth, sixth, seventh)
     }

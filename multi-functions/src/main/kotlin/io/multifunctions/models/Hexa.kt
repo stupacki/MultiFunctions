@@ -22,20 +22,24 @@ import java.io.Serializable
  * @property sixth Sixth value.
  * @constructor Creates a new instance of Hexa.
  */
-public data class Hexa<out A, out B, out C, out D, out E, out F>(val first: A,
-                                                                 val second: B,
-                                                                 val third: C,
-                                                                 val fourth: D,
-                                                                 val fifth: E,
-                                                                 val sixth: F) : Serializable {
+public data class Hexa<out A, out B, out C, out D, out E, out F>(
+    val first: A,
+    val second: B,
+    val third: C,
+    val fourth: D,
+    val fifth: E,
+    val sixth: F
+) : Serializable {
 
     /**
      * Returns string representation of the [Hexa] including its [first], [second], [third], [fourth], [fifth] and [sixth] values.
      */
-    override fun toString(): String = "Hexa(first=$first, second=$second, third=$third, fourth=$fourth, fifth=$fifth, sixth=$sixth)"
+    override fun toString(): String =
+        "Hexa(first=$first, second=$second, third=$third, fourth=$fourth, fifth=$fifth, sixth=$sixth)"
 }
 
 /**
  * Converts this hexa into a list.
  */
-public fun <T> Hexa<T, T, T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth, fifth, sixth)
+public fun <T> Hexa<T, T, T, T, T, T>.toList(): List<T> =
+    listOf(first, second, third, fourth, fifth, sixth)

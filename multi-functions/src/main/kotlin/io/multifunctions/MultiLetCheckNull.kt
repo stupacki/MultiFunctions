@@ -55,7 +55,9 @@ public inline infix fun <A, B, C, D, E, F, R> Hexa<A?, B?, C?, D?, E?, F?>.letCh
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result when no element is [null].
  */
-public inline infix fun <A, B, C, D, E, F, G, R> Hepta<A?, B?, C?, D?, E?, F?, G?>.letCheckNull(block: (A, B, C, D, E, F, G) -> R): R? =
+public inline infix fun <A, B, C, D, E, F, G, R> Hepta<A?, B?, C?, D?, E?, F?, G?>.letCheckNull(
+    block: (A, B, C, D, E, F, G) -> R
+): R? =
     when (null) {
         first, second, third, fourth, fifth, sixth, seventh -> null
         else -> block(first, second, third, fourth, fifth, sixth, seventh)

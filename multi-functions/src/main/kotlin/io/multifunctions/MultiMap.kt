@@ -54,7 +54,9 @@ public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, 
  * Returns a list containing the results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.map(transform: (A?, B?, C?, D?, E?, F?, G?) -> R): List<R?> =
+public inline infix fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.map(
+    transform: (A?, B?, C?, D?, E?, F?, G?) -> R
+): List<R?> =
     map { (first, second, third, fourth, fifth, sixth, seventh) ->
         transform(first, second, third, fourth, fifth, sixth, seventh)
     }
