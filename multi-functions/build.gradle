@@ -2,7 +2,17 @@ apply plugin: 'kotlin'
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
-group = 'com.github.stupacki'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.github.stupacki'
+            artifactId = 'multi-functions'
+            version = '1.3.0'
+
+            from components.java
+        }
+    }
+}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
