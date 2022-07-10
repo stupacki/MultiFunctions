@@ -1,5 +1,8 @@
 apply plugin: 'kotlin'
 apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+group = 'com.github.stupacki'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
