@@ -23,7 +23,7 @@ test {
 }
 
 dependencies {
-    ext.kotestVersion = '4.6.0'
+    ext.kotestVersion = '5.3.2'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
