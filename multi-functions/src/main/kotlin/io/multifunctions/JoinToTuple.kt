@@ -60,7 +60,7 @@ fun <A, B, C, D, E, F> joinToTuple(
 ): Hexa<A, B, C, D, E, F> =
     Hexa(first, second, third, fourth, fifth, sixth)
 
-/**
+/**git config --global user.name "John Doe"
  * Joins [A], [B], [C], [D], [E], [F] and [G] into a [Hepta]
  */
 fun <A, B, C, D, E, F, G> joinToTuple(
