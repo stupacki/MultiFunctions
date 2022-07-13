@@ -16,7 +16,7 @@ allprojects {
 #### Step 2. Add the dependency
 ```groovy
 dependencies {
-	implementation 'com.github.stupacki:MultiFunctions:1.2.3'
+	implementation 'com.github.stupacki:MultiFunctions:version'
 }
 ```
 
