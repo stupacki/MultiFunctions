@@ -17,7 +17,7 @@ internal class MultiFlatMapSpec : WordSpec() {
 
                 val testData = listOf(Pair("one", "two"))
 
-                testData flatMap { one, two ->
+                testData.flatMap { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -29,7 +29,7 @@ internal class MultiFlatMapSpec : WordSpec() {
 
                 val tesData = listOf(Triple("one", "two", "three"))
 
-                tesData flatMap { one, two, three ->
+                tesData.flatMap { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -42,7 +42,7 @@ internal class MultiFlatMapSpec : WordSpec() {
 
                 val tesData = listOf(Quad("one", "two", "three", "four"))
 
-                tesData flatMap { one, two, three, four ->
+                tesData.flatMap { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -56,7 +56,7 @@ internal class MultiFlatMapSpec : WordSpec() {
 
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData flatMap { one, two, three, four, five ->
+                testData.flatMap { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -71,7 +71,7 @@ internal class MultiFlatMapSpec : WordSpec() {
 
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData flatMap { one, two, three, four, five, six ->
+                testData.flatMap { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -87,7 +87,7 @@ internal class MultiFlatMapSpec : WordSpec() {
 
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData flatMap { one, two, three, four, five, six, seven ->
+                testData.flatMap { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -102,10 +102,10 @@ internal class MultiFlatMapSpec : WordSpec() {
 
             "handle null values" {
 
-                val actual = listOf(Pair("one", null))
+                val testData = listOf(Pair("one", null))
                 val expected = listOf(Pair("one", null))
 
-                actual flatMap { one, two ->
+                testData.flatMap { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 

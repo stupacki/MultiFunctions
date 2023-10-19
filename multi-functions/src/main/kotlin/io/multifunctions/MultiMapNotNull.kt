@@ -9,7 +9,9 @@ import io.multifunctions.models.Quad
  * Returns a list containing only the non-null results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapNotNull(transform: (A?, B?) -> R?): List<R> =
+public inline fun <A, B, R> Iterable<Pair<A, B>>.mapNotNull(
+    transform: (A, B) -> R,
+): List<R> =
     mapNotNull { (first, second) ->
         when {
             first == null && second == null -> null
@@ -21,7 +23,9 @@ public inline infix fun <A, B, R : Any> Iterable<Pair<A?, B?>>.mapNotNull(transf
  * Returns a list containing only the non-null results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapNotNull(transform: (A?, B?, C?) -> R?): List<R> =
+public inline fun <A, B, C, R> Iterable<Triple<A, B, C>>.mapNotNull(
+    transform: (A, B, C) -> R,
+): List<R> =
     mapNotNull { (first, second, third) ->
         when {
             first == null && second == null && third == null -> null
@@ -33,7 +37,9 @@ public inline infix fun <A, B, C, R : Any> Iterable<Triple<A?, B?, C?>>.mapNotNu
  * Returns a list containing only the non-null results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.mapNotNull(transform: (A?, B?, C?, D?) -> R?): List<R> =
+public inline fun <A, B, C, D, R> Iterable<Quad<A, B, C, D>>.mapNotNull(
+    transform: (A, B, C, D) -> R,
+): List<R> =
     mapNotNull { (first, second, third, fourth) ->
         when {
             first == null && second == null && third == null && fourth == null -> null
@@ -45,8 +51,8 @@ public inline infix fun <A, B, C, D, R : Any> Iterable<Quad<A?, B?, C?, D?>>.map
  * Returns a list containing only the non-null results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, E?>>.mapNotNull(
-    transform: (A?, B?, C?, D?, E?) -> R?
+public inline fun <A, B, C, D, E, R> Iterable<Penta<A, B, C, D, E>>.mapNotNull(
+    transform: (A, B, C, D, E) -> R,
 ): List<R> =
     mapNotNull { (first, second, third, fourth, fifth) ->
         when {
@@ -59,8 +65,8 @@ public inline infix fun <A, B, C, D, E, R : Any> Iterable<Penta<A?, B?, C?, D?, 
  * Returns a list containing only the non-null results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapNotNull(
-    transform: (A?, B?, C?, D?, E?, F?) -> R?
+public inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A, B, C, D, E, F>>.mapNotNull(
+    transform: (A, B, C, D, E, F) -> R,
 ): List<R> =
     mapNotNull { (first, second, third, fourth, fifth, sixth) ->
         when {
@@ -73,8 +79,8 @@ public inline infix fun <A, B, C, D, E, F, R : Any> Iterable<Hexa<A?, B?, C?, D?
  * Returns a list containing only the non-null results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, E, F, G, R : Any> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapNotNull(
-    transform: (A?, B?, C?, D?, E?, F?, G?) -> R?
+public inline fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A, B, C, D, E, F, G>>.mapNotNull(
+    transform: (A, B, C, D, E, F, G) -> R,
 ): List<R> =
     mapNotNull { (first, second, third, fourth, fifth, sixth, seventh) ->
         when {

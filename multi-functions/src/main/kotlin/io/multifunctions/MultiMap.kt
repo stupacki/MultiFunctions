@@ -9,7 +9,9 @@ import io.multifunctions.models.Quad
  * Returns a list containing the results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, R> Iterable<Pair<A?, B?>>.map(transform: (A?, B?) -> R): List<R?> =
+public inline fun <A, B, R> Iterable<Pair<A, B>>.map(
+    transform: (A, B) -> R,
+): List<R> =
     map { (first, second) ->
         transform(first, second)
     }
@@ -18,7 +20,9 @@ public inline infix fun <A, B, R> Iterable<Pair<A?, B?>>.map(transform: (A?, B?)
  * Returns a list containing the results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, R> Iterable<Triple<A?, B?, C?>>.map(transform: (A?, B?, C?) -> R): List<R?> =
+public inline fun <A, B, C, R> Iterable<Triple<A, B, C>>.map(
+    transform: (A, B, C) -> R,
+): List<R> =
     map { (first, second, third) ->
         transform(first, second, third)
     }
@@ -27,7 +31,9 @@ public inline infix fun <A, B, C, R> Iterable<Triple<A?, B?, C?>>.map(transform:
  * Returns a list containing the results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, R> Iterable<Quad<A?, B?, C?, D?>>.map(transform: (A?, B?, C?, D?) -> R): List<R?> =
+public inline fun <A, B, C, D, R> Iterable<Quad<A, B, C, D>>.map(
+    transform: (A, B, C, D) -> R,
+): List<R> =
     map { (first, second, third, fourth) ->
         transform(first, second, third, fourth)
     }
@@ -36,7 +42,9 @@ public inline infix fun <A, B, C, D, R> Iterable<Quad<A?, B?, C?, D?>>.map(trans
  * Returns a list containing the results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.map(transform: (A?, B?, C?, D?, E?) -> R): List<R?> =
+public inline fun <A, B, C, D, E, R> Iterable<Penta<A, B, C, D, E>>.map(
+    transform: (A, B, C, D, E) -> R,
+): List<R> =
     map { (first, second, third, fourth, fifth) ->
         transform(first, second, third, fourth, fifth)
     }
@@ -45,7 +53,9 @@ public inline infix fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.m
  * Returns a list containing the results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.map(transform: (A?, B?, C?, D?, E?, F?) -> R): List<R?> =
+public inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A, B, C, D, E, F>>.map(
+    transform: (A, B, C, D, E, F) -> R,
+): List<R> =
     map { (first, second, third, fourth, fifth, sixth) ->
         transform(first, second, third, fourth, fifth, sixth)
     }
@@ -54,9 +64,9 @@ public inline infix fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, 
  * Returns a list containing the results of applying the given [transform] function
  * to each element in the original collection.
  */
-public inline infix fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.map(
-    transform: (A?, B?, C?, D?, E?, F?, G?) -> R
-): List<R?> =
+public inline fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A, B, C, D, E, F, G>>.map(
+    transform: (A, B, C, D, E, F, G) -> R,
+): List<R> =
     map { (first, second, third, fourth, fifth, sixth, seventh) ->
         transform(first, second, third, fourth, fifth, sixth, seventh)
     }

@@ -10,25 +10,31 @@ import io.multifunctions.models.Quad
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result when no element is [null].
  */
-public inline infix fun <A, B, R> Pair<A?, B?>.letCheckNull(block: (A, B) -> R): R? =
+public inline fun <A, B, R> Pair<A, B>.letCheckNull(
+    block: (A, B) -> R,
+): R? =
     when (null) {
         first, second -> null
-        else -> block(first as A, second as B)
+        else -> block(first, second)
     }
 
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result when no element is [null].
  */
-public inline infix fun <A, B, C, R> Triple<A?, B?, C?>.letCheckNull(block: (A, B, C) -> R): R? =
+public inline fun <A, B, C, R> Triple<A, B, C>.letCheckNull(
+    block: (A, B, C) -> R,
+): R? =
     when (null) {
         first, second, third -> null
-        else -> block(first as A, second as B, third as C)
+        else -> block(first, second, third)
     }
 
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result when no element is [null].
  */
-public inline infix fun <A, B, C, D, R> Quad<A?, B?, C?, D?>.letCheckNull(block: (A, B, C, D) -> R): R? =
+public inline fun <A, B, C, D, R> Quad<A, B, C, D>.letCheckNull(
+    block: (A, B, C, D) -> R,
+): R? =
     when (null) {
         first, second, third, fourth -> null
         else -> block(first, second, third, fourth)
@@ -37,7 +43,9 @@ public inline infix fun <A, B, C, D, R> Quad<A?, B?, C?, D?>.letCheckNull(block:
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result when no element is [null].
  */
-public inline infix fun <A, B, C, D, E, R> Penta<A?, B?, C?, D?, E?>.letCheckNull(block: (A, B, C, D, E) -> R): R? =
+public inline fun <A, B, C, D, E, R> Penta<A, B, C, D, E>.letCheckNull(
+    block: (A, B, C, D, E) -> R,
+): R? =
     when (null) {
         first, second, third, fourth, fifth -> null
         else -> block(first, second, third, fourth, fifth)
@@ -46,7 +54,9 @@ public inline infix fun <A, B, C, D, E, R> Penta<A?, B?, C?, D?, E?>.letCheckNul
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result when no element is [null].
  */
-public inline infix fun <A, B, C, D, E, F, R> Hexa<A?, B?, C?, D?, E?, F?>.letCheckNull(block: (A, B, C, D, E, F) -> R): R? =
+public inline fun <A, B, C, D, E, F, R> Hexa<A, B, C, D, E, F>.letCheckNull(
+    block: (A, B, C, D, E, F) -> R,
+): R? =
     when (null) {
         first, second, third, fourth, fifth, sixth -> null
         else -> block(first, second, third, fourth, fifth, sixth)
@@ -55,8 +65,8 @@ public inline infix fun <A, B, C, D, E, F, R> Hexa<A?, B?, C?, D?, E?, F?>.letCh
 /**
  * Calls the specified function [block] with `this` value as its arguments and returns its result when no element is [null].
  */
-public inline infix fun <A, B, C, D, E, F, G, R> Hepta<A?, B?, C?, D?, E?, F?, G?>.letCheckNull(
-    block: (A, B, C, D, E, F, G) -> R
+public inline fun <A, B, C, D, E, F, G, R> Hepta<A, B, C, D, E, F, G>.letCheckNull(
+    block: (A, B, C, D, E, F, G) -> R,
 ): R? =
     when (null) {
         first, second, third, fourth, fifth, sixth, seventh -> null

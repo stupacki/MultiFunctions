@@ -17,7 +17,7 @@ internal class MultiLetSpec : WordSpec() {
 
                 val testData = Pair("one", "two")
 
-                testData let { one, two ->
+                testData.let { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -29,7 +29,7 @@ internal class MultiLetSpec : WordSpec() {
 
                 val testData = Triple("one", "two", "three")
 
-                testData let { one, two, three ->
+                testData.let { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -42,7 +42,7 @@ internal class MultiLetSpec : WordSpec() {
 
                 val testData = Quad("one", "two", "three", "four")
 
-                testData let { one, two, three, four ->
+                testData.let { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -56,7 +56,7 @@ internal class MultiLetSpec : WordSpec() {
 
                 val testData = Penta("one", "two", "three", "four", "five")
 
-                testData let { one, two, three, four, five ->
+                testData.let { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -71,7 +71,7 @@ internal class MultiLetSpec : WordSpec() {
 
                 val testData = Hexa("one", "two", "three", "four", "five", "six")
 
-                testData let { one, two, three, four, five, six ->
+                testData.let { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -87,7 +87,7 @@ internal class MultiLetSpec : WordSpec() {
 
                 val testData = Hepta("one", "two", "three", "four", "five", "six", "seven")
 
-                testData let { one, two, three, four, five, six, seven ->
+                testData.let { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -102,10 +102,10 @@ internal class MultiLetSpec : WordSpec() {
 
             "handle null values" {
 
-                val actual = Pair<String?, String?>("one", null)
+                val testData = Pair<String?, String?>("one", null)
                 val expected = Pair("one", null)
 
-                actual let { one, two ->
+                testData.let { one, two ->
                     one shouldBe "one"
                     two shouldBe null
 

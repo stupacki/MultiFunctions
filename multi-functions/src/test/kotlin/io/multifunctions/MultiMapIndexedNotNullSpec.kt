@@ -17,7 +17,7 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
 
                 val testData = listOf(Pair("one", "two"))
 
-                testData mapIndexedNotNull { index, one, two ->
+                testData.mapIndexedNotNull { index, one, two ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -31,7 +31,7 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
 
                 val testData = listOf(Triple("one", "two", "three"))
 
-                testData mapIndexedNotNull { index, one, two, three ->
+                testData.mapIndexedNotNull { index, one, two, three ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -46,7 +46,7 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
 
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
-                testData mapIndexedNotNull { index, one, two, three, four ->
+                testData.mapIndexedNotNull { index, one, two, three, four ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -62,7 +62,7 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
 
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData mapIndexedNotNull { index, one, two, three, four, five ->
+                testData.mapIndexedNotNull { index, one, two, three, four, five ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -79,7 +79,7 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
 
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData mapIndexedNotNull { index, one, two, three, four, five, six ->
+                testData.mapIndexedNotNull { index, one, two, three, four, five, six ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -97,7 +97,7 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
 
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData mapIndexedNotNull { index, one, two, three, four, five, six, seven ->
+                val result = testData.mapIndexedNotNull { index, one, two, three, four, five, six, seven ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -109,12 +109,14 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
                     seven shouldBe "seven"
 
                     Hepta(one, two, three, four, five, six, seven)
-                } shouldBe testData
+                }
+
+                result shouldBe testData
             }
 
             "handle null values" {
 
-                val actual = listOf(
+                val testData = listOf(
                     Pair("one", null),
                     Pair("three", "four"),
                     Pair("fife", "six"),
@@ -128,9 +130,11 @@ internal class MultiMapIndexedNotNullSpec : WordSpec() {
                     Pair("ten", "eleven")
                 )
 
-                actual mapIndexedNotNull { _, one, two ->
+                val result = testData.mapIndexedNotNull { _, one, two ->
                     Pair(one, two)
-                } shouldBe expected
+                }
+
+                result shouldBe expected
             }
         }
     }

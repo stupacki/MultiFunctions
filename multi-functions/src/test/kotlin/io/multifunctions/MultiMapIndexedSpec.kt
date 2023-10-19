@@ -17,7 +17,7 @@ internal class MultiMapIndexedSpec : WordSpec() {
 
                 val testData = listOf(Pair("one", "two"))
 
-                testData mapIndexed { index, one, two ->
+                testData.mapIndexed { index, one, two ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -31,7 +31,7 @@ internal class MultiMapIndexedSpec : WordSpec() {
 
                 val testData = listOf(Triple("one", "two", "three"))
 
-                testData mapIndexed { index, one, two, three ->
+                testData.mapIndexed { index, one, two, three ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -46,7 +46,7 @@ internal class MultiMapIndexedSpec : WordSpec() {
 
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
-                testData mapIndexed { index, one, two, three, four ->
+                testData.mapIndexed { index, one, two, three, four ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -62,7 +62,7 @@ internal class MultiMapIndexedSpec : WordSpec() {
 
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData mapIndexed { index, one, two, three, four, five ->
+                testData.mapIndexed { index, one, two, three, four, five ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -79,7 +79,7 @@ internal class MultiMapIndexedSpec : WordSpec() {
 
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData mapIndexed { index, one, two, three, four, five, six ->
+                testData.mapIndexed { index, one, two, three, four, five, six ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -97,7 +97,7 @@ internal class MultiMapIndexedSpec : WordSpec() {
 
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData mapIndexed { index, one, two, three, four, five, six, seven ->
+                testData.mapIndexed { index, one, two, three, four, five, six, seven ->
                     index shouldBe 0
 
                     one shouldBe "one"
@@ -114,10 +114,10 @@ internal class MultiMapIndexedSpec : WordSpec() {
 
             "handle null values" {
 
-                val actual = listOf(Pair<String?, String?>("one", null))
+                val testData = listOf(Pair<String?, String?>("one", null))
                 val expected = listOf(Triple(0, "one", null))
 
-                actual mapIndexed { index, one, two ->
+                testData.mapIndexed { index, one, two ->
                     one shouldBe "one"
                     two shouldBe null
 

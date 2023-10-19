@@ -17,7 +17,7 @@ internal class MultiMapSpec : WordSpec() {
 
                 val testData = listOf(Pair("one", "two"))
 
-                testData map { one, two ->
+                testData.map { one, two ->
                     one shouldBe "one"
                     two shouldBe "two"
 
@@ -29,7 +29,7 @@ internal class MultiMapSpec : WordSpec() {
 
                 val testData = listOf(Triple("one", "two", "three"))
 
-                testData map { one, two, three ->
+                testData.map { one, two, three ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -42,7 +42,7 @@ internal class MultiMapSpec : WordSpec() {
 
                 val testData = listOf(Quad("one", "two", "three", "four"))
 
-                testData map { one, two, three, four ->
+                testData.map { one, two, three, four ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -56,7 +56,7 @@ internal class MultiMapSpec : WordSpec() {
 
                 val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData map { one, two, three, four, five ->
+                testData.map { one, two, three, four, five ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -71,7 +71,7 @@ internal class MultiMapSpec : WordSpec() {
 
                 val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                testData map { one, two, three, four, five, six ->
+                testData.map { one, two, three, four, five, six ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -87,7 +87,7 @@ internal class MultiMapSpec : WordSpec() {
 
                 val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-                testData map { one, two, three, four, five, six, seven ->
+                testData.map { one, two, three, four, five, six, seven ->
                     one shouldBe "one"
                     two shouldBe "two"
                     three shouldBe "three"
@@ -102,7 +102,7 @@ internal class MultiMapSpec : WordSpec() {
 
             "handle null values" {
 
-                val actual = listOf(
+                val testData = listOf(
                     Pair("one", null),
                     Pair("three", "four"),
                     Pair("fife", "six"),
@@ -117,7 +117,7 @@ internal class MultiMapSpec : WordSpec() {
                     Pair("ten", "eleven")
                 )
 
-                actual map { one, two ->
+                testData.map { one, two ->
                     Pair(one, two)
                 } shouldBe expected
             }

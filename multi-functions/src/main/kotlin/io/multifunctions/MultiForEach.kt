@@ -8,7 +8,9 @@ import io.multifunctions.models.Quad
 /**
  * Performs the given [action] on each [Pair] element.
  */
-public inline infix fun <A, B> Iterable<Pair<A?, B?>>.forEach(action: (A?, B?) -> Unit) =
+public inline fun <A, B> Iterable<Pair<A, B>>.forEach(
+    action: (A, B) -> Unit,
+) =
     forEach { (first, second) ->
         action(first, second)
     }
@@ -16,7 +18,9 @@ public inline infix fun <A, B> Iterable<Pair<A?, B?>>.forEach(action: (A?, B?) -
 /**
  * Performs the given [action] on each [Triple] element.
  */
-public inline infix fun <A, B, C> Iterable<Triple<A?, B?, C?>>.forEach(action: (A?, B?, C?) -> Unit) =
+public inline fun <A, B, C> Iterable<Triple<A, B, C>>.forEach(
+    action: (A, B, C) -> Unit,
+) =
     forEach { (first, second, third) ->
         action(first, second, third)
     }
@@ -24,7 +28,9 @@ public inline infix fun <A, B, C> Iterable<Triple<A?, B?, C?>>.forEach(action: (
 /**
  * Performs the given [action] on each [Quad] element.
  */
-public inline infix fun <A, B, C, D> Iterable<Quad<A?, B?, C?, D?>>.forEach(action: (A?, B?, C?, D?) -> Unit) =
+public inline fun <A, B, C, D> Iterable<Quad<A, B, C, D>>.forEach(
+    action: (A, B, C, D) -> Unit,
+) =
     forEach { (first, second, third, fourth) ->
         action(first, second, third, fourth)
     }
@@ -32,7 +38,9 @@ public inline infix fun <A, B, C, D> Iterable<Quad<A?, B?, C?, D?>>.forEach(acti
 /**
  * Performs the given [action] on each [Penta] element.
  */
-public inline infix fun <A, B, C, D, E> Iterable<Penta<A?, B?, C?, D?, E?>>.forEach(action: (A?, B?, C?, D?, E?) -> Unit) =
+public inline fun <A, B, C, D, E> Iterable<Penta<A, B, C, D, E>>.forEach(
+    action: (A, B, C, D, E) -> Unit,
+) =
     forEach { (first, second, third, fourth, fifth) ->
         action(first, second, third, fourth, fifth)
     }
@@ -40,7 +48,9 @@ public inline infix fun <A, B, C, D, E> Iterable<Penta<A?, B?, C?, D?, E?>>.forE
 /**
  * Performs the given [action] on each [Hexa] element.
  */
-public inline infix fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.forEach(action: (A?, B?, C?, D?, E?, F?) -> Unit) =
+public inline fun <A, B, C, D, E, F> Iterable<Hexa<A, B, C, D, E, F>>.forEach(
+    action: (A, B, C, D, E, F) -> Unit,
+) =
     forEach { (first, second, third, fourth, fifth, sixth) ->
         action(first, second, third, fourth, fifth, sixth)
     }
@@ -48,8 +58,8 @@ public inline infix fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>
 /**
  * Performs the given [action] on each [Hepta] element.
  */
-public inline infix fun <A, B, C, D, E, F, G> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.forEach(
-    action: (A?, B?, C?, D?, E?, F?, G?) -> Unit
+public inline fun <A, B, C, D, E, F, G> Iterable<Hepta<A, B, C, D, E, F, G>>.forEach(
+    action: (A, B, C, D, E, F, G) -> Unit,
 ) =
     forEach { (first, second, third, fourth, fifth, sixth, seventh) ->
         action(first, second, third, fourth, fifth, sixth, seventh)
