@@ -12,9 +12,7 @@ import io.multifunctions.models.Quad
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-public inline fun <A, B, R> Iterable<Pair<A, B>>.mapIndexedCheckNull(
-    transform: (Int, A, B) -> R,
-): List<R> =
+inline fun <A, B, R> Iterable<Pair<A?, B?>>.mapIndexedCheckNull(transform: (Int, A, B) -> R): List<R> =
     mapIndexedNotNull { index, (first, second) ->
         when (null) {
             first, second -> null
@@ -29,8 +27,8 @@ public inline fun <A, B, R> Iterable<Pair<A, B>>.mapIndexedCheckNull(
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-public inline fun <A, B, C, R> Iterable<Triple<A, B, C>>.mapIndexedCheckNull(
-    transform: (Int, A, B, C) -> R,
+inline fun <A, B, C, R> Iterable<Triple<A?, B?, C?>>.mapIndexedCheckNull(
+    transform: (Int, A, B, C) -> R
 ): List<R> =
     mapIndexedNotNull { index, (first, second, third) ->
         when (null) {
@@ -46,8 +44,8 @@ public inline fun <A, B, C, R> Iterable<Triple<A, B, C>>.mapIndexedCheckNull(
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-public inline fun <A, B, C, D, R> Iterable<Quad<A, B, C, D>>.mapIndexedCheckNull(
-    transform: (Int, A, B, C, D) -> R,
+inline fun <A, B, C, D, R> Iterable<Quad<A?, B?, C?, D?>>.mapIndexedCheckNull(
+    transform: (Int, A, B, C, D) -> R
 ): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth) ->
         when (null) {
@@ -63,8 +61,8 @@ public inline fun <A, B, C, D, R> Iterable<Quad<A, B, C, D>>.mapIndexedCheckNull
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-public inline fun <A, B, C, D, E, R> Iterable<Penta<A, B, C, D, E>>.mapIndexedCheckNull(
-    transform: (Int, A, B, C, D, E) -> R,
+inline fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.mapIndexedCheckNull(
+    transform: (Int, A, B, C, D, E) -> R
 ): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth) ->
         when (null) {
@@ -80,8 +78,8 @@ public inline fun <A, B, C, D, E, R> Iterable<Penta<A, B, C, D, E>>.mapIndexedCh
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-public inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A, B, C, D, E, F>>.mapIndexedCheckNull(
-    transform: (Int, A, B, C, D, E, F) -> R,
+inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapIndexedCheckNull(
+    transform: (Int, A, B, C, D, E, F) -> R
 ): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth) ->
         when (null) {
@@ -97,8 +95,8 @@ public inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A, B, C, D, E, F>>.mapInde
  * and returns the result of the transform applied to the element. When one parameter of the tuple
  * is null the element will be removed from the collection.
  */
-public inline fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A, B, C, D, E, F, G>>.mapIndexedCheckNull(
-    transform: (Int, A, B, C, D, E, F, G) -> R,
+inline fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapIndexedCheckNull(
+    transform: (Int, A, B, C, D, E, F, G) -> R
 ): List<R> =
     mapIndexedNotNull { index, (first, second, third, fourth, fifth, sixth, seventh) ->
         when (null) {

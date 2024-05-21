@@ -10,7 +10,7 @@ import io.multifunctions.models.Quad
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline fun <A, B> Iterable<Pair<A, B>>.forEachIndexed(action: (Int, A, B) -> Unit) =
+inline fun <A, B> Iterable<Pair<A?, B?>>.forEachIndexed(action: (Int, A?, B?) -> Unit) =
     forEachIndexed { index, (first, second) ->
         action(index, first, second)
     }
@@ -20,7 +20,7 @@ public inline fun <A, B> Iterable<Pair<A, B>>.forEachIndexed(action: (Int, A, B)
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline fun <A, B, C> Iterable<Triple<A, B, C>>.forEachIndexed(action: (Int, A, B, C) -> Unit) =
+inline fun <A, B, C> Iterable<Triple<A?, B?, C?>>.forEachIndexed(action: (Int, A?, B?, C?) -> Unit) =
     forEachIndexed { index, (first, second, third) ->
         action(index, first, second, third)
     }
@@ -30,7 +30,7 @@ public inline fun <A, B, C> Iterable<Triple<A, B, C>>.forEachIndexed(action: (In
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline fun <A, B, C, D> Iterable<Quad<A, B, C, D>>.forEachIndexed(action: (Int, A, B, C, D) -> Unit) =
+inline fun <A, B, C, D> Iterable<Quad<A?, B?, C?, D?>>.forEachIndexed(action: (Int, A?, B?, C?, D?) -> Unit) =
     forEachIndexed { index, (first, second, third, fourth) ->
         action(index, first, second, third, fourth)
     }
@@ -40,7 +40,7 @@ public inline fun <A, B, C, D> Iterable<Quad<A, B, C, D>>.forEachIndexed(action:
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline fun <A, B, C, D, E> Iterable<Penta<A, B, C, D, E>>.forEachIndexed(action: (Int, A, B, C, D, E) -> Unit) =
+inline fun <A, B, C, D, E> Iterable<Penta<A?, B?, C?, D?, E?>>.forEachIndexed(action: (Int, A?, B?, C?, D?, E?) -> Unit) =
     forEachIndexed { index, (first, second, third, fourth, fifth) ->
         action(index, first, second, third, fourth, fifth)
     }
@@ -50,8 +50,8 @@ public inline fun <A, B, C, D, E> Iterable<Penta<A, B, C, D, E>>.forEachIndexed(
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline fun <A, B, C, D, E, F> Iterable<Hexa<A, B, C, D, E, F>>.forEachIndexed(
-    action: (Int, A, B, C, D, E, F) -> Unit
+inline fun <A, B, C, D, E, F> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.forEachIndexed(
+    action: (Int, A?, B?, C?, D?, E?, F?) -> Unit
 ) =
     forEachIndexed { index, (first, second, third, fourth, fifth, sixth) ->
         action(index, first, second, third, fourth, fifth, sixth)
@@ -62,8 +62,8 @@ public inline fun <A, B, C, D, E, F> Iterable<Hexa<A, B, C, D, E, F>>.forEachInd
  * @param [action] function that takes the index of an element and the element itself
  * and performs the desired action on the element.
  */
-public inline fun <A, B, C, D, E, F, G> Iterable<Hepta<A, B, C, D, E, F, G>>.forEachIndexed(
-    action: (Int, A, B, C, D, E, F, G) -> Unit
+inline fun <A, B, C, D, E, F, G> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.forEachIndexed(
+    action: (Int, A?, B?, C?, D?, E?, F?, G?) -> Unit
 ) =
     forEachIndexed { index, (first, second, third, fourth, fifth, sixth, seventh) ->
         action(index, first, second, third, fourth, fifth, sixth, seventh)
