@@ -1,0 +1,23 @@
+[versions]
+kotlin = "1.9.24"
+kotest = "5.7.2"
+
+[libraries]
+kotlin-sdt = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+
+[bundles]
+kotlin = [
+    "kotlin-sdt",
+    "kotlin-reflect",
+]
+kotest = [
+    "kotest-runner",
+    "kotest-assertions",
+    "kotest-property",
+]
+
+[plugins]
