@@ -36,27 +36,12 @@ internal class JoinToTupleSpec : WordSpec() {
 
             "join values into a [Hexa]" {
 
-                joinToTuple("A", "B", "C", "D", "E", "F") shouldBe Hexa(
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F"
-                )
+                joinToTuple("A", "B", "C", "D", "E", "F") shouldBe Hexa("A", "B", "C", "D", "E", "F")
             }
 
             "join values into a [Hepta]" {
 
-                joinToTuple("A", "B", "C", "D", "E", "F", "G") shouldBe Hepta(
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G"
-                )
+                joinToTuple("A", "B", "C", "D", "E", "F", "G") shouldBe Hepta("A", "B", "C", "D", "E", "F", "G")
             }
         }
     }

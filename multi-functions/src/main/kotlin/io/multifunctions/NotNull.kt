@@ -3,13 +3,10 @@ package io.multifunctions
 /**
  * Calls the specified function [block] with [first] and [second] value as its arguments and returns its result when no element is [null].
  */
-inline fun <reified A, reified B, R> notNull(first: A?, second: B?, block: (A, B) -> R) =
-    when (null) {
-        first, second -> null
-        else -> {
-            block(first as A, second as B)
-        }
-    }
+inline fun <reified A, reified B, R> notNull(first: A?, second: B?, block: (A, B) -> R) = when (null) {
+    first, second -> null
+    else -> block(first as A, second as B)
+}
 
 /**
  * Calls the specified function [block] with [first], [second] and [third] value as its arguments and returns its result when no element is [null].
@@ -19,11 +16,10 @@ inline fun <reified A, reified B, reified C, R> notNull(
     second: B?,
     third: C?,
     block: (A, B, C) -> R
-) =
-    when (null) {
-        first, second, third -> null
-        else -> block(first as A, second as B, third as C)
-    }
+): R? = when (null) {
+    first, second, third -> null
+    else -> block(first as A, second as B, third as C)
+}
 
 /**
  * Calls the specified function [block] with [first], [second], [third] and [fourth] value as its arguments and returns its result when no element is [null].
@@ -34,11 +30,10 @@ inline fun <reified A, reified B, reified C, reified D, R> notNull(
     third: C?,
     fourth: D?,
     block: (A, B, C, D) -> R
-) =
-    when (null) {
-        first, second, third, fourth -> null
-        else -> block(first as A, second as B, third as C, fourth as D)
-    }
+): R? = when (null) {
+    first, second, third, fourth -> null
+    else -> block(first as A, second as B, third as C, fourth as D)
+}
 
 /**
  * Calls the specified function [block] with [first], [second], [third], [fourth] and [fifth] value as its arguments and returns its result when no element is [null].
@@ -50,11 +45,10 @@ inline fun <reified A, reified B, reified C, reified D, reified E, R> notNull(
     fourth: D?,
     fifth: E?,
     block: (A, B, C, D, E) -> R
-) =
-    when (null) {
-        first, second, third, fourth, fifth -> null
-        else -> block(first as A, second as B, third as C, fourth as D, fifth as E)
-    }
+): R? = when (null) {
+    first, second, third, fourth, fifth -> null
+    else -> block(first as A, second as B, third as C, fourth as D, fifth as E)
+}
 
 /**
  * Calls the specified function [block] with [first], [second], [third], [fourth], [fifth] and [sixth] value as its arguments and returns its result when no element is [null].
@@ -67,11 +61,10 @@ inline fun <reified A, reified B, reified C, reified D, reified E, reified F, R>
     fifth: E?,
     sixth: F?,
     block: (A, B, C, D, E, F) -> R
-) =
-    when (null) {
-        first, second, third, fourth, fifth, sixth -> null
-        else -> block(first as A, second as B, third as C, fourth as D, fifth as E, sixth as F)
-    }
+): R? = when (null) {
+    first, second, third, fourth, fifth, sixth -> null
+    else -> block(first as A, second as B, third as C, fourth as D, fifth as E, sixth as F)
+}
 
 /**
  * Calls the specified function [block] with [first], [second], [third], [fourth], [fifth], [sixth] and [seventh] value as its arguments and returns its result when no element is [null].
@@ -85,16 +78,7 @@ inline fun <reified A, reified B, reified C, reified D, reified E, reified F, re
     sixth: F?,
     seventh: G?,
     block: (A, B, C, D, E, F, G) -> R
-) =
-    when (null) {
-        first, second, third, fourth, fifth, sixth, seventh -> null
-        else -> block(
-            first as A,
-            second as B,
-            third as C,
-            fourth as D,
-            fifth as E,
-            sixth as F,
-            seventh as G
-        )
-    }
+): R? = when (null) {
+    first, second, third, fourth, fifth, sixth, seventh -> null
+    else -> block(first as A, second as B, third as C, fourth as D, fifth as E, sixth as F, seventh as G)
+}
