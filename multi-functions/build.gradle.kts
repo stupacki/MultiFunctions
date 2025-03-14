@@ -9,7 +9,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.stupacki"
             artifactId = "MultiFunctions"
-            version = "1.4.1"
+            version = "1.4.2"
 
             from(components["java"])
         }
