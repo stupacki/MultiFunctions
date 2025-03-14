@@ -6,7 +6,13 @@ import io.multifunctions.models.Penta
 import io.multifunctions.models.Quad
 
 /**
- * Joins [A] and [B] into a [Pair]
+ * Joins two values into a [Pair].
+ *
+ * @param A the type of the first value
+ * @param B the type of the second value
+ * @param first the first value
+ * @param second the second value
+ * @return a [Pair] containing the two values
  */
 fun <A, B> joinToTuple(
     first: A,
@@ -15,7 +21,15 @@ fun <A, B> joinToTuple(
     Pair(first, second)
 
 /**
- * Joins [A], [B] and [C] into a [Triple]
+ * Joins three values into a [Triple].
+ *
+ * @param A the type of the first value
+ * @param B the type of the second value
+ * @param C the type of the third value
+ * @param first the first value
+ * @param second the second value
+ * @param third the third value
+ * @return a [Triple] containing the three values
  */
 fun <A, B, C> joinToTuple(
     first: A,
@@ -25,7 +39,17 @@ fun <A, B, C> joinToTuple(
     Triple(first, second, third)
 
 /**
- * Joins [A], [B], [C] and [D] into a [Quad]
+ * Joins four values into a [Quad].
+ *
+ * @param A the type of the first value
+ * @param B the type of the second value
+ * @param C the type of the third value
+ * @param D the type of the fourth value
+ * @param first the first value
+ * @param second the second value
+ * @param third the third value
+ * @param fourth the fourth value
+ * @return a [Quad] containing the four values
  */
 fun <A, B, C, D> joinToTuple(
     first: A,
@@ -36,7 +60,19 @@ fun <A, B, C, D> joinToTuple(
     Quad(first, second, third, fourth)
 
 /**
- * Joins [A], [B], [C], [D] and [E] into a [Penta]
+ * Joins five values into a [Penta].
+ *
+ * @param A the type of the first value
+ * @param B the type of the second value
+ * @param C the type of the third value
+ * @param D the type of the fourth value
+ * @param E the type of the fifth value
+ * @param first the first value
+ * @param second the second value
+ * @param third the third value
+ * @param fourth the fourth value
+ * @param fifth the fifth value
+ * @return a [Penta] containing the five values
  */
 fun <A, B, C, D, E> joinToTuple(
     first: A,
@@ -48,7 +84,21 @@ fun <A, B, C, D, E> joinToTuple(
     Penta(first, second, third, fourth, fifth)
 
 /**
- * Joins [A], [B], [C], [D], [E] and [F] into a [Hexa]
+ * Joins six values into a [Hexa].
+ *
+ * @param A the type of the first value
+ * @param B the type of the second value
+ * @param C the type of the third value
+ * @param D the type of the fourth value
+ * @param E the type of the fifth value
+ * @param F the type of the sixth value
+ * @param first the first value
+ * @param second the second value
+ * @param third the third value
+ * @param fourth the fourth value
+ * @param fifth the fifth value
+ * @param sixth the sixth value
+ * @return a [Hexa] containing the six values
  */
 fun <A, B, C, D, E, F> joinToTuple(
     first: A,
@@ -60,8 +110,24 @@ fun <A, B, C, D, E, F> joinToTuple(
 ): Hexa<A, B, C, D, E, F> =
     Hexa(first, second, third, fourth, fifth, sixth)
 
-/**git config --global user.name "John Doe"
- * Joins [A], [B], [C], [D], [E], [F] and [G] into a [Hepta]
+/**
+ * Joins seven values into a [Hepta].
+ *
+ * @param A the type of the first value
+ * @param B the type of the second value
+ * @param C the type of the third value
+ * @param D the type of the fourth value
+ * @param E the type of the fifth value
+ * @param F the type of the sixth value
+ * @param G the type of the seventh value
+ * @param first the first value
+ * @param second the second value
+ * @param third the third value
+ * @param fourth the fourth value
+ * @param fifth the fifth value
+ * @param sixth the sixth value
+ * @param seventh the seventh value
+ * @return a [Hepta] containing the seven values
  */
 fun <A, B, C, D, E, F, G> joinToTuple(
     first: A,
