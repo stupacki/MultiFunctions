@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.1.10"
-kotest = "5.9.0"
+kotest = "5.9.1"
 
 [libraries]
 kotlin-sdt = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
