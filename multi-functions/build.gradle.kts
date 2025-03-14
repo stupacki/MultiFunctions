@@ -37,11 +37,8 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(libs.kotlin.sdt)
-    implementation(libs.kotlin.reflect)
 
-    testImplementation(libs.kotest.runner)
-    testImplementation(libs.kotest.assertions)
-    testImplementation(libs.kotest.property)
+    testImplementation(libs.bundles.kotest)
 }
 
 tasks.test {
