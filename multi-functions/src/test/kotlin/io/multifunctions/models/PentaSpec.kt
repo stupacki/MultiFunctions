@@ -10,59 +10,45 @@ internal class PentaSpec : WordSpec() {
         "Penta" should {
 
             "be initialized" {
-
                 val testData = Penta("one", "two", "three", "four", "five")
-
-                testData.let { penta ->
-                    penta.first shouldBe "one"
-                    penta.second shouldBe "two"
-                    penta.third shouldBe "three"
-                    penta.fourth shouldBe "four"
-                    penta.fifth shouldBe "five"
-
-                    Penta(penta.first, penta.second, penta.third, penta.fourth, penta.fifth)
-                } shouldBe testData
+                verifyPenta(testData, "one", "two", "three", "four", "five")
             }
 
             "handle null values" {
-
-                val testData =
-                    Penta<String?, String?, String?, String?, String?>(null, null, null, null, null)
-
-                testData.let { penta ->
-                    penta.first shouldBe null
-                    penta.second shouldBe null
-                    penta.third shouldBe null
-                    penta.fourth shouldBe null
-                    penta.fifth shouldBe null
-
-                    Penta(penta.first, penta.second, penta.third, penta.fourth, penta.fifth)
-                } shouldBe testData
+                val testData = Penta<String?, String?, String?, String?, String?>(
+                    null, null, null, null, null
+                )
+                verifyPenta(testData, null, null, null, null, null)
             }
 
             "handle toString" {
-
                 val actual = Penta("one", "two", "three", "four", "five")
                 val expected = "Penta(first=one, second=two, third=three, fourth=four, fifth=five)"
-
                 actual.toString() shouldBe expected
             }
 
             "handle copy()" {
-
                 val actual = Penta("one", "two", "three", "four", "five")
-                val expected = Penta("one", "two", "three", "four", "five")
-
-                actual.copy() shouldBe expected
+                actual.copy() shouldBe actual
             }
 
             "handle toList" {
-
                 val actual = Penta("one", "two", "three", "four", "fife")
                 val expected = listOf("one", "two", "three", "four", "fife")
-
                 actual.toList() shouldBe expected
             }
         }
+    }
+
+    private fun <T> verifyPenta(
+        penta: Penta<T, T, T, T, T>,
+        first: T?, second: T?, third: T?, fourth: T?, fifth: T?
+    ) {
+        penta.first shouldBe first
+        penta.second shouldBe second
+        penta.third shouldBe third
+        penta.fourth shouldBe fourth
+        penta.fifth shouldBe fifth
+        Penta(penta.first, penta.second, penta.third, penta.fourth, penta.fifth) shouldBe penta
     }
 }
