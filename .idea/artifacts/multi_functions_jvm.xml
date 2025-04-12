@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="multi-functions-jvm">
-    <output-path>$PROJECT_DIR$/multi-functions/build/libs</output-path>
-    <root id="archive" name="multi-functions-jvm.jar">
-      <element id="module-output" name="MultiFunctions.multi-functions.jvmMain" />
-    </root>
-  </artifact>
-</component>
