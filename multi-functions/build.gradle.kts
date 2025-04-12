@@ -3,6 +3,7 @@ val jvmTargetVersion = "17"
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.maven.publish)
+    alias(libs.plugins.android.library)
 }
 
 kotlin {
@@ -11,6 +12,11 @@ kotlin {
         compilations.all {
             kotlinOptions.jvmTarget = jvmTargetVersion
         }
+    }
+
+    // Android target
+    androidTarget {
+        publishLibraryVariants("release", "debug")
     }
 
     // JavaScript target
@@ -62,6 +68,15 @@ kotlin {
         val mingwX64Main by getting
         val mingwX64Test by getting
     }
+}
+
+android {
+    compileSdk = 35
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 35
+    }
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 }
 
 publishing {
