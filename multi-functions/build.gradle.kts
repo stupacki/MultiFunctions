@@ -78,6 +78,10 @@ android {
         targetSdk = 35
     }
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 
 java {
@@ -91,9 +95,11 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.stupacki"
             artifactId = "MultiFunctions"
-            version = "1.4.2"
+            version = "2.0.0"
 
-            from(components["kotlin"])
+            afterEvaluate {
+                from(components["kotlin"])
+            }
         }
     }
 }
