@@ -57,3 +57,18 @@ Thumbs.db
 
 # Build output
 /build/
+
+# Kotlin Multiplatform specific
+/bin/
+/libs/
+/kotlin-js-store/
+/kotlin-native/
+*.klib
+*.kexe
+*.kotlin_metadata
+*.konan
+*.d.ts
+*.js.map
+*.js.node
+*.wasm
+*.wasm.map
