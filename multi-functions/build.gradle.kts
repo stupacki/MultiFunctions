@@ -2,8 +2,8 @@ val jvmTargetVersion = "17"
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.maven.publish)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.maven.publish)
 }
 
 kotlin {
@@ -71,12 +71,19 @@ kotlin {
 }
 
 android {
+    namespace = "com.github.stupacki.multifunctions"
     compileSdk = 35
     defaultConfig {
         minSdk = 21
         targetSdk = 35
     }
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion))
+    }
 }
 
 publishing {
