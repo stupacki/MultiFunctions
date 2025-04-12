@@ -1,56 +1,55 @@
 package io.multifunctions.models
 
-import io.kotest.core.spec.style.WordSpec
-import io.kotest.matchers.shouldBe
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-internal class HeptaSpec : WordSpec() {
+internal class HeptaTest {
 
-    init {
+    @Test
+    fun `Hepta should be initialized`() {
+        val testData = Hepta("one", "two", "three", "four", "five", "six", "seven")
+        verifyHepta(testData, "one", "two", "three", "four", "five", "six", "seven")
+    }
 
-        "Hepta" should {
+    @Test
+    fun `Hepta should handle null values`() {
+        val testData = Hepta<String?, String?, String?, String?, String?, String?, String?>(
+            null, null, null, null, null, null, null
+        )
+        verifyHepta(testData, null, null, null, null, null, null, null)
+    }
 
-            "be initialized" {
-                val testData = Hepta("one", "two", "three", "four", "five", "six", "seven")
-                verifyHepta(testData, "one", "two", "three", "four", "five", "six", "seven")
-            }
+    @Test
+    fun `Hepta should handle toString`() {
+        val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
+        val expected = "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
+        assertEquals(expected, actual.toString())
+    }
 
-            "handle null values" {
-                val testData = Hepta<String?, String?, String?, String?, String?, String?, String?>(
-                    null, null, null, null, null, null, null
-                )
-                verifyHepta(testData, null, null, null, null, null, null, null)
-            }
+    @Test
+    fun `Hepta should handle copy`() {
+        val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
+        assertEquals(actual, actual.copy())
+    }
 
-            "handle toString" {
-                val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
-                val expected = "Hepta(first=one, second=two, third=three, fourth=four, fifth=five, sixth=six, seventh=seven)"
-                actual.toString() shouldBe expected
-            }
-
-            "handle copy()" {
-                val actual = Hepta("one", "two", "three", "four", "five", "six", "seven")
-                actual.copy() shouldBe actual
-            }
-
-            "handle toList" {
-                val actual = Hepta("one", "two", "three", "four", "fife", "six", "seven")
-                val expected = listOf("one", "two", "three", "four", "fife", "six", "seven")
-                actual.toList() shouldBe expected
-            }
-        }
+    @Test
+    fun `Hepta should handle toList`() {
+        val actual = Hepta("one", "two", "three", "four", "fife", "six", "seven")
+        val expected = listOf("one", "two", "three", "four", "fife", "six", "seven")
+        assertEquals(expected, actual.toList())
     }
 
     private fun <T> verifyHepta(
         hepta: Hepta<T, T, T, T, T, T, T>,
         first: T?, second: T?, third: T?, fourth: T?, fifth: T?, sixth: T?, seventh: T?
     ) {
-        hepta.first shouldBe first
-        hepta.second shouldBe second
-        hepta.third shouldBe third
-        hepta.fourth shouldBe fourth
-        hepta.fifth shouldBe fifth
-        hepta.sixth shouldBe sixth
-        hepta.seventh shouldBe seventh
-        Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh) shouldBe hepta
+        assertEquals(first, hepta.first)
+        assertEquals(second, hepta.second)
+        assertEquals(third, hepta.third)
+        assertEquals(fourth, hepta.fourth)
+        assertEquals(fifth, hepta.fifth)
+        assertEquals(sixth, hepta.sixth)
+        assertEquals(seventh, hepta.seventh)
+        assertEquals(hepta, Hepta(hepta.first, hepta.second, hepta.third, hepta.fourth, hepta.fifth, hepta.sixth, hepta.seventh))
     }
 }

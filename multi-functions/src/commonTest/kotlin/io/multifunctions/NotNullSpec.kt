@@ -1,343 +1,269 @@
 package io.multifunctions
 
-import io.kotest.core.spec.style.WordSpec
-import io.kotest.matchers.shouldBe
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-internal class NotNullSpec : WordSpec() {
+internal class NotNullTest {
 
-    init {
+    @Test
+    fun `NotNull with two values - give access to the block when no value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
 
-        "NotNull with two values" should {
-
-            "give access to the block when no value is null" {
-
-                var firstResult: String? = null
-                var secondResult: String? = null
-
-                notNull(FIRST_VALUE, SECOND_VALUE) { first, second ->
-                    firstResult = first
-                    secondResult = second
-                }
-
-                firstResult shouldBe FIRST_VALUE
-                secondResult shouldBe SECOND_VALUE
-            }
-
-            "prevent access to the block when a value is null" {
-
-                var firstResult: String? = null
-                var secondResult: String? = null
-
-                notNull<String?, String?, Unit>(FIRST_VALUE, null) { first, second ->
-                    firstResult = first
-                    secondResult = second
-                }
-
-                firstResult shouldBe null
-                secondResult shouldBe null
-            }
+        notNull(FIRST_VALUE, SECOND_VALUE) { first, second ->
+            firstResult = first
+            secondResult = second
         }
 
-        "NotNull with three values" should {
+        assertEquals(FIRST_VALUE, firstResult)
+        assertEquals(SECOND_VALUE, secondResult)
+    }
 
-            "give access to the block when no value is null" {
+    @Test
+    fun `NotNull with two values - prevent access to the block when a value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
 
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-
-                notNull(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE) { first, second, third ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                }
-
-                firstResult shouldBe FIRST_VALUE
-                secondResult shouldBe SECOND_VALUE
-                thirdResult shouldBe THIRD_VALUE
-            }
-
-            "prevent access to the block when a value is null" {
-
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-
-                notNull<String?, String?, String?, Unit>(FIRST_VALUE, SECOND_VALUE, null) { first, second, third ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                }
-
-                firstResult shouldBe null
-                secondResult shouldBe null
-                thirdResult shouldBe null
-            }
+        notNull<String?, String?, Unit>(FIRST_VALUE, null) { first, second ->
+            firstResult = first
+            secondResult = second
         }
 
-        "NotNull with four values" should {
+        assertEquals(null, firstResult)
+        assertEquals(null, secondResult)
+    }
 
-            "give access to the block when no value is null" {
+    @Test
+    fun `NotNull with three values - give access to the block when no value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
 
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-
-                notNull(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        FOURTH_VALUE,
-                ) { first, second, third, fourth ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                }
-
-                firstResult shouldBe FIRST_VALUE
-                secondResult shouldBe SECOND_VALUE
-                thirdResult shouldBe THIRD_VALUE
-                fourthResult shouldBe FOURTH_VALUE
-            }
-
-            "prevent access to the block when a value is null" {
-
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-
-                notNull<String?, String?, String?, String?, Unit>(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        null,
-                ) { first, second, third, fourth ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                }
-
-                firstResult shouldBe null
-                secondResult shouldBe null
-                thirdResult shouldBe null
-                fourthResult shouldBe null
-            }
+        notNull(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE) { first, second, third ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
         }
 
-        "NotNull with five values" should {
+        assertEquals(FIRST_VALUE, firstResult)
+        assertEquals(SECOND_VALUE, secondResult)
+        assertEquals(THIRD_VALUE, thirdResult)
+    }
 
-            "give access to the block when no value is null" {
+    @Test
+    fun `NotNull with three values - prevent access to the block when a value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
 
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-                var fifthResult: String? = null
-
-                notNull(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        FOURTH_VALUE,
-                        FIFTH_VALUE,
-                ) { first, second, third, fourth, fifth ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                    fifthResult = fifth
-                }
-
-                firstResult shouldBe FIRST_VALUE
-                secondResult shouldBe SECOND_VALUE
-                thirdResult shouldBe THIRD_VALUE
-                fourthResult shouldBe FOURTH_VALUE
-                fifthResult shouldBe FIFTH_VALUE
-            }
-
-            "prevent access to the block when a value is null" {
-
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-                var fifthResult: String? = null
-
-                notNull<String?, String?, String?, String?, String?, Unit>(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        FOURTH_VALUE,
-                        null,
-                ) { first, second, third, fourth, fifth ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                    fifthResult = fifth
-                }
-
-                firstResult shouldBe null
-                secondResult shouldBe null
-                thirdResult shouldBe null
-                fourthResult shouldBe null
-                fifthResult shouldBe null
-            }
+        notNull<String?, String?, String?, Unit>(FIRST_VALUE, SECOND_VALUE, null) { first, second, third ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
         }
 
-        "NotNull with six values" should {
+        assertEquals(null, firstResult)
+        assertEquals(null, secondResult)
+        assertEquals(null, thirdResult)
+    }
 
-            "give access to the block when no value is null" {
+    @Test
+    fun `NotNull with four values - give access to the block when no value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
 
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-                var fifthResult: String? = null
-                var sixthResult: String? = null
-
-                notNull(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        FOURTH_VALUE,
-                        FIFTH_VALUE,
-                        SIXTH_VALUE,
-                ) { first, second, third, fourth, fifth, sixth ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                    fifthResult = fifth
-                    sixthResult = sixth
-                }
-
-                firstResult shouldBe FIRST_VALUE
-                secondResult shouldBe SECOND_VALUE
-                thirdResult shouldBe THIRD_VALUE
-                fourthResult shouldBe FOURTH_VALUE
-                fifthResult shouldBe FIFTH_VALUE
-                sixthResult shouldBe SIXTH_VALUE
-            }
-
-            "prevent access to the block when a value is null" {
-
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-                var fifthResult: String? = null
-                var sixthResult: String? = null
-
-                notNull<String?, String?, String?, String?, String?, String?, Unit>(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        FOURTH_VALUE,
-                        FIFTH_VALUE,
-                        null,
-                ) { first, second, third, fourth, fifth, sixth ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                    fifthResult = fifth
-                    sixthResult = sixth
-                }
-
-                firstResult shouldBe null
-                secondResult shouldBe null
-                thirdResult shouldBe null
-                fourthResult shouldBe null
-                fifthResult shouldBe null
-                sixthResult shouldBe null
-            }
+        notNull(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE) { first, second, third, fourth ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
         }
 
-        "NotNull with seven values" should {
+        assertEquals(FIRST_VALUE, firstResult)
+        assertEquals(SECOND_VALUE, secondResult)
+        assertEquals(THIRD_VALUE, thirdResult)
+        assertEquals(FOURTH_VALUE, fourthResult)
+    }
 
-            "give access to the block when no value is null" {
+    @Test
+    fun `NotNull with four values - prevent access to the block when a value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
 
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-                var fifthResult: String? = null
-                var sixthResult: String? = null
-                var seventhResult: String? = null
-
-                notNull(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        FOURTH_VALUE,
-                        FIFTH_VALUE,
-                        SIXTH_VALUE,
-                        SEVENTH_VALUE,
-                ) { first, second, third, fourth, fifth, sixth, seventh ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                    fifthResult = fifth
-                    sixthResult = sixth
-                    seventhResult = seventh
-                }
-
-                firstResult shouldBe FIRST_VALUE
-                secondResult shouldBe SECOND_VALUE
-                thirdResult shouldBe THIRD_VALUE
-                fourthResult shouldBe FOURTH_VALUE
-                fifthResult shouldBe FIFTH_VALUE
-                sixthResult shouldBe SIXTH_VALUE
-                seventhResult shouldBe SEVENTH_VALUE
-            }
-
-            "prevent access to the block when a value is null" {
-
-                var firstResult: String? = null
-                var secondResult: String? = null
-                var thirdResult: String? = null
-                var fourthResult: String? = null
-                var fifthResult: String? = null
-                var sixthResult: String? = null
-                var seventhResult: String? = null
-
-                notNull<String?, String?, String?, String?, String?, String?, String?, Unit>(
-                        FIRST_VALUE,
-                        SECOND_VALUE,
-                        THIRD_VALUE,
-                        FOURTH_VALUE,
-                        FIFTH_VALUE,
-                        SIXTH_VALUE,
-                        null,
-                ) { first, second, third, fourth, fifth, sixth, seventh ->
-                    firstResult = first
-                    secondResult = second
-                    thirdResult = third
-                    fourthResult = fourth
-                    fifthResult = fifth
-                    sixthResult = sixth
-                    seventhResult = seventh
-                }
-
-                firstResult shouldBe null
-                secondResult shouldBe null
-                thirdResult shouldBe null
-                fourthResult shouldBe null
-                fifthResult shouldBe null
-                sixthResult shouldBe null
-                seventhResult shouldBe null
-            }
+        notNull<String?, String?, String?, String?, Unit>(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, null) { first, second, third, fourth ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
         }
+
+        assertEquals(null, firstResult)
+        assertEquals(null, secondResult)
+        assertEquals(null, thirdResult)
+        assertEquals(null, fourthResult)
+    }
+
+    @Test
+    fun `NotNull with five values - give access to the block when no value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
+        var fifthResult: String? = null
+
+        notNull(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE, FIFTH_VALUE) { first, second, third, fourth, fifth ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
+            fifthResult = fifth
+        }
+
+        assertEquals(FIRST_VALUE, firstResult)
+        assertEquals(SECOND_VALUE, secondResult)
+        assertEquals(THIRD_VALUE, thirdResult)
+        assertEquals(FOURTH_VALUE, fourthResult)
+        assertEquals(FIFTH_VALUE, fifthResult)
+    }
+
+    @Test
+    fun `NotNull with five values - prevent access to the block when a value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
+        var fifthResult: String? = null
+
+        notNull<String?, String?, String?, String?, String?, Unit>(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE, null) { first, second, third, fourth, fifth ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
+            fifthResult = fifth
+        }
+
+        assertEquals(null, firstResult)
+        assertEquals(null, secondResult)
+        assertEquals(null, thirdResult)
+        assertEquals(null, fourthResult)
+        assertEquals(null, fifthResult)
+    }
+
+    @Test
+    fun `NotNull with six values - give access to the block when no value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
+        var fifthResult: String? = null
+        var sixthResult: String? = null
+
+        notNull(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE, FIFTH_VALUE, SIXTH_VALUE) { first, second, third, fourth, fifth, sixth ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
+            fifthResult = fifth
+            sixthResult = sixth
+        }
+
+        assertEquals(FIRST_VALUE, firstResult)
+        assertEquals(SECOND_VALUE, secondResult)
+        assertEquals(THIRD_VALUE, thirdResult)
+        assertEquals(FOURTH_VALUE, fourthResult)
+        assertEquals(FIFTH_VALUE, fifthResult)
+        assertEquals(SIXTH_VALUE, sixthResult)
+    }
+
+    @Test
+    fun `NotNull with six values - prevent access to the block when a value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
+        var fifthResult: String? = null
+        var sixthResult: String? = null
+
+        notNull<String?, String?, String?, String?, String?, String?, Unit>(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE, FIFTH_VALUE, null) { first, second, third, fourth, fifth, sixth ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
+            fifthResult = fifth
+            sixthResult = sixth
+        }
+
+        assertEquals(null, firstResult)
+        assertEquals(null, secondResult)
+        assertEquals(null, thirdResult)
+        assertEquals(null, fourthResult)
+        assertEquals(null, fifthResult)
+        assertEquals(null, sixthResult)
+    }
+
+    @Test
+    fun `NotNull with seven values - give access to the block when no value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
+        var fifthResult: String? = null
+        var sixthResult: String? = null
+        var seventhResult: String? = null
+
+        notNull(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE, FIFTH_VALUE, SIXTH_VALUE, SEVENTH_VALUE) { first, second, third, fourth, fifth, sixth, seventh ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
+            fifthResult = fifth
+            sixthResult = sixth
+            seventhResult = seventh
+        }
+
+        assertEquals(FIRST_VALUE, firstResult)
+        assertEquals(SECOND_VALUE, secondResult)
+        assertEquals(THIRD_VALUE, thirdResult)
+        assertEquals(FOURTH_VALUE, fourthResult)
+        assertEquals(FIFTH_VALUE, fifthResult)
+        assertEquals(SIXTH_VALUE, sixthResult)
+        assertEquals(SEVENTH_VALUE, seventhResult)
+    }
+
+    @Test
+    fun `NotNull with seven values - prevent access to the block when a value is null`() {
+        var firstResult: String? = null
+        var secondResult: String? = null
+        var thirdResult: String? = null
+        var fourthResult: String? = null
+        var fifthResult: String? = null
+        var sixthResult: String? = null
+        var seventhResult: String? = null
+
+        notNull<String?, String?, String?, String?, String?, String?, String?, Unit>(FIRST_VALUE, SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE, FIFTH_VALUE, SIXTH_VALUE, null) { first, second, third, fourth, fifth, sixth, seventh ->
+            firstResult = first
+            secondResult = second
+            thirdResult = third
+            fourthResult = fourth
+            fifthResult = fifth
+            sixthResult = sixth
+            seventhResult = seventh
+        }
+
+        assertEquals(null, firstResult)
+        assertEquals(null, secondResult)
+        assertEquals(null, thirdResult)
+        assertEquals(null, fourthResult)
+        assertEquals(null, fifthResult)
+        assertEquals(null, sixthResult)
+        assertEquals(null, seventhResult)
     }
 
     private companion object {
-
         const val FIRST_VALUE = "first"
         const val SECOND_VALUE = "second"
         const val THIRD_VALUE = "third"

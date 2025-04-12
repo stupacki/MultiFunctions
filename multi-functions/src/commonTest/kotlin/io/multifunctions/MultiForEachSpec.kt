@@ -1,101 +1,93 @@
 package io.multifunctions
 
-import io.kotest.matchers.shouldBe
-import io.kotest.core.spec.style.WordSpec
+import kotlin.test.Test
+import kotlin.test.assertEquals
 import io.multifunctions.models.*
 
-internal class MultiForEachSpec : WordSpec() {
+internal class MultiForEachTest {
 
-    init {
+    @Test
+    fun `produce a correct mapping from Pair`() {
+        val testData = listOf(Pair("one", "two"))
 
-        "MultiForEach" should {
+        testData.forEach { one, two ->
+            assertEquals("one", one)
+            assertEquals("two", two)
+        }
+    }
 
-            "produce a correct mapping from Pair" {
+    @Test
+    fun `produce a correct mapping from Triple`() {
+        val testData = listOf(Triple("one", "two", "three"))
 
-                val testData = listOf(Pair("one", "two"))
+        testData.forEach { one, two, three ->
+            assertEquals("one", one)
+            assertEquals("two", two)
+            assertEquals("three", three)
+        }
+    }
 
-                testData.forEach { one, two ->
-                    one shouldBe "one"
-                    two shouldBe "two"
-                } shouldBe Unit
-            }
+    @Test
+    fun `produce a correct mapping from Quad`() {
+        val testData = listOf(Quad("one", "two", "three", "four"))
 
-            "produce a correct mapping from Triple" {
+        testData.forEach { one, two, three, four ->
+            assertEquals("one", one)
+            assertEquals("two", two)
+            assertEquals("three", three)
+            assertEquals("four", four)
+        }
+    }
 
-                val testData = listOf(Triple("one", "two", "three"))
+    @Test
+    fun `produce a correct mapping from Penta`() {
+        val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-                testData.forEach { one, two, three ->
-                    one shouldBe "one"
-                    two shouldBe "two"
-                    three shouldBe "three"
-                } shouldBe Unit
-            }
+        testData.forEach { one, two, three, four, five ->
+            assertEquals("one", one)
+            assertEquals("two", two)
+            assertEquals("three", three)
+            assertEquals("four", four)
+            assertEquals("five", five)
+        }
+    }
 
-            "produce a correct mapping from Quad" {
+    @Test
+    fun `produce a correct mapping from Hexa`() {
+        val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-                val testData = listOf(Quad("one", "two", "three", "four"))
+        testData.forEach { one, two, three, four, five, six ->
+            assertEquals("one", one)
+            assertEquals("two", two)
+            assertEquals("three", three)
+            assertEquals("four", four)
+            assertEquals("five", five)
+            assertEquals("six", six)
+        }
+    }
 
-                testData.forEach { one, two, three, four ->
-                    one shouldBe "one"
-                    two shouldBe "two"
-                    three shouldBe "three"
-                    four shouldBe "four"
-                } shouldBe Unit
-            }
+    @Test
+    fun `produce a correct mapping from Hepta`() {
+        val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-            "produce a correct mapping from Penta" {
+        testData.forEach { one, two, three, four, five, six, seven ->
+            assertEquals("one", one)
+            assertEquals("two", two)
+            assertEquals("three", three)
+            assertEquals("four", four)
+            assertEquals("five", five)
+            assertEquals("six", six)
+            assertEquals("seven", seven)
+        }
+    }
 
-                val testData = listOf(Penta("one", "two", "three", "four", "five"))
+    @Test
+    fun `handle null values`() {
+        val testData = listOf(Pair("one", null))
 
-                testData.forEach { one, two, three, four, five ->
-                    one shouldBe "one"
-                    two shouldBe "two"
-                    three shouldBe "three"
-                    four shouldBe "four"
-                    five shouldBe "five"
-                } shouldBe Unit
-            }
-
-            "produce a correct mapping from Hexa" {
-
-                val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
-
-                testData.forEach { one, two, three, four, five, six ->
-                    one shouldBe "one"
-                    two shouldBe "two"
-                    three shouldBe "three"
-                    four shouldBe "four"
-                    five shouldBe "five"
-                    six shouldBe "six"
-                } shouldBe Unit
-            }
-
-            "produce a correct mapping from Hepta" {
-
-                val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
-
-                testData.forEach { one, two, three, four, five, six, seven ->
-                    one shouldBe "one"
-                    two shouldBe "two"
-                    three shouldBe "three"
-                    four shouldBe "four"
-                    five shouldBe "five"
-                    six shouldBe "six"
-                    seven shouldBe "seven"
-                } shouldBe Unit
-            }
-
-            "handle null values" {
-
-                val testData = listOf(Pair("one", null))
-
-                testData.forEach { one, two ->
-                    one shouldBe "one"
-                    two shouldBe null
-
-                    Pair(one, two)
-                } shouldBe Unit
-            }
+        testData.forEach { one, two ->
+            assertEquals("one", one)
+            assertEquals(null, two)
         }
     }
 }

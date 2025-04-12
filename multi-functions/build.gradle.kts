@@ -15,14 +15,14 @@ kotlin {
             }
         }
     }
-//    js(IR) {
-//        browser()
-//        nodejs()
-//    }
-//    macosX64()
-//    macosArm64()
-//    iosArm64()
-//    linuxX64()
+    js(IR) {
+        browser()
+        nodejs()
+    }
+    macosX64()
+    macosArm64()
+    iosArm64()
+    linuxX64()
 
     sourceSets {
         val commonMain by getting {
@@ -32,11 +32,13 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                implementation(libs.bundles.kotest)
+                implementation(libs.kotlin.test)
             }
         }
         val jvmMain by getting
         val jvmTest by getting
+        val macosArm64Main by getting
+        val macosArm64Test by getting
     }
 }
 

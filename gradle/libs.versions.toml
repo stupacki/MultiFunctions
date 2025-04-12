@@ -4,16 +4,17 @@ kotest = "5.9.1"
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
-kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
-kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
-kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+#kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+#kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+#kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
 [bundles]
-kotest = [
-    "kotest-runner",
-    "kotest-assertions",
-    "kotest-property",
-]
+#kotest = [
+#    "kotest-runner",
+#    "kotest-assertions",
+#    "kotest-property",
+#]
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
