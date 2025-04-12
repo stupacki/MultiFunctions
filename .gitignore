@@ -51,9 +51,9 @@ Thumbs.db
 *.bak
 
 # Gradle Wrapper
-/gradle/wrapper/gradle-wrapper.properties
-/gradlew
-/gradlew.bat
+!/gradle/wrapper/gradle-wrapper.properties
+!/gradlew
+!/gradlew.bat
 
 # Build output
 /build/
