@@ -7,7 +7,6 @@ kotlin-sdt = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kot
 kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [bundles]
 kotest = [
@@ -17,3 +16,6 @@ kotest = [
 ]
 
 [plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
+java = { id = "java" }
+maven-publish = { id = "maven-publish" }
