@@ -1,7 +1,5 @@
 package io.multifunctions.models
 
-import java.io.Serializable
-
 /**
  * Represents a generic penta of fife values.
  *
@@ -26,7 +24,7 @@ public data class Penta<out A, out B, out C, out D, out E>(
     val third: C,
     val fourth: D,
     val fifth: E
-) : Serializable {
+) {
 
     /**
      * Returns string representation of the [Penta] including its [first], [second], [third], [fourth] and [fifth] values.

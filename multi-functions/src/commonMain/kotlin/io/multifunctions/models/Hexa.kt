@@ -1,7 +1,5 @@
 package io.multifunctions.models
 
-import java.io.Serializable
-
 /**
  * Represents a generic hexa of six values.
  *
@@ -29,7 +27,7 @@ public data class Hexa<out A, out B, out C, out D, out E, out F>(
     val fourth: D,
     val fifth: E,
     val sixth: F
-) : Serializable {
+) {
 
     /**
      * Returns string representation of the [Hexa] including its [first], [second], [third], [fourth], [fifth] and [sixth] values.

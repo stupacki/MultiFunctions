@@ -1,3 +1,4 @@
-tasks.register("clean", Delete::class) {
-    delete(layout.buildDirectory)
+plugins {
+    alias(libs.plugins.kotlin.multiplatform).apply(false)
 }
+

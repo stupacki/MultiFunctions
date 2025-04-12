@@ -1,7 +1,43 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    alias(libs.plugins.kotlin)
-    alias(libs.plugins.java)
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.maven.publish)
+}
+
+kotlin {
+    jvm {
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_17)
+                }
+            }
+        }
+    }
+//    js(IR) {
+//        browser()
+//        nodejs()
+//    }
+//    macosX64()
+//    macosArm64()
+//    iosArm64()
+//    linuxX64()
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.kotlin.stdlib)
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.bundles.kotest)
+            }
+        }
+        val jvmMain by getting
+        val jvmTest by getting
+    }
 }
 
 publishing {
@@ -11,36 +47,13 @@ publishing {
             artifactId = "MultiFunctions"
             version = "1.4.2"
 
-            from(components["java"])
+            from(components["kotlin"])
         }
     }
 }
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+
+tasks {
+    withType<Test> {
+        useJUnitPlatform()
     }
-
-    sourceSets["main"].java {
-        srcDir("src/main/kotlin")
-    }
-    sourceSets["test"].java {
-        srcDir("src/test/kotlin")
-    }
-}
-
-kotlin {
-    jvmToolchain(17)
-}
-
-
-dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
-    implementation(libs.kotlin.sdt)
-
-    testImplementation(libs.bundles.kotest)
-}
-
-tasks.test {
-    useJUnitPlatform()
 }

@@ -1,7 +1,5 @@
 package io.multifunctions.models
 
-import java.io.Serializable
-
 /**
  * Represents a generic quad of four values.
  *
@@ -23,7 +21,7 @@ public data class Quad<out A, out B, out C, out D>(
     val second: B,
     val third: C,
     val fourth: D
-) : Serializable {
+) {
 
     /**
      * Returns string representation of the [Quad] including its [first], [second], [third] and [fourth] values.

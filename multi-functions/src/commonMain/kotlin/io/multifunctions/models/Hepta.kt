@@ -1,7 +1,5 @@
 package io.multifunctions.models
 
-import java.io.Serializable
-
 /**
  * Represents a generic hepta of seven values.
  *
@@ -32,7 +30,7 @@ public data class Hepta<out A, out B, out C, out D, out E, out F, out G>(
     val fifth: E,
     val sixth: F,
     val seventh: G
-) : Serializable {
+) {
 
     /**
      * Returns string representation of the [Hepta] including its [first], [second], [third], [fourth], [fifth], [sixth] and [seventh] values.
