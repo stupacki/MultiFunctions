@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+val jvmTargetVersion = "17"
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -9,11 +9,7 @@ kotlin {
     // JVM target
     jvm {
         compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_17)
-                }
-            }
+            kotlinOptions.jvmTarget = jvmTargetVersion
         }
     }
 
