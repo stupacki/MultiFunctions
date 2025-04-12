@@ -1,79 +1,59 @@
-# Android Studio
-/*/build/
-/*/local.properties
-/*/out
-/*/*/build
-/*/*/production
-captures/
-.navigation/
-*.ipr
-*~
-*.swp
-*.iml
-.idea/caches/
-.idea/libraries/
-.idea/shelf/
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/.name
-.idea/compiler.xml
-.idea/copyright/profiles_settings.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/scopes/scope_settings.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
-.idea/datasources.xml
-.idea/dataSources.ids
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
-.idea/assetWizardSettings.xml
-.idea/gradle.xml
-.idea/jarRepositories.xml
-.idea/navEditor.xml
-!/gradle/wrapper/gradle-wrapper.jar
+# Gradle build directory
+/build/
+.gradle/
 
-### Xcode ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata/
-/*.gcno
-**/xcshareddata/WorkspaceSettings.xcsettings
-*.xcuserstate
-*.xcscheme
-*.xcworkspace
-xcuserdata/
+# IntelliJ IDEA/Android Studio project files
+/.idea/
+/*.iml
+/out/
 
-# CocoaPods
-Pods/
+# Kotlin/Java compiled files
+*.class
+*.jar
+*.war
+*.ear
 
-## iOS App packaging
-*.ipa
-*.dSYM.zip
-*.dSYM
+# Log files
+*.log
 
-# Android App packaging
-*.apk
-*.ap_
-*.aab
-
-# macOs
+# OS-specific files
 .DS_Store
+Thumbs.db
 
 # Generated files
-bin/
-gen/
-*.class
+/captures/
+/.externalNativeBuild/
+
+# Android-specific files
+*.apk
+*.ap_
 *.dex
+*.so
+*.o
+*.obj
+*.a
+*.lib
 
-# Gradle files
-.gradle
-.gradle/
-build/
+# Test results
+/test-results/
+/test-output/
 
-# Local configuration file
-local.properties
+# Dependency caches
+/.m2/
+/.caches/
+/node_modules/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+
+# Gradle Wrapper
+/gradle/wrapper/gradle-wrapper.properties
+/gradlew
+/gradlew.bat
+
+# Build output
+/build/
