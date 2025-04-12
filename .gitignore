@@ -1,57 +1,79 @@
-# Library and Build #
-#####################
-.gradle
-/local.properties
-/build
-/captures
-.externalNativeBuild
-multi-functions/libs/
-lib/
-
-# IntelliJ IDEA #
-#################
+# Android Studio
+/*/build/
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+captures/
+.navigation/
+*.ipr
+*~
+*.swp
 *.iml
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-.idea/modules/
-.idea/
+.idea/caches/
+.idea/libraries/
+.idea/shelf/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/datasources.xml
+.idea/dataSources.ids
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/assetWizardSettings.xml
+.idea/gradle.xml
+.idea/jarRepositories.xml
+.idea/navEditor.xml
+!/gradle/wrapper/gradle-wrapper.jar
 
-# Compiled source #
-###################
-*.com
+### Xcode ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata/
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+*.xcuserstate
+*.xcscheme
+*.xcworkspace
+xcuserdata/
+
+# CocoaPods
+Pods/
+
+## iOS App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Android App packaging
+*.apk
+*.ap_
+*.aab
+
+# macOs
+.DS_Store
+
+# Generated files
+bin/
+gen/
 *.class
-*.dll
-*.exe
-*.o
-*.so
+*.dex
 
-# Packages #
-############
-*.7z
-*.dmg
-*.gz
-*.iso
-*.rar
-*.tar
-*.zip
+# Gradle files
+.gradle
+.gradle/
+build/
 
-# Logs and databases #
-######################
-*.log
-*.sql
-*.sqlite
-
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-resources/
-
-out/
-projectFilesBackup/
+# Local configuration file
+local.properties
