@@ -19,12 +19,6 @@ kotlin {
         publishLibraryVariants("release", "debug")
     }
 
-    // JavaScript target
-    js(IR) {
-        browser()
-        nodejs()
-    }
-
     // Native targets
     macosX64()
     macosArm64()
