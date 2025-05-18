@@ -61,7 +61,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             groupId = "com.github.stupacki"
-            artifactId = "MultiFunctions"
+            artifactId = "multi-functions"
             version = "2.0.0"
 
             afterEvaluate {
