@@ -1,46 +1,63 @@
+val jvmTargetVersion = "17"
+
 plugins {
-    alias(libs.plugins.kotlin)
-    alias(libs.plugins.java)
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.maven.publish)
+    alias(libs.plugins.dokka)
+}
+
+kotlin {
+    // JVM target
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = jvmTargetVersion
+        }
+    }
+
+    // Native targets
+    macosX64()
+    macosArm64()
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    // Add source sets for each platform
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(libs.kotlin.stdlib)
+            }
+        }
+        commonTest {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
+        }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion))
+    }
 }
 
 publishing {
     publications {
         create<MavenPublication>("maven") {
             groupId = "com.github.stupacki"
-            artifactId = "MultiFunctions"
-            version = "1.4.2"
+            artifactId = "multi-functions"
+            version = "2.0.0"
 
-            from(components["java"])
+            afterEvaluate {
+                from(components["kotlin"])
+            }
         }
     }
 }
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+
+tasks {
+    withType<Test> {
+        useJUnitPlatform()
     }
-
-    sourceSets["main"].java {
-        srcDir("src/main/kotlin")
-    }
-    sourceSets["test"].java {
-        srcDir("src/test/kotlin")
-    }
-}
-
-kotlin {
-    jvmToolchain(17)
-}
-
-
-dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
-    implementation(libs.kotlin.sdt)
-
-    testImplementation(libs.bundles.kotest)
-}
-
-tasks.test {
-    useJUnitPlatform()
 }

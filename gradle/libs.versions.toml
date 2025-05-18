@@ -1,21 +1,14 @@
 [versions]
+agp = "8.9.3"
 kotlin = "2.1.10"
-kotest = "5.9.1"
+dokka = "1.9.20"
 
 [libraries]
-kotlin-sdt = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
-kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
-kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
-kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
-
-[bundles]
-kotest = [
-    "kotest-runner",
-    "kotest-assertions",
-    "kotest-property",
-]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
 [plugins]
-kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
-java = { id = "java" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 maven-publish = { id = "maven-publish" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
