@@ -3,6 +3,7 @@ val jvmTargetVersion = "17"
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.maven.publish)
+    alias(libs.plugins.dokka)
 }
 
 kotlin {
@@ -22,10 +23,12 @@ kotlin {
 
     // Add source sets for each platform
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.kotlin.stdlib)
+        commonMain {
+            dependencies {
+                implementation(libs.kotlin.stdlib)
+            }
         }
-        commonTest.dependencies {
+        commonTest {
             dependencies {
                 implementation(libs.kotlin.test)
             }
@@ -34,7 +37,6 @@ kotlin {
 }
 
 java {
-    withJavadocJar()
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion))
     }
