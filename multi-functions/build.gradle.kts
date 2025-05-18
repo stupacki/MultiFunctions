@@ -34,6 +34,7 @@ kotlin {
 }
 
 java {
+    withJavadocJar()
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(jvmTargetVersion))
     }
