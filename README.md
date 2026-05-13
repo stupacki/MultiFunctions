@@ -19,7 +19,7 @@ allprojects {
 **Module `build.gradle`:**
 ```groovy
 dependencies {
-    implementation 'com.github.stupacki:MultiFunctions:<insert version>'
+    implementation 'com.github.stupacki:multi-functions:<insert version>'
 }
 ```
 
@@ -41,7 +41,7 @@ dependencyResolutionManagement {
 multifunctions = "<insert version>"
 
 [libraries]
-multifunctions = { module = "com.github.stupacki:MultiFunctions", version.ref = "multifunctions" }
+multifunctions = { module = "com.github.stupacki:multi-functions", version.ref = "multifunctions" }
 ```
 
 **Module `build.gradle.kts`:**

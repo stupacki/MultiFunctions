@@ -8,11 +8,11 @@ package io.multifunctions.models
  *
  * @param A type of the first value.
  * @param B type of the second value.
- * @param C type of the second value.
- * @param D type of the second value.
- * @param E type of the second value.
- * @param F type of the second value.
- * @param G type of the second value.
+ * @param C type of the third value.
+ * @param D type of the fourth value.
+ * @param E type of the fifth value.
+ * @param F type of the sixth value.
+ * @param G type of the seventh value.
  * @property first First value.
  * @property second Second value.
  * @property third Third value.

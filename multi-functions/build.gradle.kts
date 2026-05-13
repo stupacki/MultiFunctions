@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 val jvmTargetVersion = "17"
 
 plugins {
@@ -9,8 +11,8 @@ plugins {
 kotlin {
     // JVM target
     jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = jvmTargetVersion
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(jvmTargetVersion))
         }
     }
 

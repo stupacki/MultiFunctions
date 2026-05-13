@@ -1,6 +1,7 @@
 # Gradle build directory
 /build/
 .gradle/
+local.properties
 
 # IntelliJ IDEA/Android Studio project files
 /.idea/

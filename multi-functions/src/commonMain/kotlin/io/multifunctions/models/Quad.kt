@@ -8,8 +8,8 @@ package io.multifunctions.models
  *
  * @param A type of the first value.
  * @param B type of the second value.
- * @param C type of the second value.
- * @param D type of the second value.
+ * @param C type of the third value.
+ * @param D type of the fourth value.
  * @property first First value.
  * @property second Second value.
  * @property third Third value.
@@ -31,6 +31,6 @@ public data class Quad<out A, out B, out C, out D>(
 }
 
 /**
- * Converts this penta into a list.
+ * Converts this quad into a list.
  */
 public fun <T> Quad<T, T, T, T>.toList(): List<T> = listOf(first, second, third, fourth)
