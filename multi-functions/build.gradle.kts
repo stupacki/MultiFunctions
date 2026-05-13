@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.kotlin.multiplatform.library)
     alias(libs.plugins.maven.publish)
-    alias(libs.plugins.dokka)
 }
 
 @OptIn(ExperimentalWasmDsl::class)
@@ -66,11 +65,6 @@ kotlin {
 
     // Add source sets for each platform
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.kotlin.stdlib)
-            }
-        }
         commonTest {
             dependencies {
                 implementation(libs.kotlin.test)
@@ -106,7 +100,9 @@ tasks {
 
     matching {
         it.name in setOf(
+            "jsBrowserTest",
             "tvosSimulatorArm64Test",
+            "wasmJsBrowserTest",
             "watchosSimulatorArm64Test",
         )
     }.configureEach {
