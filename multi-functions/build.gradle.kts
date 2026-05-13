@@ -9,6 +9,9 @@ plugins {
     alias(libs.plugins.maven.publish)
 }
 
+group = "com.github.stupacki"
+version = "2.1.0"
+
 @OptIn(ExperimentalWasmDsl::class)
 kotlin {
     // JVM target
@@ -80,14 +83,17 @@ java {
 }
 
 publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = "com.github.stupacki"
-            artifactId = "multi-functions"
-            version = "2.1.0"
-
-            afterEvaluate {
-                from(components["kotlin"])
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/stupacki/MultiFunctions")
+            credentials {
+                username = providers.gradleProperty("gpr.user")
+                    .orElse(providers.environmentVariable("GITHUB_ACTOR"))
+                    .orNull
+                password = providers.gradleProperty("gpr.key")
+                    .orElse(providers.environmentVariable("GITHUB_TOKEN"))
+                    .orNull
             }
         }
     }
