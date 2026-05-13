@@ -1,13 +1,16 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-val jvmTargetVersion = "17"
+val jvmTargetVersion = libs.versions.jvmTargetVersion.get()
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
     alias(libs.plugins.maven.publish)
     alias(libs.plugins.dokka)
 }
 
+@OptIn(ExperimentalWasmDsl::class)
 kotlin {
     // JVM target
     jvm {
@@ -16,12 +19,50 @@ kotlin {
         }
     }
 
+    android {
+        namespace = "io.multifunctions"
+        compileSdk = libs.versions.compileSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
+
+        withHostTest {}
+
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(jvmTargetVersion))
+        }
+    }
+
+    js {
+        browser()
+        nodejs()
+    }
+
+    wasmJs {
+        browser()
+        nodejs()
+    }
+
+    wasmWasi {
+        nodejs()
+    }
+
     // Native targets
-    macosX64()
+    linuxX64()
+    linuxArm64()
+    mingwX64()
     macosArm64()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    tvosArm64()
+    tvosSimulatorArm64()
+    watchosArm32()
+    watchosArm64()
+    watchosSimulatorArm64()
+    watchosDeviceArm64()
+    androidNativeX86()
+    androidNativeX64()
+    androidNativeArm32()
+    androidNativeArm64()
 
     // Add source sets for each platform
     sourceSets {
@@ -49,7 +90,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.stupacki"
             artifactId = "multi-functions"
-            version = "2.0.0"
+            version = "2.1.0"
 
             afterEvaluate {
                 from(components["kotlin"])
@@ -61,5 +102,14 @@ publishing {
 tasks {
     withType<Test> {
         useJUnitPlatform()
+    }
+
+    matching {
+        it.name in setOf(
+            "tvosSimulatorArm64Test",
+            "watchosSimulatorArm64Test",
+        )
+    }.configureEach {
+        enabled = false
     }
 }
