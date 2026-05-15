@@ -50,6 +50,8 @@ export GITHUB_USER=<your-github-user>
 export GITHUB_TOKEN=<token-with-package-write-access>
 ```
 
+For consumer documentation, keep `README.md` focused on install and API usage. Do not add local build, release, or maintainer workflow details to the README; keep those in `AGENTS.md`, scripts, or internal docs. The README should mention that iOS/native consumers must use GitHub Packages for now because JitPack does not provide a way for this project to build and publish Kotlin/Native iOS artifacts.
+
 ## Root Scripts
 
 The `scripts/` directory contains the library build and package maintenance entry points. Prefer these scripts over spelling out long Gradle publish commands.
@@ -104,7 +106,13 @@ Multi Functions GitHub Packages resolved for JS Node application in 4 target gro
 
 - Keep Kotlin sources in package `io.multifunctions` unless working in the integration app.
 - Prefer extension functions and tuple model patterns already present in `multi-functions/src/commonMain`.
+- Source filenames should describe the operation without a `Multi` prefix, for example `Map.kt`, `MapCheckNull.kt`, `Filter.kt`, `Fold.kt`, `SequenceMap.kt`, and `ToTuple.kt`.
+- Test filenames should mirror the source operation names and use the `*Test.kt` suffix, for example `MapCheckNullTest.kt` and `SequenceFilterOnEachFoldTest.kt`.
 - Add or update common tests under `multi-functions/src/commonTest` for behavior changes.
+- For null-skipping APIs such as `letCheckNull`, `mapCheckNull`, `mapIndexedCheckNull`, `mapAnyNotNull`, and `mapIndexedAnyNotNull`, tests should verify both the returned result and that skipped tuples do not call the user block/transform.
+- `mapNotNull` and `mapIndexedNotNull` should keep Kotlin-standard semantics: they call the transform for every tuple and filter only null transform results. Do not make them skip null input tuples.
+- `mapAnyNotNull` and `mapIndexedAnyNotNull` skip only tuples where all tuple values are null; partially-null tuples should still be transformed.
+- Sequence APIs should stay lazy and return `Sequence`, not materialized `List`, except terminal operations such as `fold`.
 - Keep generated build output, IDE metadata, and local credentials out of commits.
 - Do not replace the integration build dependency with a project dependency; it exists to validate external package resolution.
 
