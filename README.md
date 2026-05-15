@@ -2,6 +2,33 @@
 
 Multi Functions is an extension library written in Kotlin for processing and binding multiple data to a single operation. It extends the standard libraries of Kotlin and can be used alongside them without interference.
 
+## Local Build and Release
+
+The project includes a small local build pipeline in `scripts/build-library`. It uses `artifactVersion` from `gradle.properties` by default, and every command can take a version override.
+
+```sh
+./scripts/build-library quick
+./scripts/build-library check
+./scripts/build-library build
+./scripts/build-library release-local
+./scripts/build-library release-github 2.1.1
+```
+
+Publishing to GitHub Packages requires:
+
+```sh
+export GITHUB_USER=<your-github-user>
+export GITHUB_TOKEN=<token-with-package-write-access>
+```
+
+Useful commands:
+
+- `quick`: fast local verification for JVM, Android host, JS, and WASM node tests.
+- `check`: full Gradle check.
+- `build`: assembles artifacts.
+- `release-local`: runs `check`, builds artifacts, then publishes to Maven Local.
+- `release-github`: runs `check`, builds artifacts, then publishes to GitHub Packages.
+
 ## Download the Latest Version
 
 ### Using Gradle with Groovy DSL

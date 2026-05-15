@@ -3,7 +3,7 @@ set -eu
 
 usage() {
   cat <<'EOF'
-Usage: ./scripts/publish-to-github.sh [VERSION]
+Usage: ./scripts/publish-to-github [VERSION]
 
 Publishes all multi-functions artifacts to GitHub Packages.
 When VERSION is provided, it overrides artifactVersion from gradle.properties.
@@ -13,8 +13,8 @@ Required environment:
   GITHUB_TOKEN   Token with package publishing permissions
 
 Example:
-  ./scripts/publish-to-github.sh
-  ./scripts/publish-to-github.sh 2.1.0
+  ./scripts/publish-to-github
+  ./scripts/publish-to-github 2.1.0
 EOF
 }
 
