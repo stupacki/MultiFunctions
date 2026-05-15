@@ -66,6 +66,10 @@ Thumbs.db
 !/gradle/wrapper/gradle-wrapper.properties
 !/gradlew
 !/gradlew.bat
+!/integration/gradle/wrapper/gradle-wrapper.jar
+!/integration/gradle/wrapper/gradle-wrapper.properties
+!/integration/gradlew
+!/integration/gradlew.bat
 
 # Build output
 /build/
