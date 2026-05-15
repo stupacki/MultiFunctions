@@ -1,12 +1,22 @@
 # Gradle build directory
 /build/
 .gradle/
+integration/.gradle/
+integration/build/
+integration/**/build/
 local.properties
 
 # IntelliJ IDEA/Android Studio project files
-/.idea/
+/.idea/*
+!/.idea/runConfigurations
+!/.idea/runConfigurations/
+!/.idea/runConfigurations/*.xml
 /*.iml
 /out/
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
 
 # Kotlin/Java compiled files
 *.class
