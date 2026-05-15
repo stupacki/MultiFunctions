@@ -162,4 +162,4 @@ testData.mapCheckNull { xData, yData, expectedResult ->
 
 ## License
 
-Distributed under the Apache 2.0 License. Copyright © 2017 Benny Schneider
+Distributed under the Apache 2.0 License. Copyright © 2017-2026 Benny Schneider
