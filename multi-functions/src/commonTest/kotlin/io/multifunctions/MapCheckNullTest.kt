@@ -2,6 +2,7 @@ package io.multifunctions
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.fail
 import io.multifunctions.models.*
 
 internal class MapCheckNullTest {
@@ -107,5 +108,27 @@ internal class MapCheckNullTest {
         val result = testData.mapCheckNull { one, two -> Pair(one, two) }
 
         assertEquals(expected, result)
+    }
+
+    @Test
+    fun `does not call transform when Pair contains null`() {
+        val testData = listOf(Pair<String?, String?>("one", null))
+
+        val result = testData.mapCheckNull { _, _ ->
+            fail("Transform should not be called when any tuple value is null")
+        }
+
+        assertEquals(emptyList(), result)
+    }
+
+    @Test
+    fun `does not call transform when Hepta contains null`() {
+        val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", null))
+
+        val result = testData.mapCheckNull { _, _, _, _, _, _, _ ->
+            fail("Transform should not be called when any tuple value is null")
+        }
+
+        assertEquals(emptyList(), result)
     }
 }

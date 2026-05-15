@@ -100,7 +100,7 @@ internal class MapNotNullTest {
     }
 
     @Test
-    fun `sort out null elements`() {
+    fun `passes all tuple values to transform`() {
         val testData = listOf(
             Pair(null, null),
             Pair("one", "two"),

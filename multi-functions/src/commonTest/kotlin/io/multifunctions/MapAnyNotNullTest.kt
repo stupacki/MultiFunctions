@@ -6,6 +6,7 @@ import io.multifunctions.models.Penta
 import io.multifunctions.models.Quad
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.fail
 
 internal class MapAnyNotNullTest {
 
@@ -123,6 +124,36 @@ internal class MapAnyNotNullTest {
             ),
             result
         )
+    }
+
+    @Test
+    fun `does not call transform for all-null Pair`() {
+        val testData = listOf(Pair<String?, String?>(null, null))
+
+        val result = testData.mapAnyNotNull { _, _ ->
+            fail("Transform should not be called for an all-null tuple")
+        }
+
+        assertEquals(emptyList(), result)
+    }
+
+    @Test
+    fun `does not call transform for all-null Hepta`() {
+        val testData = listOf(Hepta<String?, String?, String?, String?, String?, String?, String?>(
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ))
+
+        val result = testData.mapAnyNotNull { _, _, _, _, _, _, _ ->
+            fail("Transform should not be called for an all-null tuple")
+        }
+
+        assertEquals(emptyList(), result)
     }
 
     @Test

@@ -3,6 +3,7 @@ package io.multifunctions
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
+import kotlin.test.fail
 import io.multifunctions.models.*
 
 internal class LetCheckNullTest {
@@ -105,9 +106,18 @@ internal class LetCheckNullTest {
         val testData = Pair<String?, String?>("one", null)
 
         val result = testData.letCheckNull { one, two ->
-            assertEquals("one", one)
-            assertNull(two)
-            Pair(one, two)
+            fail("Block should not be called when any tuple value is null")
+        }
+
+        assertNull(result)
+    }
+
+    @Test
+    fun `does not call block when Hepta contains null`() {
+        val testData = Hepta("one", "two", "three", "four", "five", "six", null)
+
+        val result = testData.letCheckNull { _, _, _, _, _, _, _ ->
+            fail("Block should not be called when any tuple value is null")
         }
 
         assertNull(result)
