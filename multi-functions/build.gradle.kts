@@ -11,7 +11,6 @@ plugins {
 
 group = "com.github.stupacki"
 version = providers.gradleProperty("artifactVersion")
-    .orElse("2.1.0")
     .get()
 
 @OptIn(ExperimentalWasmDsl::class)

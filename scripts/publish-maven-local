@@ -6,7 +6,7 @@ usage() {
 Usage: ./scripts/publish-maven-local [VERSION]
 
 Publishes all multi-functions artifacts to Maven Local.
-When VERSION is provided, it is used as the artifact version.
+When VERSION is provided, it overrides artifactVersion from gradle.properties.
 
 Examples:
   ./scripts/publish-maven-local
