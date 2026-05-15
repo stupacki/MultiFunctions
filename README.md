@@ -160,6 +160,35 @@ testData.mapCheckNull { xData, yData, expectedResult ->
 }
 ```
 
+Use `mapNotNull` when the transform itself can return `null`, matching Kotlin's standard `mapNotNull` behavior:
+
+```kotlin
+testData.mapNotNull { xData, yData, expectedResult ->
+    Calculate.xPlusY(x = xData, y = yData)
+        .takeIf { it == expectedResult }
+}
+```
+
+Use `mapAnyNotNull` when rows with all tuple values set to `null` should be skipped before transformation, while partially-null rows should still be handled:
+
+```kotlin
+listOf(
+    Pair(null, null),
+    Pair("Ada", null),
+    Pair(null, "Lovelace"),
+).mapAnyNotNull { firstName, lastName ->
+    listOfNotNull(firstName, lastName).joinToString(" ")
+}
+```
+
+The tuple mapping helpers are also available for lazy `Sequence` pipelines:
+
+```kotlin
+sequenceOf(Pair(1, 2), Pair(3, 4))
+    .mapCheckNull { x, y -> x + y }
+    .toList()
+```
+
 ## License
 
 Distributed under the Apache 2.0 License. Copyright © 2017-2026 Benny Schneider

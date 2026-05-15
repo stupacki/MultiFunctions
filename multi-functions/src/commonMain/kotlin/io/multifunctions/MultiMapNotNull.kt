@@ -18,10 +18,7 @@ import io.multifunctions.models.Quad
 inline fun <A, B, R> Iterable<Pair<A?, B?>>.mapNotNull(
     transform: (A?, B?) -> R?
 ): List<R> = mapNotNull { (first, second) ->
-    when {
-        first == null && second == null -> null
-        else -> transform(first, second)
-    }
+    transform(first, second)
 }
 
 /**
@@ -38,10 +35,7 @@ inline fun <A, B, R> Iterable<Pair<A?, B?>>.mapNotNull(
 inline fun <A, B, C, R> Iterable<Triple<A?, B?, C?>>.mapNotNull(
     transform: (A?, B?, C?) -> R?
 ): List<R> = mapNotNull { (first, second, third) ->
-    when {
-        first == null && second == null && third == null -> null
-        else -> transform(first, second, third)
-    }
+    transform(first, second, third)
 }
 
 /**
@@ -59,10 +53,7 @@ inline fun <A, B, C, R> Iterable<Triple<A?, B?, C?>>.mapNotNull(
 inline fun <A, B, C, D, R> Iterable<Quad<A?, B?, C?, D?>>.mapNotNull(
     transform: (A?, B?, C?, D?) -> R?
 ): List<R> = mapNotNull { (first, second, third, fourth) ->
-    when {
-        first == null && second == null && third == null && fourth == null -> null
-        else -> transform(first, second, third, fourth)
-    }
+    transform(first, second, third, fourth)
 }
 
 /**
@@ -81,10 +72,7 @@ inline fun <A, B, C, D, R> Iterable<Quad<A?, B?, C?, D?>>.mapNotNull(
 inline fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.mapNotNull(
     transform: (A?, B?, C?, D?, E?) -> R?
 ): List<R> = mapNotNull { (first, second, third, fourth, fifth) ->
-    when {
-        first == null && second == null && third == null && fourth == null && fifth == null -> null
-        else -> transform(first, second, third, fourth, fifth)
-    }
+    transform(first, second, third, fourth, fifth)
 }
 
 /**
@@ -104,10 +92,7 @@ inline fun <A, B, C, D, E, R> Iterable<Penta<A?, B?, C?, D?, E?>>.mapNotNull(
 inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapNotNull(
     transform: (A?, B?, C?, D?, E?, F?) -> R?
 ): List<R> = mapNotNull { (first, second, third, fourth, fifth, sixth) ->
-    when {
-        first == null && second == null && third == null && fourth == null && fifth == null && sixth == null -> null
-        else -> transform(first, second, third, fourth, fifth, sixth)
-    }
+    transform(first, second, third, fourth, fifth, sixth)
 }
 
 /**
@@ -128,8 +113,5 @@ inline fun <A, B, C, D, E, F, R> Iterable<Hexa<A?, B?, C?, D?, E?, F?>>.mapNotNu
 inline fun <A, B, C, D, E, F, G, R> Iterable<Hepta<A?, B?, C?, D?, E?, F?, G?>>.mapNotNull(
     transform: (A?, B?, C?, D?, E?, F?, G?) -> R?
 ): List<R> = mapNotNull { (first, second, third, fourth, fifth, sixth, seventh) ->
-    when {
-        first == null && second == null && third == null && fourth == null && fifth == null && sixth == null && seventh == null -> null
-        else -> transform(first, second, third, fourth, fifth, sixth, seventh)
-    }
+    transform(first, second, third, fourth, fifth, sixth, seventh)
 }

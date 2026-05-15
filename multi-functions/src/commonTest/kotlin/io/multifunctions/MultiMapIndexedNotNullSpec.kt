@@ -118,6 +118,7 @@ internal class MultiMapIndexedNotNullTest {
             Pair("one", null),
             Pair("three", "four"),
             Pair("fife", "six"),
+            Pair(null, null),
             Pair("ten", "eleven")
         )
 
@@ -126,5 +127,26 @@ internal class MultiMapIndexedNotNullTest {
         }
 
         assertEquals(expected, result)
+    }
+
+    @Test
+    fun `sort out null transform results`() {
+        val testData = listOf(
+            Pair<String?, String?>(null, null),
+            Pair("one", "two"),
+            Pair("three", null)
+        )
+
+        val result = testData.mapIndexedNotNull { index, one, two ->
+            if (index == 0 || one == null && two == null) null else Pair(index, Pair(one, two))
+        }
+
+        assertEquals(
+            listOf(
+                Pair(1, Pair("one", "two")),
+                Pair(2, Pair("three", null))
+            ),
+            result
+        )
     }
 }

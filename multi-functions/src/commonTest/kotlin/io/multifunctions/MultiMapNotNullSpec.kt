@@ -114,6 +114,7 @@ internal class MultiMapNotNullTest {
 
         assertEquals(
             listOf(
+                Pair(null, null),
                 Pair("one", "two"),
                 Pair("one", null),
                 Pair(null, "two")
@@ -135,6 +136,7 @@ internal class MultiMapNotNullTest {
             Pair("one", null),
             Pair("three", "four"),
             Pair("fife", "six"),
+            Pair(null, null),
             Pair("ten", "eleven")
         )
 
@@ -143,5 +145,26 @@ internal class MultiMapNotNullTest {
         }
 
         assertEquals(expected, result)
+    }
+
+    @Test
+    fun `sort out null transform results`() {
+        val testData = listOf(
+            Pair<String?, String?>(null, null),
+            Pair("one", "two"),
+            Pair("three", null)
+        )
+
+        val result = testData.mapNotNull { one, two ->
+            if (one == null && two == null) null else Pair(one, two)
+        }
+
+        assertEquals(
+            listOf(
+                Pair("one", "two"),
+                Pair("three", null)
+            ),
+            result
+        )
     }
 }
