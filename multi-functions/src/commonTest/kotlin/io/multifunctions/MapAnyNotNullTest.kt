@@ -1,16 +1,19 @@
 package io.multifunctions
 
+import io.multifunctions.models.Hepta
+import io.multifunctions.models.Hexa
+import io.multifunctions.models.Penta
+import io.multifunctions.models.Quad
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import io.multifunctions.models.*
 
-internal class MultiMapNotNullTest {
+internal class MapAnyNotNullTest {
 
     @Test
     fun `produce a correct mapping from Pair`() {
         val testData = listOf(Pair("one", "two"))
 
-        val result = testData.mapNotNull { one, two ->
+        val result = testData.mapAnyNotNull { one, two ->
             assertEquals("one", one)
             assertEquals("two", two)
             Pair(one, two)
@@ -23,7 +26,7 @@ internal class MultiMapNotNullTest {
     fun `produce a correct mapping from Triple`() {
         val testData = listOf(Triple("one", "two", "three"))
 
-        val result = testData.mapNotNull { one, two, three ->
+        val result = testData.mapAnyNotNull { one, two, three ->
             assertEquals("one", one)
             assertEquals("two", two)
             assertEquals("three", three)
@@ -37,7 +40,7 @@ internal class MultiMapNotNullTest {
     fun `produce a correct mapping from Quad`() {
         val testData = listOf(Quad("one", "two", "three", "four"))
 
-        val result = testData.mapNotNull { one, two, three, four ->
+        val result = testData.mapAnyNotNull { one, two, three, four ->
             assertEquals("one", one)
             assertEquals("two", two)
             assertEquals("three", three)
@@ -52,7 +55,7 @@ internal class MultiMapNotNullTest {
     fun `produce a correct mapping from Penta`() {
         val testData = listOf(Penta("one", "two", "three", "four", "five"))
 
-        val result = testData.mapNotNull { one, two, three, four, five ->
+        val result = testData.mapAnyNotNull { one, two, three, four, five ->
             assertEquals("one", one)
             assertEquals("two", two)
             assertEquals("three", three)
@@ -68,7 +71,7 @@ internal class MultiMapNotNullTest {
     fun `produce a correct mapping from Hexa`() {
         val testData = listOf(Hexa("one", "two", "three", "four", "five", "six"))
 
-        val result = testData.mapNotNull { one, two, three, four, five, six ->
+        val result = testData.mapAnyNotNull { one, two, three, four, five, six ->
             assertEquals("one", one)
             assertEquals("two", two)
             assertEquals("three", three)
@@ -85,7 +88,7 @@ internal class MultiMapNotNullTest {
     fun `produce a correct mapping from Hepta`() {
         val testData = listOf(Hepta("one", "two", "three", "four", "five", "six", "seven"))
 
-        val result = testData.mapNotNull { one, two, three, four, five, six, seven ->
+        val result = testData.mapAnyNotNull { one, two, three, four, five, six, seven ->
             assertEquals("one", one)
             assertEquals("two", two)
             assertEquals("three", three)
@@ -100,7 +103,7 @@ internal class MultiMapNotNullTest {
     }
 
     @Test
-    fun `sort out null elements`() {
+    fun `skip tuples where all values are null`() {
         val testData = listOf(
             Pair(null, null),
             Pair("one", "two"),
@@ -108,13 +111,12 @@ internal class MultiMapNotNullTest {
             Pair(null, "two")
         )
 
-        val result = testData.mapNotNull { one, two ->
+        val result = testData.mapAnyNotNull { one, two ->
             Pair(one, two)
         }
 
         assertEquals(
             listOf(
-                Pair(null, null),
                 Pair("one", "two"),
                 Pair("one", null),
                 Pair(null, "two")
@@ -124,47 +126,16 @@ internal class MultiMapNotNullTest {
     }
 
     @Test
-    fun `handle null values`() {
-        val testData = listOf(
-            Pair("one", null),
-            Pair("three", "four"),
-            Pair("fife", "six"),
-            Pair(null, null),
-            Pair("ten", "eleven")
-        )
-        val expected = listOf(
-            Pair("one", null),
-            Pair("three", "four"),
-            Pair("fife", "six"),
-            Pair(null, null),
-            Pair("ten", "eleven")
-        )
-
-        val result = testData.mapNotNull { one, two ->
-            Pair(one, two)
-        }
-
-        assertEquals(expected, result)
-    }
-
-    @Test
     fun `sort out null transform results`() {
         val testData = listOf(
-            Pair<String?, String?>(null, null),
-            Pair("one", "two"),
-            Pair("three", null)
+            Pair("one", null),
+            Pair("three", "four")
         )
 
-        val result = testData.mapNotNull { one, two ->
-            if (one == null && two == null) null else Pair(one, two)
+        val result = testData.mapAnyNotNull { one, two ->
+            if (two == null) null else Pair(one, two)
         }
 
-        assertEquals(
-            listOf(
-                Pair("one", "two"),
-                Pair("three", null)
-            ),
-            result
-        )
+        assertEquals(listOf(Pair("three", "four")), result)
     }
 }

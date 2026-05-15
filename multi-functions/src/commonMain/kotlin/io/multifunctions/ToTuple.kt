@@ -14,7 +14,7 @@ import io.multifunctions.models.Quad
  * @param second the second value
  * @return a [Pair] containing the two values
  */
-fun <A, B> joinToTuple(
+fun <A, B> toTuple(
     first: A,
     second: B,
 ): Pair<A, B> =
@@ -31,7 +31,7 @@ fun <A, B> joinToTuple(
  * @param third the third value
  * @return a [Triple] containing the three values
  */
-fun <A, B, C> joinToTuple(
+fun <A, B, C> toTuple(
     first: A,
     second: B,
     third: C,
@@ -51,7 +51,7 @@ fun <A, B, C> joinToTuple(
  * @param fourth the fourth value
  * @return a [Quad] containing the four values
  */
-fun <A, B, C, D> joinToTuple(
+fun <A, B, C, D> toTuple(
     first: A,
     second: B,
     third: C,
@@ -74,7 +74,7 @@ fun <A, B, C, D> joinToTuple(
  * @param fifth the fifth value
  * @return a [Penta] containing the five values
  */
-fun <A, B, C, D, E> joinToTuple(
+fun <A, B, C, D, E> toTuple(
     first: A,
     second: B,
     third: C,
@@ -100,7 +100,7 @@ fun <A, B, C, D, E> joinToTuple(
  * @param sixth the sixth value
  * @return a [Hexa] containing the six values
  */
-fun <A, B, C, D, E, F> joinToTuple(
+fun <A, B, C, D, E, F> toTuple(
     first: A,
     second: B,
     third: C,
@@ -129,7 +129,7 @@ fun <A, B, C, D, E, F> joinToTuple(
  * @param seventh the seventh value
  * @return a [Hepta] containing the seven values
  */
-fun <A, B, C, D, E, F, G> joinToTuple(
+fun <A, B, C, D, E, F, G> toTuple(
     first: A,
     second: B,
     third: C,

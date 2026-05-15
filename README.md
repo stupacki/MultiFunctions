@@ -189,6 +189,26 @@ sequenceOf(Pair(1, 2), Pair(3, 4))
     .toList()
 ```
 
+### Multi Filter, OnEach, And Fold
+
+Tuple values can also be unpacked in common collection operations:
+
+```kotlin
+val rows = listOf(
+    Triple("Ada", "Lovelace", 1815),
+    Triple("Grace", "Hopper", 1906),
+)
+
+rows
+    .filter { _, _, year -> year < 1900 }
+    .onEach { firstName, lastName, _ ->
+        println("$firstName $lastName")
+    }
+    .fold(0) { count, _, _, _ ->
+        count + 1
+    }
+```
+
 ## License
 
 Distributed under the Apache 2.0 License. Copyright © 2017-2026 Benny Schneider

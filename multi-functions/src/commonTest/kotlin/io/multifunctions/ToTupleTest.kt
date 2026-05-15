@@ -7,35 +7,35 @@ import io.multifunctions.models.Hexa
 import io.multifunctions.models.Penta
 import io.multifunctions.models.Quad
 
-internal class JoinToTupleTest {
+internal class ToTupleTest {
 
     @Test
     fun `joinToTuple should join values into a Pair`() {
-        assertEquals(Pair("A", "B"), joinToTuple("A", "B"))
+        assertEquals(Pair("A", "B"), toTuple("A", "B"))
     }
 
     @Test
     fun `joinToTuple should join values into a Triple`() {
-        assertEquals(Triple("A", "B", "C"), joinToTuple("A", "B", "C"))
+        assertEquals(Triple("A", "B", "C"), toTuple("A", "B", "C"))
     }
 
     @Test
     fun `joinToTuple should join values into a Quad`() {
-        assertEquals(Quad("A", "B", "C", "D"), joinToTuple("A", "B", "C", "D"))
+        assertEquals(Quad("A", "B", "C", "D"), toTuple("A", "B", "C", "D"))
     }
 
     @Test
     fun `joinToTuple should join values into a Penta`() {
-        assertEquals(Penta("A", "B", "C", "D", "E"), joinToTuple("A", "B", "C", "D", "E"))
+        assertEquals(Penta("A", "B", "C", "D", "E"), toTuple("A", "B", "C", "D", "E"))
     }
 
     @Test
     fun `joinToTuple should join values into a Hexa`() {
-        assertEquals(Hexa("A", "B", "C", "D", "E", "F"), joinToTuple("A", "B", "C", "D", "E", "F"))
+        assertEquals(Hexa("A", "B", "C", "D", "E", "F"), toTuple("A", "B", "C", "D", "E", "F"))
     }
 
     @Test
     fun `joinToTuple should join values into a Hepta`() {
-        assertEquals(Hepta("A", "B", "C", "D", "E", "F", "G"), joinToTuple("A", "B", "C", "D", "E", "F", "G"))
+        assertEquals(Hepta("A", "B", "C", "D", "E", "F", "G"), toTuple("A", "B", "C", "D", "E", "F", "G"))
     }
 }

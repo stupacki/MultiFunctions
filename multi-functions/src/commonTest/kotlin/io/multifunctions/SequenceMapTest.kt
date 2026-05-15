@@ -3,7 +3,7 @@ package io.multifunctions
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-internal class MultiSequenceMapTest {
+internal class SequenceMapTest {
 
     @Test
     fun `map tuple sequence lazily`() {
