@@ -1,11 +1,22 @@
 # Gradle build directory
 /build/
 .gradle/
+integration/.gradle/
+integration/build/
+integration/**/build/
+local.properties
 
 # IntelliJ IDEA/Android Studio project files
-/.idea/
+/.idea/*
+!/.idea/runConfigurations
+!/.idea/runConfigurations/
+!/.idea/runConfigurations/*.xml
 /*.iml
 /out/
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
 
 # Kotlin/Java compiled files
 *.class
@@ -55,6 +66,10 @@ Thumbs.db
 !/gradle/wrapper/gradle-wrapper.properties
 !/gradlew
 !/gradlew.bat
+!/integration/gradle/wrapper/gradle-wrapper.jar
+!/integration/gradle/wrapper/gradle-wrapper.properties
+!/integration/gradlew
+!/integration/gradlew.bat
 
 # Build output
 /build/

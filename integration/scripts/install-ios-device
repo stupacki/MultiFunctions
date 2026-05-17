@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+set -eu
+
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)"
+IOS_APP_DIR="$ROOT_DIR/integration/ios-device-app"
+APP_PATH="$IOS_APP_DIR/build/DerivedData/Build/Products/Debug-iphoneos/MultiFunctionsIntegration.app"
+
+if [ -z "${DEVICE_ID:-}" ]; then
+  echo "DEVICE_ID is not set. Run 'xcrun devicectl list devices' and export DEVICE_ID=<identifier>." >&2
+  exit 1
+fi
+
+"$ROOT_DIR/integration/scripts/build-ios-device" "$@"
+xcrun devicectl device install app --device "$DEVICE_ID" "$APP_PATH"

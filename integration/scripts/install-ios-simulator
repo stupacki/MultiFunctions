@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+set -eu
+
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)"
+IOS_APP_DIR="$ROOT_DIR/integration/ios-device-app"
+APP_PATH="$IOS_APP_DIR/build/DerivedData/Build/Products/Debug-iphonesimulator/MultiFunctionsIntegration.app"
+SIMULATOR_ID="${SIMULATOR_ID:-booted}"
+
+"$ROOT_DIR/integration/scripts/build-ios-simulator" "$@"
+
+xcrun simctl boot "$SIMULATOR_ID" 2>/dev/null || true
+xcrun simctl install "$SIMULATOR_ID" "$APP_PATH"
+xcrun simctl launch "$SIMULATOR_ID" io.multifunctions.integration.ios

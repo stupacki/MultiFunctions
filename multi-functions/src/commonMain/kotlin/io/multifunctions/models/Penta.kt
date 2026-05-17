@@ -1,16 +1,16 @@
 package io.multifunctions.models
 
 /**
- * Represents a generic penta of fife values.
+ * Represents a generic penta of five values.
  *
  * There is no meaning attached to values in this class, it can be used for any purpose.
  * Penta exhibits value semantics, i.e. two pentas are equal if all components are equal.
  *
  * @param A type of the first value.
  * @param B type of the second value.
- * @param C type of the second value.
- * @param D type of the second value.
- * @param E type of the second value.
+ * @param C type of the third value.
+ * @param D type of the fourth value.
+ * @param E type of the fifth value.
  * @property first First value.
  * @property second Second value.
  * @property third Third value.

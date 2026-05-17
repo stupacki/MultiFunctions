@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migrate MultiFunctions 3"
+  short_description: "Guide consumer migrations to MultiFunctions 3.0.0."
+  default_prompt: "Help migrate this consumer project to MultiFunctions 3.0.0."

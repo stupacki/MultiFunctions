@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+set -eu
+
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)"
+IOS_APP_DIR="$ROOT_DIR/integration/ios-device-app"
+
+if [ -z "${DEVELOPMENT_TEAM:-}" ]; then
+  echo "DEVELOPMENT_TEAM is not set. Set it to your Apple Developer Team ID for device builds." >&2
+  exit 1
+fi
+
+xcodebuild \
+  -project "$IOS_APP_DIR/MultiFunctionsIntegration.xcodeproj" \
+  -scheme MultiFunctionsIntegration \
+  -configuration Debug \
+  -sdk iphoneos \
+  -derivedDataPath "$IOS_APP_DIR/build/DerivedData" \
+  DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" \
+  build "$@"

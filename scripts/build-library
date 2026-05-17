@@ -1,0 +1,165 @@
+#!/usr/bin/env sh
+set -eu
+
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+cd "$ROOT_DIR"
+
+DEFAULT_QUICK_TASKS=":multi-functions:jvmTest :multi-functions:testAndroidHostTest :multi-functions:jsNodeTest :multi-functions:wasmJsNodeTest :multi-functions:wasmWasiNodeTest"
+
+usage() {
+  cat <<'EOF'
+Usage: ./scripts/build-library COMMAND [VERSION]
+
+Local build, test, and publish pipeline for MultiFunctions.
+When VERSION is omitted, artifactVersion from gradle.properties is used.
+When VERSION is provided, it overrides artifactVersion for that command.
+
+Commands:
+  version          Print the version that would be used
+  quick            Run fast local tests for JVM, Android host, JS, and WASM node
+  check            Run Gradle check
+  build            Assemble all artifacts
+  publish-local    Publish artifacts to Maven Local
+  publish-github   Publish artifacts to GitHub Packages
+  release-local    Run check, build, then publish to Maven Local
+  release-github   Run check, build, then publish to GitHub Packages
+
+Environment:
+  GITHUB_USER      Required for publish-github and release-github
+  GITHUB_TOKEN     Required for publish-github and release-github
+  MF_QUICK_TASKS   Optional space-separated task list for quick
+
+Examples:
+  ./scripts/build-library quick
+  ./scripts/build-library release-local
+  ./scripts/build-library release-github 2.1.1
+EOF
+}
+
+fail() {
+  echo "Error: $*" >&2
+  exit 1
+}
+
+artifact_version_from_properties() {
+  sed -n 's/^artifactVersion=//p' gradle.properties | tail -n 1
+}
+
+version_arg() {
+  if [ "$#" -eq 1 ]; then
+    printf '%s' "$1"
+  else
+    artifact_version_from_properties
+  fi
+}
+
+gradle_version_args() {
+  if [ "$#" -eq 1 ]; then
+    printf '%s' "-PartifactVersion=$1"
+  fi
+}
+
+require_github_credentials() {
+  if [ -z "${GITHUB_USER:-}" ]; then
+    fail "GITHUB_USER is not set."
+  fi
+
+  if [ -z "${GITHUB_TOKEN:-}" ]; then
+    fail "GITHUB_TOKEN is not set."
+  fi
+}
+
+run_gradle() {
+  ./gradlew "$@"
+}
+
+run_quick() {
+  tasks="${MF_QUICK_TASKS:-$DEFAULT_QUICK_TASKS}"
+  # shellcheck disable=SC2086
+  run_gradle $tasks "$@"
+}
+
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+  usage
+  exit 1
+fi
+
+COMMAND="$1"
+shift
+
+case "$COMMAND" in
+  -h|--help)
+    usage
+    exit 0
+    ;;
+esac
+
+VERSION="$(version_arg "$@")"
+if [ -z "$VERSION" ]; then
+  fail "artifactVersion is missing. Add artifactVersion=<version> to gradle.properties or pass VERSION."
+fi
+
+VERSION_ARGS="$(gradle_version_args "$@")"
+
+case "$COMMAND" in
+  version)
+    echo "$VERSION"
+    ;;
+  quick)
+    echo "Running quick verification for version $VERSION"
+    # shellcheck disable=SC2086
+    run_quick $VERSION_ARGS
+    ;;
+  check)
+    echo "Running Gradle check for version $VERSION"
+    # shellcheck disable=SC2086
+    run_gradle :multi-functions:check $VERSION_ARGS
+    ;;
+  build)
+    echo "Assembling artifacts for version $VERSION"
+    # shellcheck disable=SC2086
+    run_gradle :multi-functions:assemble $VERSION_ARGS
+    ;;
+  publish-local)
+    echo "Publishing version $VERSION to Maven Local"
+    if [ "$#" -eq 1 ]; then
+      ./scripts/publish-maven-local "$VERSION"
+    else
+      ./scripts/publish-maven-local
+    fi
+    ;;
+  publish-github)
+    require_github_credentials
+    echo "Publishing version $VERSION to GitHub Packages"
+    if [ "$#" -eq 1 ]; then
+      ./scripts/publish-to-github "$VERSION"
+    else
+      ./scripts/publish-to-github
+    fi
+    ;;
+  release-local)
+    echo "Running local release pipeline for version $VERSION"
+    # shellcheck disable=SC2086
+    run_gradle :multi-functions:check :multi-functions:assemble $VERSION_ARGS
+    if [ "$#" -eq 1 ]; then
+      ./scripts/publish-maven-local "$VERSION"
+    else
+      ./scripts/publish-maven-local
+    fi
+    ;;
+  release-github)
+    require_github_credentials
+    echo "Running GitHub Packages release pipeline for version $VERSION"
+    # shellcheck disable=SC2086
+    run_gradle :multi-functions:check :multi-functions:assemble $VERSION_ARGS
+    if [ "$#" -eq 1 ]; then
+      ./scripts/publish-to-github "$VERSION"
+    else
+      ./scripts/publish-to-github
+    fi
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
