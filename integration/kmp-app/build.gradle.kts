@@ -125,9 +125,9 @@ kotlin {
         commonMain {
             dependencies {
 //              Github Packages
-                implementation("com.github.stupacki:multi-functions:$multiFunctionsVersion")
+//                implementation("com.github.stupacki:multi-functions:$multiFunctionsVersion")
 //              JitPack
-//                implementation("com.github.stupacki:MultiFunctions:release~3.0.0-SNAPSHOT")
+                implementation("com.github.stupacki:MultiFunctions:release~3.0.0")
             }
         }
     }

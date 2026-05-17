@@ -1,55 +1,123 @@
-# Multi-Functions [![](https://jitpack.io/v/stupacki/MultiFunctions.svg)](https://jitpack.io/#stupacki/MultiFunctions)
+# Multi-Functions [![Release](https://jitpack.io/v/stupacki/MultiFunctions.svg)](https://jitpack.io/#stupacki/MultiFunctions) ![Weekly downloads](https://jitpack.io/v/stupacki/MultiFunctions/week.svg) ![Monthly downloads](https://jitpack.io/v/stupacki/MultiFunctions/month.svg)
 
 Multi Functions is an extension library written in Kotlin for processing and binding multiple data to a single operation. It extends the standard libraries of Kotlin and can be used alongside them without interference.
 
-## Download the Latest Version
+## Installation
 
-> **iOS/native consumers:** use the GitHub Packages distribution for now. JitPack does not currently provide a way for this project to build and publish the Kotlin/Native iOS artifacts, so iOS targets need to resolve the package from GitHub Packages instead of JitPack.
+Use the dependency coordinate:
 
-### Using Gradle with Groovy DSL
-
-**Root Project `build.gradle`:**
-```groovy
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-}
+```text
+com.github.stupacki:multi-functions:<VERSION>
 ```
 
-**Module `build.gradle`:**
-```groovy
-dependencies {
-    implementation 'com.github.stupacki:multi-functions:<insert version>'
-}
-```
+JVM, Android, JS, and WASM consumers can use either JitPack or GitHub Packages. iOS and Kotlin/Native consumers should use GitHub Packages because JitPack does not currently publish this project's Kotlin/Native iOS artifacts.
 
-### Using Gradle with Kotlin DSL and Dependency Resolution Management
+### JitPack
 
-**`settings.gradle.kts`:**
+Add JitPack to your repositories:
+
 ```kotlin
 dependencyResolutionManagement {
     repositories {
-        ...
         maven { url = uri("https://jitpack.io") }
     }
 }
 ```
 
-**`libs.versions.toml`:**
+Then add the dependency:
+
+```kotlin
+dependencies {
+    implementation("com.github.stupacki:multi-functions:<VERSION>")
+}
+```
+
+For Groovy DSL:
+
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.stupacki:multi-functions:<VERSION>'
+}
+```
+
+### GitHub Packages
+
+Add GitHub Packages to your repositories:
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        maven("https://maven.pkg.github.com/stupacki/MultiFunctions") {
+            credentials {
+                username = providers.gradleProperty("gpr.user")
+                    .orElse(providers.environmentVariable("GITHUB_USER"))
+                    .orNull
+                password = providers.gradleProperty("gpr.key")
+                    .orElse(providers.environmentVariable("GITHUB_TOKEN"))
+                    .orNull
+            }
+        }
+    }
+}
+```
+
+Then add the dependency:
+
+```kotlin
+dependencies {
+    implementation("com.github.stupacki:multi-functions:<VERSION>")
+}
+```
+
+GitHub Packages may require credentials with package read access.
+
+### Version Catalog
+
+Use the same coordinate with either repository source:
+
 ```toml
 [versions]
-multifunctions = "<insert version>"
+multifunctions = "<VERSION>"
 
 [libraries]
 multifunctions = { module = "com.github.stupacki:multi-functions", version.ref = "multifunctions" }
 ```
 
-**Module `build.gradle.kts`:**
 ```kotlin
 dependencies {
     implementation(libs.multifunctions)
+}
+```
+
+### GitHub Packages With Groovy DSL
+
+If your project uses Groovy DSL, add GitHub Packages like this:
+
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        maven {
+            url = uri('https://maven.pkg.github.com/stupacki/MultiFunctions')
+            credentials {
+                username = providers.gradleProperty('gpr.user')
+                    .orElse(providers.environmentVariable('GITHUB_USER'))
+                    .orNull
+                password = providers.gradleProperty('gpr.key')
+                    .orElse(providers.environmentVariable('GITHUB_TOKEN'))
+                    .orNull
+            }
+        }
+    }
+}
+```
+
+```groovy
+dependencies {
+    implementation 'com.github.stupacki:multi-functions:<VERSION>'
 }
 ```
 
@@ -65,6 +133,8 @@ The library provides:
 - Indexed variants such as `mapIndexed`, `mapIndexedNotNull`, and `mapIndexedCheckNull`
 - Null-aware variants for common workflows: `letCheckNull`, `mapCheckNull`, `mapAnyNotNull`, and `notNull`
 - Lazy `Sequence` variants for map/filter/onEach/fold style pipelines
+
+See [USAGE.md](USAGE.md) for examples of every public library function.
 
 ## Examples
 

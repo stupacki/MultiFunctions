@@ -6,14 +6,6 @@ This guide is for applications and libraries upgrading from `2.0.1` or earlier t
 
 Use the lowercase artifact id:
 
-# Jitpack
-```kotlin
-dependencies {
-    implementation("com.github.stupacki:MultiFunctions:3.0.0")
-}
-```
-
-# Guthub Packages 
 ```kotlin
 dependencies {
     implementation("com.github.stupacki:multi-functions:3.0.0")

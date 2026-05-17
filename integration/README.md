@@ -5,7 +5,7 @@ This standalone Gradle build verifies that external consumers can resolve and us
 It intentionally depends on:
 
 ```kotlin
-com.github.stupacki:multi-functions:3.0.0-SNAPSHOT
+com.github.stupacki:multi-functions:3.0.0
 ```
 
 The build covers:
@@ -109,7 +109,7 @@ From the repository root:
 To test another published version:
 
 ```sh
-../gradlew :kmp-app:assemble :android-app:assembleDebug :ios-app:linkDebugFrameworkIosSimulatorArm64 -PmultiFunctionsVersion=3.0.0-SNAPSHOT
+../gradlew :kmp-app:assemble :android-app:assembleDebug :ios-app:linkDebugFrameworkIosSimulatorArm64 -PmultiFunctionsVersion=3.0.0
 ```
 
 The `kmp-app` module exposes a small application entry point for every non-Android app and non-iOS wrapper target. JVM, JS Node, WASM JS Node, WASM WASI Node, and all native executables run the same smoke path and print the target-specific result message from `integration.main`.
